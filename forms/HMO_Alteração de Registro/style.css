@@ -1,0 +1,272 @@
+.tb-header {
+   background-color: #00263e !important; /* Aplica o tom azul da empresa */
+   border-radius: 8px !important; /* Aplica o border-radius de 8px */
+   border: 1px solid #d3d3d3 !important; /* Define a borda no padrão desejado */
+   padding: 15px !important; /* Ajusta o padding conforme necessário para dar mais espaço interno */
+}
+
+.tb-logo {
+   display: flex !important;
+   align-items: center !important;
+   justify-content: center !important;
+}
+
+.tb-logo img {
+   height: 85px !important;
+   width: auto !important; /* Mantém a proporção da largura */
+   content: url("https://grupotb.com.br/images/logo-tb-prata"); /* Altera a imagem */
+}
+
+.tb-avatar {
+   display: flex !important;
+   align-items: center !important;
+   justify-content: flex-start !important; /* Alinha o avatar à direita */
+   margin-left: auto !important; /* Empurra o avatar para o canto direito */
+   padding: 0 !important; /* Remove todo o padding */
+}
+
+.tb-avatar img {
+   height: 70px !important;
+   width: 70px !important;
+   border-radius: 50% !important; /* Torna a imagem redonda */
+   object-fit: cover !important; /* Garante que a imagem preencha o espaço, cortando o excesso */
+   padding: 0 !important; /* Remove todo o padding */
+}
+
+.page-header .row {
+   display: flex !important;
+   align-items: center !important; /* Centraliza verticalmente */
+   justify-content: center !important; /* Centraliza horizontalmente */
+   margin-bottom: 0.5%;
+}
+
+.tb-tittle {
+   display: flex !important;
+   align-items: center !important; /* Centraliza verticalmente */
+   justify-content: center !important; /* Centraliza horizontalmente */
+   text-align: center !important; /* Centraliza o texto, se necessário */
+}
+
+.tb-tittle h1 {
+   color: #ffffff !important; /* Altera a cor do título para branco */
+   margin: 0 !important; /* Remove todas as margens */
+   padding: 0 !important; /* Remove qualquer padding, se necessário */
+}
+
+.tb-user-data {
+   padding: 0 !important; /* Remove todo o padding */
+   display: flex !important;
+   flex-direction: column !important; /* Garante que os itens fiquem empilhados */
+   align-items: flex-end !important; /* Alinha os itens à direita */
+}
+
+.tb-user-data .row {
+   display: flex !important;
+   align-items: center !important; /* Centraliza verticalmente */
+   justify-content: flex-end !important; /* Alinha o conteúdo da row à direita */
+   width: 100% !important;
+   margin: 0 !important;
+   padding: 0 !important;
+}
+
+.tb-user-data input {
+   font-size: smaller !important;
+   color: #ffffff !important; /* Altera a cor do texto dos inputs para branco */
+   border: none !important; /* Remove a borda */
+   background-color: transparent !important; /* Torna o fundo incolor */
+   box-shadow: none !important; /* Remove qualquer sombra */
+   text-align: right !important; /* Alinha o texto dos inputs à direita */
+   width: 100% !important; /* Define a largura dos inputs para ocupar toda a coluna */
+   max-width: 350px !important; /* Aumenta o tamanho máximo para evitar cortes */
+   margin-right: 5px !important; /* Adiciona um pequeno espaço entre o input e o ícone */
+}
+
+.tb-user-data i {
+   color: #ffffff !important; /* Altera a cor dos ícones para branco */
+   margin-right: 5px !important; /* Adiciona um pequeno espaço entre o ícone e o input */
+}
+
+.tb-panel-default {
+   border-radius: 8px !important; /* Arredonda as bordas do painel */
+}
+
+.tb-panel-heading {
+   background-color: #00263e !important;
+   border-top-left-radius: 8px !important; /* Arredonda o canto superior esquerdo */
+   border-top-right-radius: 8px !important; /* Arredonda o canto superior direito */
+}
+
+.tb-panel-body {
+   border-bottom-left-radius: 8px !important; /* Arredonda o canto inferior esquerdo */
+   border-bottom-right-radius: 8px !important; /* Arredonda o canto inferior direito */
+}
+
+.tb-panel-heading .tb-panel-title {
+   color: #ffffff !important; /* Cor do título em branco com !important */
+}
+
+#myTabContent {
+   border-left: 1px solid #d3d3d3 !important; /* Borda à esquerda em cinza claro */
+   border-right: 1px solid #d3d3d3 !important; /* Borda à direita em cinza claro */
+   border-bottom: 1px solid #d3d3d3 !important; /* Borda embaixo em cinza claro */
+   border-bottom-left-radius: 8px !important; /* Arredonda apenas o canto inferior esquerdo */
+   border-bottom-right-radius: 8px !important; /* Arredonda apenas o canto inferior direito */
+   padding: 10px !important; /* Adiciona espaçamento interno */
+   margin-bottom: 15px !important; /* Adiciona margem inferior */
+}
+
+@media (max-width: 768px) {
+   .tb-avatar,
+   .tb-user-data {
+      display: none !important; /* Oculta o avatar e os dados do usuário em telas menores */
+   }
+
+   .page-header .row {
+      flex-direction: column !important; /* Alinha os elementos restantes um abaixo do outro */
+      align-items: center !important; /* Centraliza os elementos na vertical */
+   }
+
+   .tb-logo,
+   .tb-tittle {
+      width: 100% !important; /* Define a largura de cada coluna para 100% */
+      text-align: center !important; /* Centraliza o conteúdo em cada coluna */
+      margin-bottom: 10px !important; /* Adiciona espaço entre os elementos */
+   }
+}
+
+@media (max-width: 992px) and (orientation: landscape) {
+   .tb-avatar,
+   .tb-user-data {
+      display: none !important; /* Oculta o avatar e os dados do usuário em dispositivos deitados (landscape) */
+   }
+
+   .page-header .row {
+      flex-direction: column !important; /* Alinha os elementos restantes um abaixo do outro */
+      align-items: center !important; /* Centraliza os elementos na vertical */
+   }
+
+   .tb-logo,
+   .tb-tittle {
+      width: 100% !important; /* Define a largura de cada coluna para 100% */
+      text-align: center !important; /* Centraliza o conteúdo em cada coluna */
+      margin-bottom: 10px !important; /* Adiciona espaço entre os elementos */
+   }
+}
+
+.button-group {
+   margin-top: 26px !important;
+}
+
+.btn-square {
+   width: 70px !important;
+   height: 70px !important;
+   padding: 0 !important;
+   text-align: center !important;
+   line-height: 50px !important;
+   border-radius: 4px !important; /* Ajuste para bordas arredondadas */
+   font-size: 24px !important;
+   transition: background-color 0.3s ease, color 0.3s ease !important; /* Transição suave de cor */
+}
+
+.btn-inactive {
+   background-color: #ccc !important; /* Cor cinza */
+   color: #666 !important;
+   border-color: #ccc !important;
+   transition: background-color 0.3s ease, color 0.3s ease !important; /* Transição suave */
+   border-radius: 4px !important; /* Ajuste para bordas arredondadas */
+}
+
+.custom-tooltip .tooltip-inner {
+   background-color: #fff9c4 !important;
+   color: #000 !important;
+   font-size: 14px !important;
+   padding: 8px 12px !important;
+   border: 1px solid #000 !important;
+   border-radius: 4px !important;
+   min-width: 250px !important; /* Definindo uma largura mínima */
+   max-width: 400px !important; /* Definindo uma largura máxima para evitar tooltips muito largos */
+   word-wrap: break-word !important; /* Garantir que palavras longas quebrem para a próxima linha */
+}
+
+.custom-tooltip .flaticon-info {
+   color: #007bff !important; /* Cor do ícone */
+}
+
+/* Estilo para remoção do X que fecha um modal, a partir de um seletor(ID)*/
+#modalOrdensServico .modal-header .close {
+   display: none;
+}
+
+#timeline .media-body p {
+   white-space: normal; /* Permite quebra de linha */
+   word-break: break-word; /* Quebra palavras longas */
+   overflow-wrap: break-word; /* Garante comportamento consistente */
+   margin: 5px 0; /* Espaçamento interno entre os textos */
+   line-height: 1.5; /* Ajusta altura das linhas */
+   text-align: left; /* Alinha o texto à esquerda */
+}
+
+.componentAnexo {
+   display: flex;
+   align-items: center;
+   flex-wrap: nowrap;
+}
+
+.componentAnexo .inputAnexo {
+   color: blue !important;
+}
+
+.componentAnexo .icons {
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+}
+
+.componentAnexo .icons .btn {
+   outline: none !important;
+   outline-offset: unset !important;
+   padding-left: 7px;
+   padding-right: 7px;
+   margin-left: 3px;
+}
+
+.componentAnexo .icons .btn-default,
+.componentAnexo .icons .btn-default:focus,
+.componentAnexo .icons .btn-default:active,
+.componentAnexo .icons .btn-default:hover {
+   border: solid 1px #58595b !important;
+}
+
+.componentAnexo .icons .btn-primary,
+.componentAnexo .icons .btn-primary:focus,
+.componentAnexo .icons .btn-primary:active,
+.componentAnexo .icons .btn-primary:hover {
+   border: solid 1px #58595b !important;
+}
+
+.componentAnexo .icons .btn-success,
+.componentAnexo .icons .btn-success:focus,
+.componentAnexo .icons .btn-success:active,
+.componentAnexo .icons .btn-success:hover {
+   border: solid 1px #1ab83f !important;
+}
+
+.componentAnexo .icons .btn-info,
+.componentAnexo .icons .btn-info:focus,
+.componentAnexo .icons .btn-info:active,
+.componentAnexo .icons .btn-info:hover {
+   border: solid 1px #1eaad9 !important;
+}
+.componentAnexo .icons .btn-warning,
+.componentAnexo .icons .btn-warning:focus,
+.componentAnexo .icons .btn-warning:active,
+.componentAnexo .icons .btn-warning:hover {
+   border: solid 1px #e3b420 !important;
+}
+
+.componentAnexo .icons .btn-danger,
+.componentAnexo .icons .btn-danger:focus,
+.componentAnexo .icons .btn-danger:active,
+.componentAnexo .icons .btn-danger:hover {
+   border: solid 1px #cc3d3d !important;
+}

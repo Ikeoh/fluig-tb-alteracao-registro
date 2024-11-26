@@ -1,0 +1,148 @@
+<html>
+
+<head>
+   <!--Compatibilidade e Segurança-->
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+   <meta name="author" content="GRUPO TB" />
+
+   <!--Padrões-->
+   <link rel="stylesheet" type="text/css" href="/style-guide/css/fluig-style-guide.min.css">
+   <!--Customizações-->
+   <link rel="stylesheet" type="text/css" href="/style-guide/css/fluig-style-guide-filter.min.css">
+   <link rel="stylesheet" type="text/css" href="/style-guide/css/fluig-style-guide-ratingstars.min.css">
+   <!-- Estilo personalizado -->
+   <link type="text/css" rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+   <div class="fluig-style-guide">
+      <form role="form">
+         <!-- [Inicio] Campos de Controle -->
+         <input type="hidden" name="currentName" id="currentName" value="" />
+         <input type="hidden" name="currentLogin" id="currentLogin" value="" />
+         <input type="hidden" name="requesterCode" id="requesterCode" value="" />
+
+         <!-- [Inicio] Cabeçalho-->
+         <div class="page-header tb-header">
+            <div class="row fs-no-margin">
+               <div class="col-sm-2 tb-logo">
+                  <img></img>
+               </div>
+               <div class="col-sm-7 tb-tittle">
+                  <h1>TÍTULO DO PROCESSO</h1>
+               </div>
+               <div class="col-sm-2 tb-user-data">
+                  <div class="row">
+                     <input type="text" name="requesterName" id="requesterName" readonly />
+                     <i class="flaticon flaticon-person icon-sm" aria-hidden="true" title="Nome do Solicitante"></i>
+                  </div>
+                  <div class="row">
+                     <input type="text" name="requestNumber" id="requestNumber" value="Nº Solicitaçao" readonly />
+                     <i class="flaticon flaticon-process icon-sm" aria-hidden="true" title="Nº da Solicitaçao"></i>
+                  </div>
+                  <div class="row">
+                     <input type="text" name="requestDate" id="requestDate" readonly />
+                     <i class="flaticon flaticon-date-range icon-sm" aria-hidden="true" title="Data da Solicitação"></i>
+                  </div>
+                  <div class="row">
+                     <input type="text" name="requesterEmail" id="requesterEmail" readonly />
+                     <i class="flaticon flaticon-mail icon-sm" aria-hidden="true" title="Email do Solicitante"></i>
+                  </div>
+               </div>
+               <div class="col-sm-1 tb-avatar">
+                  <img src="" id="requesterAvatar">
+               </div>
+            </div>
+         </div>
+
+         <!-- [Inicio] Formulário Padrão -->
+
+         <!-- [Inicio] Observações -->
+         <div class="panel panel-default tb-panel-default">
+            <div class="panel-heading tb-panel-heading">
+               <h3 class="panel-title tb-panel-title">
+                  <span class="fluigicon fluigicon-discuss icon-sm fs-sm-margin-right"></span>OBSERVAÇÕES
+               </h3>
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <label for="source">Comentários</label>
+                     <div class="input-group">
+                        <textarea class="form-control" name="source" id="source" style="height: 70px" maxlength="4000" placeholder="Adicione uma observação aqui e clique no botão ao lado para adicionar o comentário."></textarea>
+                        <span class="input-group-addon fs-cursor-pointer" id="addObservationToTimeline" onclick="addObservationToTimeline()" tabindex="0" onkeypress="addObservationToTimeline()">
+                           <span class="fluigicon fluigicon-user-comment icon-md"></span>
+                        </span>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <!-- Div para mostrar a timeline de comentários -->
+                  <div class="col-sm-12 fs-md-margin-top">
+                     <div name="timeline" id="timeline" readonly></div>
+                  </div>
+               </div>
+               <!-- Tabela Pai-Filho para Comentários -->
+               <div class="row hidden">
+                  <div class="col-md-12">
+                     <div class="table-responsive">
+                        <table class="table" tablename="commentsTable" noaddbutton="true" nodeletebutton=true>
+                           <thead>
+                              <tr>
+                                 <th>Data</th>
+                                 <th>Usuário</th>
+                                 <th>Login</th>
+                                 <th>Comentário</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>
+                                    <input type="text" class="form-control" name="commentDate" readonly>
+                                 </td>
+                                 <td>
+                                    <input type="text" class="form-control" name="commentUser" readonly>
+                                 </td>
+                                 <td>
+                                    <input type="text" class="form-control" name="commentLogin" readonly>
+                                 </td>
+                                 <td>
+                                    <input type="text" class="form-control" name="commentText" maxlength="4000" readonly>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+      </form>
+   </div>
+
+   <!-- Scripts no final do body -->
+   <!-- jQuery e jQuery UI -->
+   <script src="/portal/resources/js/jquery/jquery.js"></script>
+   <script src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+   <!-- Mustache -->
+   <script src="/portal/resources/js/mustache/mustache-min.js"></script>
+   <!-- FLUIG Style Guide JS -->
+   <script src="/style-guide/js/fluig-style-guide.min.js"></script>
+   <!-- FLUIG Filter JS -->
+   <script src="/style-guide/js/fluig-style-guide-filter.min.js"></script>
+   <!-- FLUIG Rating Stars JS -->
+   <script src="/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
+   <!-- Outros Scripts -->
+   <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+   <!-- Seus scripts personalizados -->
+   <script type="text/javascript" src="script.js" charset="utf-8"></script>
+   <script type="text/javascript" src="activities.js" charset="utf-8"></script>
+   <script type="text/javascript" src="timelineComponent.js" charset="utf-8"></script>
+   <script type="text/javascript" src="beforeSendValidate.js" charset="utf-8"></script>
+   <script type="text/javascript" src="disableFields.js" charset="utf-8"></script>
+</body>
+
+</html>
