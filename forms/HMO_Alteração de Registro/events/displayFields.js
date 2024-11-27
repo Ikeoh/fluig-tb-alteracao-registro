@@ -17,8 +17,6 @@ function displayFields(form, customHTML) {
    var currentHour = cHour();
    var customJS = "<script>";
 
-   setApprovalData(state, form, currentUserData.getFullName(), currentUserData.getLogin(), currentUserData.getEmail(), mode, currentDate, currentHour);
-
    if (mode == "ADD") {
       var visaoAtividades = []; //Array das div's que serão ocultas
       visaoAtividades.forEach(function (fieldId) {
@@ -40,6 +38,8 @@ function displayFields(form, customHTML) {
       customJS += "$('.custom-tooltip').addClass('hidden');";
    }
 
+   setApprovalData(state, form, currentUserData.getFullName(), currentUserData.getLogin(), currentUserData.getEmail(), mode, currentDate, currentHour);
+
    customJS += "function getCodProcess(){ return '" + codProcess + "'};";
    customJS += "function getNumProcess(){ return '" + numProcess + "'};";
    customJS += "function getState(){ return '" + state + "'};";
@@ -59,26 +59,47 @@ function displayFields(form, customHTML) {
 
 function setApprovalData(activity, form, name, userID, email, mode, date, hour) {
    if (mode != "VIEW") {
-      if (activity == ATIVIDADE_1) {
-         form.setValue("codigoAprovadorPco", userID);
-         form.setValue("emailAprovadorPco", email);
-         form.setValue("nomeAprovadorPco", name);
-         form.setValue("dataAprovacaoPco", date);
-         form.setValue("horaAprovacaoPco", hour);
+      if (activity == ABERTURA) {
+         form.setValue("codigoAprovadorGestorAtual", userID);
+         form.setValue("emailAprovadorGestorAtual", email);
+         form.setValue("nomeAprovadorGestorAtual", name);
+         form.setValue("dataAprovacaoGestorAtual", date);
+         form.setValue("horaAprovacaoGestorAtual", hour);
       }
-      if (activity == ATIVIDADE_1) {
-         form.setValue("codigoAprovadorDirAdm", userID);
-         form.setValue("emailAprovadorDirAdm", email);
-         form.setValue("nomeAprovadorDirAdm", name);
-         form.setValue("dataAprovacaoDirAdm", date);
-         form.setValue("horaAprovacaoDirAdm", hour);
+      if (activity == ABERTURA) {
+         form.setValue("codigoAprovadorGestorDestino", userID);
+         form.setValue("emailAprovadorGestorDestino", email);
+         form.setValue("nomeAprovadorGestorDestino", name);
+         form.setValue("dataAprovacaoGestorDestino", date);
+         form.setValue("horaAprovacaoGestorDestino", hour);
       }
-      if (activity == ATIVIDADE_1) {
-         form.setValue("codigoAprovadorDirGrl", userID);
-         form.setValue("emailAprovadorDirGrl", email);
-         form.setValue("nomeAprovadorDirGrl", name);
-         form.setValue("dataAprovacaoDirGrl", date);
-         form.setValue("horaAprovacaoDirGrl", hour);
+      if (activity == ABERTURA) {
+         form.setValue("codigoAprovadorPlanejContrOrc", userID);
+         form.setValue("emailAprovadorPlanejContrOrc", email);
+         form.setValue("nomeAprovadorPlanejContrOrc", name);
+         form.setValue("dataAprovacaoPlanejContrOrc", date);
+         form.setValue("horaAprovacaoPlanejContrOrc", hour);
+      }
+      if (activity == ABERTURA) {
+         form.setValue("codigoAprovadorDiretorAdm", userID);
+         form.setValue("emailAprovadorDiretorAdm", email);
+         form.setValue("nomeAprovadorDiretorAdm", name);
+         form.setValue("dataAprovacaoDiretorAdm", date);
+         form.setValue("horaAprovacaoDiretorAdm", hour);
+      }
+      if (activity == ABERTURA) {
+         form.setValue("codigoAprovadorDiretorGrl", userID);
+         form.setValue("emailAprovadorDiretorGrl", email);
+         form.setValue("nomeAprovadorDiretorGrl", name);
+         form.setValue("dataAprovacaoDiretorGrl", date);
+         form.setValue("horaAprovacaoDiretorGrl", hour);
+      }
+      if (activity == ABERTURA) {
+         form.setValue("codigoAprovadorValidacaoRh", userID);
+         form.setValue("emailAprovadorValidacaoRh", email);
+         form.setValue("nomeAprovadorValidacaoRh", name);
+         form.setValue("dataAprovacaoValidacaoRh", date);
+         form.setValue("horaAprovacaoValidacaoRh", hour);
       }
    }
 }

@@ -1,8 +1,14 @@
-const ABERTURA = "0";
-const INICIO = "999";
-const ENCERRADO = "999";
+var ABERTURA = "0";
+var INICIO = "5";
+var ENCERRADO = "37";
 
-const ATIVIDADE_1 = "999";
-const ATIVIDADE_2 = "999";
-const ATIVIDADE_3 = "999";
-const ATIVIDADE_4 = "999";
+var AP_CENTRO_CUSTO_ATUAL = "6";
+var AP_CENTRO_CUSTO_DESTINO = "16";
+var AP_PLANJ_CONTR_ORC = "10";
+var AP_DIRETORIA_ADM = "13";
+var AP_DIRETORIA_GRL = "84";
+var ASS_FUNCIONARIO = "39";
+var AP_RH = "29";
+
+var INTEGR_PROTHEUS = "32";
+var TRAT_ERRO_INTEGR_PROT = "34";
