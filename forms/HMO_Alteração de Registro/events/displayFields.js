@@ -17,6 +17,8 @@ function displayFields(form, customHTML) {
    var currentHour = cHour();
    var customJS = "<script>";
 
+   setApprovalData(state, form, currentUserData.getFullName(), currentUserData.getLogin(), currentUserData.getEmail(), mode, currentDate, currentHour);
+
    if (mode == "ADD") {
       var visaoAtividades = []; //Array das div's que serão ocultas
       visaoAtividades.forEach(function (fieldId) {
@@ -53,6 +55,32 @@ function displayFields(form, customHTML) {
    //customJS += "tableLineCount();"; // Habilitar em casos de uso de tabela pai-filho de anexos
    customJS += "</script>";
    customHTML.append(customJS);
+}
+
+function setApprovalData(activity, form, name, userID, email, mode, date, hour) {
+   if (mode != "VIEW") {
+      if (activity == ATIVIDADE_1) {
+         form.setValue("codigoAprovadorPco", userID);
+         form.setValue("emailAprovadorPco", email);
+         form.setValue("nomeAprovadorPco", name);
+         form.setValue("dataAprovacaoPco", date);
+         form.setValue("horaAprovacaoPco", hour);
+      }
+      if (activity == ATIVIDADE_1) {
+         form.setValue("codigoAprovadorDirAdm", userID);
+         form.setValue("emailAprovadorDirAdm", email);
+         form.setValue("nomeAprovadorDirAdm", name);
+         form.setValue("dataAprovacaoDirAdm", date);
+         form.setValue("horaAprovacaoDirAdm", hour);
+      }
+      if (activity == ATIVIDADE_1) {
+         form.setValue("codigoAprovadorDirGrl", userID);
+         form.setValue("emailAprovadorDirGrl", email);
+         form.setValue("nomeAprovadorDirGrl", name);
+         form.setValue("dataAprovacaoDirGrl", date);
+         form.setValue("horaAprovacaoDirGrl", hour);
+      }
+   }
 }
 
 function cDateHour() {

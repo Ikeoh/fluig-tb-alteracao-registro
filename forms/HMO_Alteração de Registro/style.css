@@ -270,3 +270,29 @@
 .componentAnexo .icons .btn-danger:hover {
    border: solid 1px #cc3d3d !important;
 }
+
+/* Estilização para os títulos centralizados */
+.tb-column-title {
+   text-align: center;
+   font-size: 1.5rem;
+   font-weight: bold;
+   margin-bottom: 15px;
+}
+
+/* Estilização do painel DADOS ATUAIS */
+#dadosAtuaisPanel {
+   background-color: #e3f2fd; /* Azul céu suave */
+   border: 2px solid #90caf9; /* Azul um pouco mais forte */
+   border-radius: 5px;
+   padding: 15px;
+   margin-bottom: 15px;
+}
+
+/* Estilização do painel DADOS DE DESTINO */
+#dadosDestinoPanel {
+   background-color: #e8f5e9; /* Verde suave */
+   border: 2px solid #a5d6a7; /* Verde um pouco mais forte */
+   border-radius: 5px;
+   padding: 15px;
+   margin-bottom: 15px;
+}

@@ -19,19 +19,19 @@
 <body>
    <div class="fluig-style-guide">
       <form role="form">
-         <!-- [Inicio] Campos de Controle -->
+         <!-- [CAMPOS DE CONTROLE] -->
          <input type="hidden" name="currentName" id="currentName" value="" />
          <input type="hidden" name="currentLogin" id="currentLogin" value="" />
          <input type="hidden" name="requesterCode" id="requesterCode" value="" />
 
-         <!-- [Inicio] Cabeçalho-->
+         <!-- [CABEÇALHO]-->
          <div class="page-header tb-header">
             <div class="row fs-no-margin">
                <div class="col-sm-2 tb-logo">
                   <img></img>
                </div>
                <div class="col-sm-7 tb-tittle">
-                  <h1>TÍTULO DO PROCESSO</h1>
+                  <h1>ALTERAÇÃO DE REGISTRO</h1>
                </div>
                <div class="col-sm-2 tb-user-data">
                   <div class="row">
@@ -57,9 +57,524 @@
             </div>
          </div>
 
-         <!-- [Inicio] Formulário Padrão -->
 
-         <!-- [Inicio] Observações -->
+         <!-- [SOLICITANTE] -->
+         <div class="panel panel-default tb-panel-default">
+            <div class="panel-heading tb-panel-heading">
+               <h3 class="panel-title tb-panel-title">
+                  <span class="flaticon flaticon-documents icon-sm fs-sm-margin-right"></span>INFORMAÇÕES
+               </h3>
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                  <div class=" col-sm-3">
+                     <div class="form-group">
+                        <label class="control-label" for="filial_016">Filial</label>
+                        <input class="form-control" type="text" name="filial_016" id="filial_016">
+                     </div>
+                  </div>
+                  <div class="col-sm-3">
+                     <div class="form-group">
+                        <label class="control-label" for="matricula_016">Matricula</label>
+                        <input class="form-control" type="text" name="matricula_016" id="matricula_016">
+                     </div>
+                  </div>
+               </div>
+               <div class="panel-body">
+                  <div class="row">
+                     <!-- Coluna 1 -->
+                     <div class="col-sm-1"></div>
+                     <div class="col-sm-5 fs-md-margin-right" id="dadosAtuaisPanel">
+                        <div class="form-group">
+                           <h4 class="tb-column-title">DADOS ATUAIS</h4>
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label" for="filialAtual_016">Filial Atual</label>
+                           <input class="form-control" type="text" name="filialAtual_016" id="filialAtual_016">
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label" for="centroCustoAtual_016">Centro Custo Atual</label>
+                           <input class="form-control" type="text" name="centroCustoAtual_016" id="centroCustoAtual_016">
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label" for="cargoAtual_016">Cargo Atual</label>
+                           <input class="form-control" type="text" name="cargoAtual_016" id="cargoAtual_016">
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label" for="salarioAtual_016">Salario Atual</label>
+                           <input class="form-control" type="text" name="salarioAtual_016" id="salarioAtual_016">
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label" for="horarioAtual_016">Horário de Trabalho Atual</label>
+                           <input class="form-control" type="text" name="horarioAtual_016" id="horarioAtual_016">
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label" for="tipoContratoAtual_016">Tipo Contrato Atual</label>
+                           <input class="form-control" type="text" name="tipoContratoAtual_016" id="tipoContratoAtual_016">
+                        </div>
+                     </div>
+
+                     <!-- Coluna 2 -->
+                     <div class="col-sm-5 fs-md-margin-left" id="dadosDestinoPanel">
+                        <div class="form-group">
+                           <h4 class="tb-column-title">DADOS DE DESTINO</h4>
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label" for="filialDestino_016">Filial Destino</label>
+                           <input class="form-control" type="text" name="filialDestino_016" id="filialDestino_016">
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label" for="centroCustoDestino_016">Centro Custo Destino</label>
+                           <input class="form-control" type="text" name="centroCustoDestino_016" id="centroCustoDestino_016">
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label" for="cargoDestino_016">Cargo Destino</label>
+                           <input class="form-control" type="text" name="cargoDestino_016" id="cargoDestino_016">
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label" for="salarioDestino_016">Salario Destino</label>
+                           <input class="form-control" type="text" name="salarioDestino_016" id="salarioDestino_016">
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label" for="horarioDestino_016">Horário de Trabalho Destino</label>
+                           <input class="form-control" type="text" name="horarioDestino_016" id="horarioDestino_016">
+                        </div>
+                        <div class="form-group">
+                           <label class="control-label" for="tipoContratoDestino_016">Tipo Contrato Destino</label>
+                           <input class="form-control" type="text" name="tipoContratoDestino_016" id="tipoContratoDestino_016">
+                        </div>
+                     </div>
+                     <div class="col-sm-1"></div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div class="form-group">
+                        <label class="control-label" for="adicionaisContrato_016">Adicionais do Contrato</label>
+                        <textarea class="form-control" rows="3" name="adicionaisContrato_016" id="adicionaisContrato_016"></textarea>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div class="form-group">
+                        <label class="control-label" for="justificativaSolicitante_016">Justificativa</label>
+                        <textarea class="form-control" rows="3" name="justificativaSolicitante_016" id="justificativaSolicitante_016"></textarea>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- [APROVAÇÃO CENTRO DE CUSTO ATUAL] -->
+         <div class="panel panel-default tb-panel-default">
+            <div class="panel-heading tb-panel-heading">
+               <h3 class="panel-title tb-panel-title">
+                  <span class="flaticon flaticon-document-approved icon-sm fs-sm-margin-right"></span>GESTOR CENTRO DE CUSTO ATUAL
+               </h3>
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                  <input type="hidden" name="codigoAprovadorGestorAtual" id="codigoAprovadorGestorAtual" />
+                  <input type="hidden" name="emailAprovadorGestorAtual" id="emailAprovadorGestorAtual" />
+                  <div class="col-sm-8">
+                     <div class="form-group">
+                        <label class="control-label" for="nomeAprovadorGestorAtual">Aprovador</label>
+                        <input class="form-control" type="text" name="nomeAprovadorGestorAtual" id="nomeAprovadorGestorAtual" readonly />
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="form-group">
+                        <label class="control-label" for="dataAprovacaoGestorAtual">Data</label>
+                        <input class="form-control" type="text" name="dataAprovacaoGestorAtual" id="dataAprovacaoGestorAtual" readonly />
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="form-group">
+                        <label class="control-label" for="horaAprovacaoGestorAtual">Hora</label>
+                        <input class="form-control" type="text" name="horaAprovacaoGestorAtual" id="horaAprovacaoGestorAtual" readonly />
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="form-group col-sm-3 fs-text-center">
+                     <input class="form-control hidden" type="text" name="ativAprovStatusGestorAtual" id="ativAprovStatusGestorAtual" value="">
+                     <label class="control-label fs-no-margin fs-no-padding" for="">Aprovação</label>
+                     <span style="color: red; font-weight: bold;">*</span>
+                     <span class="custom-tooltip">
+                        <i class="flaticon flaticon-info icon-sm" data-toggle="tooltip" data-placement="top" title="<b>VERDE</b>: Aprovar Solicitação<br><b>VERMELHO</b>: Reprovar Solicitação" data-html="true" aria-hidden="true"></i>
+                     </span>
+                     <div class="button-group fs-sm-margin-top">
+                        <!-- Botão para Aprovar -->
+                        <button class="btn btn-success btn-square" type="button" id="btnAprovarGestorAtual" title="">
+                           <i class="flaticon flaticon-check-circle icon-xl"></i>
+                        </button>
+                        <!-- Botão para Reprovar -->
+                        <button class="btn btn-danger btn-square fs-xs-margin-left" type="button" id="btnReprovarGestorAtual" title="">
+                           <i class="flaticon flaticon-cancel icon-xl"></i>
+                        </button>
+                        <!-- Botão para Ajustar
+                        <button class="btn btn-warning btn-square fs-xs-margin-left" type="button" id="btnAjustarGestorAtual" title="">
+                           <i class="flaticon flaticon-edit icon-xl"></i>
+                        </button>
+                        -->
+                     </div>
+                  </div>
+                  <div class="col-sm-9">
+                     <div class="form-group">
+                        <label class="control-label" for="justificativaGestorAtual">Justificativa</label>
+                        <span class="hidden" id="spanJustificativaGestorAtual" style="color: red; font-weight: bold;">*</span>
+                        <textarea class="form-control" rows="3" cols="3" name="justificativaGestorAtual" id="justificativaGestorAtual" readonly></textarea>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- [APROVAÇÃO CENTRO DE CUSTO DESTINO] -->
+         <div class="panel panel-default tb-panel-default">
+            <div class="panel-heading tb-panel-heading">
+               <h3 class="panel-title tb-panel-title">
+                  <span class="flaticon flaticon-document-approved icon-sm fs-sm-margin-right"></span>GESTOR CENTRO DE CUSTO DESTINO
+               </h3>
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                  <input type="hidden" name="codigoAprovadorGestorDestino" id="codigoAprovadorGestorDestino" />
+                  <input type="hidden" name="emailAprovadorGestorDestino" id="emailAprovadorGestorDestino" />
+                  <div class="col-sm-8">
+                     <div class="form-group">
+                        <label class="control-label" for="nomeAprovadorGestorDestino">Aprovador</label>
+                        <input class="form-control" type="text" name="nomeAprovadorGestorDestino" id="nomeAprovadorGestorDestino" readonly />
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="form-group">
+                        <label class="control-label" for="dataAprovacaoGestorDestino">Data</label>
+                        <input class="form-control" type="text" name="dataAprovacaoGestorDestino" id="dataAprovacaoGestorDestino" readonly />
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="form-group">
+                        <label class="control-label" for="horaAprovacaoGestorDestino">Hora</label>
+                        <input class="form-control" type="text" name="horaAprovacaoGestorDestino" id="horaAprovacaoGestorDestino" readonly />
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="form-group col-sm-3 fs-text-center">
+                     <input class="form-control hidden" type="text" name="ativAprovStatusGestorDestino" id="ativAprovStatusGestorDestino" value="">
+                     <label class="control-label fs-no-margin fs-no-padding" for="">Aprovação</label>
+                     <span style="color: red; font-weight: bold;">*</span>
+                     <span class="custom-tooltip">
+                        <i class="flaticon flaticon-info icon-sm" data-toggle="tooltip" data-placement="top" title="<b>VERDE</b>: Aprovar Solicitação<br><b>VERMELHO</b>: Reprovar Solicitação" data-html="true" aria-hidden="true"></i>
+                     </span>
+                     <div class="button-group fs-sm-margin-top">
+                        <!-- Botão para Aprovar -->
+                        <button class="btn btn-success btn-square" type="button" id="btnAprovarGestorDestino" title="">
+                           <i class="flaticon flaticon-check-circle icon-xl"></i>
+                        </button>
+                        <!-- Botão para Reprovar -->
+                        <button class="btn btn-danger btn-square fs-xs-margin-left" type="button" id="btnReprovarGestorDestino" title="">
+                           <i class="flaticon flaticon-cancel icon-xl"></i>
+                        </button>
+                        <!-- Botão para Ajustar
+                        <button class="btn btn-warning btn-square fs-xs-margin-left" type="button" id="btnAjustarGestorDestino" title="">
+                           <i class="flaticon flaticon-edit icon-xl"></i>
+                        </button>
+                        -->
+                     </div>
+                  </div>
+                  <div class="col-sm-9">
+                     <div class="form-group">
+                        <label class="control-label" for="justificativaGestorDestino">Justificativa</label>
+                        <span class="hidden" id="spanJustificativaGestorDestino" style="color: red; font-weight: bold;">*</span>
+                        <textarea class="form-control" rows="3" cols="3" name="justificativaGestorDestino" id="justificativaGestorDestino" readonly></textarea>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- [APROVAÇÃO PLANEJAMENTO E CONTROLE ORÇAMENTÁRIO] -->
+         <div class="panel panel-default tb-panel-default">
+            <div class="panel-heading tb-panel-heading">
+               <h3 class="panel-title tb-panel-title">
+                  <span class="flaticon flaticon-document-approved icon-sm fs-sm-margin-right"></span>PLANEJAMENTO E CONTROLE ORÇAMENTÁRIO
+               </h3>
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                  <input type="hidden" name="codigoAprovadorPlanejContrOrc" id="codigoAprovadorPlanejContrOrc" />
+                  <input type="hidden" name="emailAprovadorPlanejContrOrc" id="emailAprovadorPlanejContrOrc" />
+                  <div class="col-sm-8">
+                     <div class="form-group">
+                        <label class="control-label" for="nomeAprovadorPlanejContrOrc">Aprovador</label>
+                        <input class="form-control" type="text" name="nomeAprovadorPlanejContrOrc" id="nomeAprovadorPlanejContrOrc" readonly />
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="form-group">
+                        <label class="control-label" for="dataAprovacaoPlanejContrOrc">Data</label>
+                        <input class="form-control" type="text" name="dataAprovacaoPlanejContrOrc" id="dataAprovacaoPlanejContrOrc" readonly />
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="form-group">
+                        <label class="control-label" for="horaAprovacaoPlanejContrOrc">Hora</label>
+                        <input class="form-control" type="text" name="horaAprovacaoPlanejContrOrc" id="horaAprovacaoPlanejContrOrc" readonly />
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="form-group col-sm-3 fs-text-center">
+                     <input class="form-control hidden" type="text" name="ativAprovStatusPlanejContrOrc" id="ativAprovStatusPlanejContrOrc" value="">
+                     <label class="control-label fs-no-margin fs-no-padding" for="">Aprovação</label>
+                     <span style="color: red; font-weight: bold;">*</span>
+                     <span class="custom-tooltip">
+                        <i class="flaticon flaticon-info icon-sm" data-toggle="tooltip" data-placement="top" title="<b>VERDE</b>: Aprovar Solicitação<br><b>VERMELHO</b>: Reprovar Solicitação" data-html="true" aria-hidden="true"></i>
+                     </span>
+                     <div class="button-group fs-sm-margin-top">
+                        <!-- Botão para Aprovar -->
+                        <button class="btn btn-success btn-square" type="button" id="btnAprovarPlanejContrOrc" title="">
+                           <i class="flaticon flaticon-check-circle icon-xl"></i>
+                        </button>
+                        <!-- Botão para Reprovar -->
+                        <button class="btn btn-danger btn-square fs-xs-margin-left" type="button" id="btnReprovarPlanejContrOrc" title="">
+                           <i class="flaticon flaticon-cancel icon-xl"></i>
+                        </button>
+                        <!-- Botão para Ajustar
+                        <button class="btn btn-warning btn-square fs-xs-margin-left" type="button" id="btnAjustarPlanejContrOrc" title="">
+                           <i class="flaticon flaticon-edit icon-xl"></i>
+                        </button>
+                        -->
+                     </div>
+                  </div>
+                  <div class="col-sm-9">
+                     <div class="form-group">
+                        <label class="control-label" for="justificativaPlanejContrOrc">Justificativa</label>
+                        <span class="hidden" id="spanJustificativaPlanejContrOrc" style="color: red; font-weight: bold;">*</span>
+                        <textarea class="form-control" rows="3" cols="3" name="justificativaPlanejContrOrc" id="justificativaPlanejContrOrc" readonly></textarea>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- [APROVAÇÃO DIRETORIA ADMINISTRATIVA] -->
+         <div class="panel panel-default tb-panel-default">
+            <div class="panel-heading tb-panel-heading">
+               <h3 class="panel-title tb-panel-title">
+                  <span class="flaticon flaticon-document-approved icon-sm fs-sm-margin-right"></span>DIRETOR ADMINISTRATIVO
+               </h3>
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                  <input type="hidden" name="codigoAprovadorDiretorAdm" id="codigoAprovadorDiretorAdm" />
+                  <input type="hidden" name="emailAprovadorDiretorAdm" id="emailAprovadorDiretorAdm" />
+                  <div class="col-sm-8">
+                     <div class="form-group">
+                        <label class="control-label" for="nomeAprovadorDiretorAdm">Aprovador</label>
+                        <input class="form-control" type="text" name="nomeAprovadorDiretorAdm" id="nomeAprovadorDiretorAdm" readonly />
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="form-group">
+                        <label class="control-label" for="dataAprovacaoDiretorAdm">Data</label>
+                        <input class="form-control" type="text" name="dataAprovacaoDiretorAdm" id="dataAprovacaoDiretorAdm" readonly />
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="form-group">
+                        <label class="control-label" for="horaAprovacaoDiretorAdm">Hora</label>
+                        <input class="form-control" type="text" name="horaAprovacaoDiretorAdm" id="horaAprovacaoDiretorAdm" readonly />
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="form-group col-sm-3 fs-text-center">
+                     <input class="form-control hidden" type="text" name="ativAprovStatusDiretorAdm" id="ativAprovStatusDiretorAdm" value="">
+                     <label class="control-label fs-no-margin fs-no-padding" for="">Aprovação</label>
+                     <span style="color: red; font-weight: bold;">*</span>
+                     <span class="custom-tooltip">
+                        <i class="flaticon flaticon-info icon-sm" data-toggle="tooltip" data-placement="top" title="<b>VERDE</b>: Aprovar Solicitação<br><b>VERMELHO</b>: Reprovar Solicitação" data-html="true" aria-hidden="true"></i>
+                     </span>
+                     <div class="button-group fs-sm-margin-top">
+                        <!-- Botão para Aprovar -->
+                        <button class="btn btn-success btn-square" type="button" id="btnAprovarDiretorAdm" title="">
+                           <i class="flaticon flaticon-check-circle icon-xl"></i>
+                        </button>
+                        <!-- Botão para Reprovar -->
+                        <button class="btn btn-danger btn-square fs-xs-margin-left" type="button" id="btnReprovarDiretorAdm" title="">
+                           <i class="flaticon flaticon-cancel icon-xl"></i>
+                        </button>
+                        <!-- Botão para Ajustar
+                        <button class="btn btn-warning btn-square fs-xs-margin-left" type="button" id="btnAjustarDiretorAdm" title="">
+                           <i class="flaticon flaticon-edit icon-xl"></i>
+                        </button>
+                        -->
+                     </div>
+                  </div>
+                  <div class="col-sm-9">
+                     <div class="form-group">
+                        <label class="control-label" for="justificativaDiretorAdm">Justificativa</label>
+                        <span class="hidden" id="spanJustificativaDiretorAdm" style="color: red; font-weight: bold;">*</span>
+                        <textarea class="form-control" rows="3" cols="3" name="justificativaDiretorAdm" id="justificativaDiretorAdm" readonly></textarea>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- [APROVAÇÃO DIRETOR GERAL] -->
+         <div class="panel panel-default tb-panel-default">
+            <div class="panel-heading tb-panel-heading">
+               <h3 class="panel-title tb-panel-title">
+                  <span class="flaticon flaticon-document-approved icon-sm fs-sm-margin-right"></span>DIRETOR GERAL
+               </h3>
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                  <input type="hidden" name="codigoAprovadorDiretorGrl" id="codigoAprovadorDiretorGrl" />
+                  <input type="hidden" name="emailAprovadorDiretorGrl" id="emailAprovadorDiretorGrl" />
+                  <div class="col-sm-8">
+                     <div class="form-group">
+                        <label class="control-label" for="nomeAprovadorDiretorGrl">Aprovador</label>
+                        <input class="form-control" type="text" name="nomeAprovadorDiretorGrl" id="nomeAprovadorDiretorGrl" readonly />
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="form-group">
+                        <label class="control-label" for="dataAprovacaoDiretorGrl">Data</label>
+                        <input class="form-control" type="text" name="dataAprovacaoDiretorGrl" id="dataAprovacaoDiretorGrl" readonly />
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="form-group">
+                        <label class="control-label" for="horaAprovacaoDiretorGrl">Hora</label>
+                        <input class="form-control" type="text" name="horaAprovacaoDiretorGrl" id="horaAprovacaoDiretorGrl" readonly />
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="form-group col-sm-3 fs-text-center">
+                     <input class="form-control hidden" type="text" name="ativAprovStatusDiretorGrl" id="ativAprovStatusDiretorGrl" value="">
+                     <label class="control-label fs-no-margin fs-no-padding" for="">Aprovação</label>
+                     <span style="color: red; font-weight: bold;">*</span>
+                     <span class="custom-tooltip">
+                        <i class="flaticon flaticon-info icon-sm" data-toggle="tooltip" data-placement="top" title="<b>VERDE</b>: Aprovar Solicitação<br><b>VERMELHO</b>: Reprovar Solicitação" data-html="true" aria-hidden="true"></i>
+                     </span>
+                     <div class="button-group fs-sm-margin-top">
+                        <!-- Botão para Aprovar -->
+                        <button class="btn btn-success btn-square" type="button" id="btnAprovarDiretorGrl" title="">
+                           <i class="flaticon flaticon-check-circle icon-xl"></i>
+                        </button>
+                        <!-- Botão para Reprovar -->
+                        <button class="btn btn-danger btn-square fs-xs-margin-left" type="button" id="btnReprovarDiretorGrl" title="">
+                           <i class="flaticon flaticon-cancel icon-xl"></i>
+                        </button>
+                        <!-- Botão para Ajustar
+                        <button class="btn btn-warning btn-square fs-xs-margin-left" type="button" id="btnAjustarDiretorGrl" title="">
+                           <i class="flaticon flaticon-edit icon-xl"></i>
+                        </button>
+                        -->
+                     </div>
+                  </div>
+                  <div class="col-sm-9">
+                     <div class="form-group">
+                        <label class="control-label" for="justificativaDiretorGrl">Justificativa</label>
+                        <span class="hidden" id="spanJustificativaDiretorGrl" style="color: red; font-weight: bold;">*</span>
+                        <textarea class="form-control" rows="3" cols="3" name="justificativaDiretorGrl" id="justificativaDiretorGrl" readonly></textarea>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- [ASSINATURA DO FUNCIONÁRIO] -->
+         <div class="panel panel-default tb-panel-default">
+            <div class="panel-heading tb-panel-heading">
+               <h3 class="panel-title tb-panel-title">
+                  <span class="flaticon flaticon-documents icon-sm fs-sm-margin-right"></span>ASSINATURA DO FUNCIONÁRIO
+               </h3>
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                  <div class=" col-sm-3">
+                     <div class="form-group">
+                        <label class="control-label" for="CAMPO1">CAMPO 01</label>
+                        <input class="form-control" type="text" name="CAMPO1" id="CAMPO1">
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- [APROVAÇÃO DO RH] -->
+         <div class="panel panel-default tb-panel-default">
+            <div class="panel-heading tb-panel-heading">
+               <h3 class="panel-title tb-panel-title">
+                  <span class="flaticon flaticon-document-approved icon-sm fs-sm-margin-right"></span>VALIDAÇÃO RH
+               </h3>
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                  <input type="hidden" name="codigoAprovadorValidacaoRh" id="codigoAprovadorValidacaoRh" />
+                  <input type="hidden" name="emailAprovadorValidacaoRh" id="emailAprovadorValidacaoRh" />
+                  <div class="col-sm-8">
+                     <div class="form-group">
+                        <label class="control-label" for="nomeAprovadorValidacaoRh">Aprovador</label>
+                        <input class="form-control" type="text" name="nomeAprovadorValidacaoRh" id="nomeAprovadorValidacaoRh" readonly />
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="form-group">
+                        <label class="control-label" for="dataAprovacaoValidacaoRh">Data</label>
+                        <input class="form-control" type="text" name="dataAprovacaoValidacaoRh" id="dataAprovacaoValidacaoRh" readonly />
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="form-group">
+                        <label class="control-label" for="horaAprovacaoValidacaoRh">Hora</label>
+                        <input class="form-control" type="text" name="horaAprovacaoValidacaoRh" id="horaAprovacaoValidacaoRh" readonly />
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="form-group col-sm-3 fs-text-center">
+                     <input class="form-control hidden" type="text" name="ativAprovStatusValidacaoRh" id="ativAprovStatusValidacaoRh" value="">
+                     <label class="control-label fs-no-margin fs-no-padding" for="">Aprovação</label>
+                     <span style="color: red; font-weight: bold;">*</span>
+                     <span class="custom-tooltip">
+                        <i class="flaticon flaticon-info icon-sm" data-toggle="tooltip" data-placement="top" title="<b>VERDE</b>: Aprovar Solicitação<br><b>VERMELHO</b>: Reprovar Solicitação<br><b>AMARELO</b>: Solicitar Ajuste" data-html="true" aria-hidden="true"></i>
+                     </span>
+                     <div class="button-group fs-sm-margin-top">
+                        <!-- Botão para Aprovar -->
+                        <button class="btn btn-success btn-square" type="button" id="btnAprovarValidacaoRh" title="">
+                           <i class="flaticon flaticon-check-circle icon-xl"></i>
+                        </button>
+                        <!-- Botão para Reprovar -->
+                        <button class="btn btn-danger btn-square fs-xs-margin-left" type="button" id="btnReprovarValidacaoRh" title="">
+                           <i class="flaticon flaticon-cancel icon-xl"></i>
+                        </button>
+                        <!-- Botão para Ajustar -->
+                        <button class="btn btn-warning btn-square fs-xs-margin-left" type="button" id="btnAjustarValidacaoRh" title="">
+                           <i class="flaticon flaticon-edit icon-xl"></i>
+                        </button>
+                     </div>
+                  </div>
+                  <div class="col-sm-9">
+                     <div class="form-group">
+                        <label class="control-label" for="justificativaValidacaoRh">Justificativa</label>
+                        <span class="hidden" id="spanJustificativaValidacaoRh" style="color: red; font-weight: bold;">*</span>
+                        <textarea class="form-control" rows="3" cols="3" name="justificativaValidacaoRh" id="justificativaValidacaoRh" readonly></textarea>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- [OBSERVAÇÕES] -->
          <div class="panel panel-default tb-panel-default">
             <div class="panel-heading tb-panel-heading">
                <h3 class="panel-title tb-panel-title">

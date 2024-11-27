@@ -1,0 +1,131 @@
+
+(Abertura da solicitação)
+   -- Identificado que há saldo de vagas disponível no centro de custo;
+      -- Seguir para aprovação do centro de custo atual;
+         (Gestor centro de custo atual reprova)
+            -- Seguir para finalização da solicitação;
+         (Gestor centro de custo atual aprova)
+            -- Se o gestor do centro de custo destino for diferente do gestor do centro de custo atual;
+               -- Seguir para aprovação do gestor do centro de custo destino;
+                  (Gestor centro de custo destino reprova)
+                     -- Seguir para finalização da solicitação;
+                  (Gestor centro de custo destino aprova)
+                     -- Se há alteração salarial;
+                        -- Seguir para aprovação do Diretor Geral;
+                           (Diretor Geral reprovou)
+                              -- Seguir para finalização da solicitação;
+                           (Diretor Geral aprovou)
+                              -- Seguir para Assinatura do Funcionário;
+                     -- Se não há alteração salarial;
+                        -- Seguir para Assinatura do Funcionário;
+            -- Se o gestor do centro de custo destino for igual ao gestor do centro de custo atual;
+               -- Se há alteração salarial;
+                  -- Seguir para aprovação do Diretor Geral;
+                     (Diretor Geral reprovou)
+                        -- Seguir para finalização da solicitação;
+                     (Diretor Geral aprovou)
+                        -- Seguir para Assinatura do Funcionário;
+               -- Se não há alteração salarial;
+                  -- Seguir para Assinatura do Funcionário;
+   -- Identificado que não há saldo de vagas disponível no centro de custo;
+      -- Seguir para aprovação do Planej. Contr. Orç.;
+         (Planej. Contr. Orç. reprovou)
+            -- Se o centro de custo de destino tem o prefixo 01 ou 99;
+               -- Seguir para aprovação do Diretor Geral;
+                  (Diretor Geral reprovou)
+                     -- Seguir para finalização da solicitação;
+                  (Diretor Geral aprovou)
+                     -- Seguir para aprovação do Gestor do centro de custo atual;
+                        (Gestor centro de custo atual reprova)
+                           -- Seguir para finalização da solicitação;
+                        (Gestor centro de custo atual aprova)
+                           -- Se o gestor do centro de custo destino for diferente do gestor do centro de custo atual;
+                              -- Seguir para aprovação do gestor do centro de custo destino;
+                                 (Gestor centro de custo destino reprova)
+                                    -- Seguir para finalização da solicitação;
+                                 (Gestor centro de custo destino aprova)
+                                    -- Seguir para Assinatura do Funcionário;
+                           -- Se o gestor do centro de custo destino for igual ao gestor do centro de custo atual;
+                              -- Seguir para Assinatura do Funcionário;
+            -- Se não, o centro de custo de destino não tem o prefixo 01 ou 99;
+               -- Seguir para aprovação do Diretor Adm;
+                  (Diretor Adm reprovou)
+                     -- Seguir para finalização da solicitação;
+                  (Diretor Adm aprovou)
+                     -- Se há alteração salarial;
+                        -- Seguir para aprovação do Diretor Geral;
+                           (Diretor Geral reprovou)
+                              -- Seguir para finalização da solicitação;
+                           (Diretor Geral aprovou)
+                              -- Seguir para aprovação do Gestor do centro de custo atual;
+                                 (Gestor centro de custo atual reprova)
+                                    -- Seguir para finalização da solicitação;
+                                 (Gestor centro de custo atual aprova)
+                                    -- Se o gestor do centro de custo destino for diferente do gestor do centro de custo atual;
+                                       -- Seguir para aprovação do gestor do centro de custo destino;
+                                          (Gestor centro de custo destino reprova)
+                                             -- Seguir para finalização da solicitação;
+                                          (Gestor centro de custo destino aprova)
+                                             -- Seguir para Assinatura do Funcionário;
+                                    -- Se o gestor do centro de custo destino for igual ao gestor do centro de custo atual;
+                                       -- Seguir para Assinatura do Funcionário;
+                     -- Se não há alteração salarial;
+                        -- Seguir para aprovação do Gestor do centro de custo atual;
+                           (Gestor centro de custo atual reprova)
+                              -- Seguir para finalização da solicitação;
+                           (Gestor centro de custo atual aprova)
+                              -- Se o gestor do centro de custo destino for diferente do gestor do centro de custo atual;
+                                 -- Seguir para aprovação do gestor do centro de custo destino;
+                                    (Gestor centro de custo destino reprova)
+                                       -- Seguir para finalização da solicitação;
+                                    (Gestor centro de custo destino aprova)
+                                       -- Seguir para Assinatura do Funcionário;
+                              -- Se o gestor do centro de custo destino for igual ao gestor do centro de custo atual;
+                                 -- Seguir para Assinatura do Funcionário;
+         (Planej. Contr. Orç. aprovou)
+            -- Seguir para aprovação do Gestor do centro de custo atual;
+               (Gestor centro de custo atual reprova)
+                  -- Seguir para finalização da solicitação;
+               (Gestor centro de custo atual aprova)
+                  -- Se o gestor do centro de custo destino for diferente do gestor do centro de custo atual;
+                     -- Seguir para aprovação do gestor do centro de custo destino;
+                        (Gestor centro de custo destino reprova)
+                           -- Seguir para finalização da solicitação;
+                        (Gestor centro de custo destino aprova)
+                           -- Se há alteração salarial;
+                              -- Seguir para aprovação do Diretor Geral;
+                                 (Diretor Geral reprovou)
+                                    -- Seguir para finalização da solicitação;
+                                 (Diretor Geral aprovou)
+                                    -- Seguir para Assinatura do Funcionário;
+                           -- Se não há alteração salarial;
+                              -- Seguir para Assinatura do Funcionário;
+                  -- Se o gestor do centro de custo destino for igual ao gestor do centro de custo atual;
+                     -- Se há alteração salarial;
+                        -- Seguir para aprovação do Diretor Geral;
+                           (Diretor Geral reprovou)
+                              -- Seguir para finalização da solicitação;
+                           (Diretor Geral aprovou)
+                              -- Seguir para Assinatura do Funcionário;
+                     -- Se não há alteração salarial;
+                        -- Seguir para Assinatura do Funcionário;
+
+(Assinatura do Funcionário)
+   -- Se não concorda;
+      -- Seguir para finalização da solicitação;
+   -- Se concorda;
+      -- Seguir para validação do Rh;
+         (Rh reprovou)
+            -- Seguir para finalização da solicitação;
+         (Rh solicitou ajuste)
+            -- Seguir para Ajustar Solicitação;
+                  (Solicitante ajustou a solicitação)
+                     -- Seguir para validação do Rh;
+         (Rh aprovou)
+            -- Seguir para Integração Protheus;
+               (Falha na integração)
+                  -- Seguir para tratativa de erro;
+                     (Erro tratado)
+                        -- Seguir para Integração Protheus;
+               (Sucesso na integração)
+                  -- Seguir para finalização da solicitação;
