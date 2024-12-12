@@ -3,6 +3,10 @@ $(document).ready(function () {
 
    adjustHeaderLayout(); // Executa no carregamento
    $(window).resize(adjustHeaderLayout); // Executa no redimensionamento
+
+   setTimeout(function () {
+      window["matricula_016"].disable(true);
+   }, 300);
 });
 
 // Função para alterar a estrutura do header com base no tamanho da tela para garantir responsividade
@@ -101,10 +105,20 @@ $(document).ready(function () {
    });
 });
 
-/****************
- * Exemplo de código para recuperar o login de um aprovador. *
- */
 function setSelectedZoomItem(selectedItem) {
+   console.log(selectedItem);
+
+   if (selectedItem.inputId == "filial_016") {
+      $("#numeroFilial_016").val(selectedItem.M0_CODFIL);
+      reloadZoomFilterValues("matricula_016", "RA_FILIAL," + selectedItem["M0_CODFIL"]);
+
+      window["matricula_016"].disable(false);
+   }
+
+   if (selectedItem.inputId == "matricula_016") {
+      $("#numeroMatricula_016").val(selectedItem.RA_MAT);
+   }
+
    if (selectedItem.inputId == "campoZoomId") {
       $("#centroCustoFuncionario").val(selectedItem.RA_CC.trim());
 
@@ -135,5 +149,13 @@ function setSelectedZoomItem(selectedItem) {
             }
          }
       }
+   }
+}
+
+function removedZoomItem(removedItem) {
+   if (removedItem.inputId == "filial_016") {
+      $("#numeroFilial_016").val("");
+
+      window["matricula_016"].disable(true);
    }
 }

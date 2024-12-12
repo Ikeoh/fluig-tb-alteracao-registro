@@ -67,17 +67,36 @@
             </div>
             <div class="panel-body">
                <div class="row">
-                  <div class=" col-sm-6">
-                     <div class="form-group">
-                        <label class="control-label" for="filial_016">Filial</label>
-                        <input class="form-control" type="text" name="filial_016" id="filial_016">
-                     </div>
+                  <div class="col-sm-6">
+                     <label for="filial_016">Filial</label>
+                     <span style="color: red; font-weight: bold;">*</span>
+                     <input class="form-control hidden" type="text" name="numeroFilial_016" id="numeroFilial_016" value="">
+                     <input class="form-control" name="filial_016" id="filial_016" type="zoom" data-zoom="{
+                       'maximumSelectionLength':'1',
+                       'datasetId':'ds_gtb_jdbc_empresas',
+                       'displayKey':'M0_FILIAL',
+                       'placeholder':'Selecionar',
+                       'fields':[
+                         {'field':'M0_CODFIL', 'label':'Código', 'visible':'true'},
+                         {'field':'M0_FILIAL', 'label':'Filial', 'visible':'true','standard':'true'}
+                       ]
+                     }" />
                   </div>
                   <div class="col-sm-6">
-                     <div class="form-group">
-                        <label class="control-label" for="matricula_016">Matricula</label>
-                        <input class="form-control" type="text" name="matricula_016" id="matricula_016">
-                     </div>
+                     <label for="matricula_016">Matrícula</label>
+                     <span style="color: red; font-weight: bold;">*</span>
+                     <input class="form-control hidden" type="text" name="numeroMatricula_016" id="numeroMatricula_016" value="">
+                     <input class="form-control" name="matricula_016" id="matricula_016" type="zoom" data-zoom="{
+                       'maximumSelectionLength':'1',
+                       'datasetId':'ds_gtb_jdbc_016_matricula',
+                       'displayKey':'RA_NOMECMP',
+                       'placeholder':'Selecionar',
+                       'fields':[
+                         {'field':'RA_FILIAL', 'label':'Filial', 'visible':'true'},
+                         {'field':'RA_MAT', 'label':'Matrícula', 'visible':'true'},
+                         {'field':'RA_NOMECMP', 'label':'Nome', 'visible':'true','standard':'true'}
+                       ]
+                     }" />
                   </div>
                </div>
                <div class="panel-body">
