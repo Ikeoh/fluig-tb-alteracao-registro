@@ -117,6 +117,20 @@ function setSelectedZoomItem(selectedItem) {
 
    if (selectedItem.inputId == "matricula_016") {
       $("#numeroMatricula_016").val(selectedItem.RA_MAT);
+      $("#filialAtual_016").val(selectedItem.RA_FILIAL);
+      $("#centroCustoAtual_016").val(selectedItem.RA_CC);
+      $("#cargoAtual_016").val(selectedItem.RJ_DESC);
+
+      // Formatando o salário como moeda brasileira
+      const salario = parseFloat(selectedItem.RA_SALARIO);
+      const salarioFormatado = salario.toLocaleString("pt-BR", {
+         style: "currency",
+         currency: "BRL",
+      });
+      $("#salarioAtual_016").val(salarioFormatado);
+
+      $("#horarioAtual_016").val(selectedItem.R6_DESC);
+      $("#tipoContratoAtual_016").val(selectedItem.RCC_DESC);
    }
 
    if (selectedItem.inputId == "campoZoomId") {
@@ -156,6 +170,7 @@ function removedZoomItem(removedItem) {
    if (removedItem.inputId == "filial_016") {
       $("#numeroFilial_016").val("");
 
+      window["matricula_016"].clear();
       window["matricula_016"].disable(true);
    }
 }
