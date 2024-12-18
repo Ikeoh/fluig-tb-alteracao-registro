@@ -271,7 +271,7 @@
    border: solid 1px #cc3d3d !important;
 }
 
-/* Estilização para os títulos centralizados */
+/* Estilização para os títulos centralizados*/
 .tb-column-title {
    text-align: center;
    font-size: 1.5rem;
@@ -289,20 +289,20 @@
    flex: 1;
 }
 
-/* Estilização do painel DADOS ATUAIS */
+/* Estilização do painel DADOS ATUAIS*/
 #dadosAtuaisPanel {
-   background-color: #e3f2fd; /* Azul céu suave */
-   border: 2px solid #90caf9; /* Azul um pouco mais forte */
+   background-color: #e3f2fd;
+   border: 2px solid #90caf9;
    border-radius: 5px;
    padding: 15px;
    margin-bottom: 15px;
    margin-right: 15px;
 }
 
-/* Estilização do painel DADOS DE DESTINO */
+/* Estilização do painel DADOS DE DESTINO*/
 #dadosDestinoPanel {
-   background-color: #e8f5e9; /* Verde suave */
-   border: 2px solid #a5d6a7; /* Verde um pouco mais forte */
+   background-color: #e8f5e9;
+   border: 2px solid #a5d6a7;
    border-radius: 5px;
    padding: 15px;
    margin-bottom: 15px;

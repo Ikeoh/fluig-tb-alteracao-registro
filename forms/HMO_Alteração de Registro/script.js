@@ -6,6 +6,9 @@ $(document).ready(function () {
 
    setTimeout(function () {
       window["matricula_016"].disable(true);
+      window["filialDestino_016"].disable(true);
+      window["centroCustoDestino_016"].disable(true);
+      window["cargoDestino_016"].disable(true);
    }, 300);
 });
 
@@ -111,21 +114,20 @@ function setSelectedZoomItem(selectedItem) {
    if (selectedItem.inputId == "filial_016") {
       $("#numeroFilial_016").val(selectedItem.M0_CODFIL);
       reloadZoomFilterValues("matricula_016", "RA_FILIAL," + selectedItem["M0_CODFIL"]);
-
       window["matricula_016"].disable(false);
    }
 
    if (selectedItem.inputId == "filialDestino_016") {
-      // Pega apenas os 3 primeiros dígitos do M0_CODFIL
-      const filialTruncada = selectedItem["M0_CODFIL"].substring(0, 3);
-      console.log(filialTruncada);
-      reloadZoomFilterValues("cargoDestino_016", "RJ_FILIAL," + filialTruncada);
+      reloadZoomFilterValues("cargoDestino_016", "RJ_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
+      reloadZoomFilterValues("horarioDestino_016", "R6_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
+      window["cargoDestino_016"].disable(false);
    }
 
    if (selectedItem.inputId == "matricula_016") {
       $("#numeroMatricula_016").val(selectedItem.RA_MAT);
       $("#filialAtual_016").val(selectedItem.RA_FILIAL);
       $("#centroCustoAtual_016").val(selectedItem.RA_CC);
+      $("#codCargoAtual_016").val(selectedItem.RA_CARGO);
       $("#cargoAtual_016").val(selectedItem.RJ_DESC);
 
       // Formatando o salário como moeda brasileira
@@ -134,10 +136,16 @@ function setSelectedZoomItem(selectedItem) {
          style: "currency",
          currency: "BRL",
       });
-      $("#salarioAtual_016").val(salarioFormatado);
-
+      //$("#salarioAtual_016").val(salarioFormatado);
+      $("#codHorarioAtual_016").val(selectedItem.RA_TNOTRAB);
       $("#horarioAtual_016").val(selectedItem.R6_DESC);
       $("#tipoContratoAtual_016").val(selectedItem.RCC_DESC);
+      window["filialDestino_016"].disable(false);
+      window["centroCustoDestino_016"].disable(false);
+   }
+
+   if (selectedItem.inputId == "cargoDestino_016") {
+      $("#codCargoDestino_016").val(selectedItem.RJ_FUNCAO);
    }
 
    if (selectedItem.inputId == "campoZoomId") {
@@ -179,5 +187,30 @@ function removedZoomItem(removedItem) {
 
       window["matricula_016"].clear();
       window["matricula_016"].disable(true);
+   }
+
+   if (removedItem.inputId == "matricula_016") {
+      $("#numeroMatricula_016").val("");
+      $("#filialAtual_016").val("");
+      $("#centroCustoAtual_016").val("");
+      $("#codCargoAtual_016").val("");
+      $("#cargoAtual_016").val("");
+      $("#salarioAtual_016").val("");
+      $("#codHorarioAtual_016").val("");
+      $("#horarioAtual_016").val("");
+      $("#tipoContratoAtual_016").val("");
+      window["filialDestino_016"].clear();
+      window["filialDestino_016"].disable(true);
+      window["centroCustoDestino_016"].clear();
+      window["centroCustoDestino_016"].disable(true);
+   }
+
+   if (removedItem.inputId == "filialDestino_016") {
+      window["cargoDestino_016"].clear();
+      window["cargoDestino_016"].disable(true);
+   }
+
+   if (removedItem.inputId == "cargoDestino_016") {
+      $("#codCargoDestino_016").val("");
    }
 }

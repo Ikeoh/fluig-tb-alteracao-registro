@@ -57,7 +57,6 @@
             </div>
          </div>
 
-
          <!-- [SOLICITANTE] -->
          <div class="panel panel-default tb-panel-default">
             <div class="panel-heading tb-panel-heading">
@@ -72,10 +71,10 @@
                      <span style="color: red; font-weight: bold;">*</span>
                      <input class="form-control hidden" type="text" name="numeroFilial_016" id="numeroFilial_016" value="">
                      <input class="form-control" name="filial_016" id="filial_016" type="zoom" data-zoom="{
-                        'maximumSelectionLength':'1',
                         'datasetId':'ds_gtb_jdbc_empresas',
                         'displayKey':'M0_FILIAL',
                         'placeholder':'Selecionar',
+                        'maximumSelectionLength':'1',
                         'fields':[
                            {
                               'field':'M0_CODFIL',
@@ -94,10 +93,10 @@
                      <span style="color: red; font-weight: bold;">*</span>
                      <input class="form-control hidden" type="text" name="numeroMatricula_016" id="numeroMatricula_016" value="">
                      <input class="form-control" name="matricula_016" id="matricula_016" type="zoom" data-zoom="{
-                        'maximumSelectionLength':'1',
                         'datasetId':'ds_gtb_jdbc_016_matricula',
                         'displayKey':'RA_NOME',
                         'placeholder':'Selecionar',
+                        'maximumSelectionLength':'1',
                         'fields':[
                            {
                               'field':'RA_FILIAL',
@@ -116,119 +115,170 @@
                      }" />
                   </div>
                </div>
-               <div class="panel-body">
-                  <div class="row">
-                     <div class="panel-container">
-                        <!-- Coluna 1 -->
-                        <div class="col-sm-5 panel" id="dadosAtuaisPanel">
-                           <div class="form-group">
-                              <h4 class="tb-column-title">DADOS ATUAIS</h4>
-                           </div>
-                           <div class="form-group">
+
+               <div class="panel-container fs-md-margin-top">
+                  <div class="panel panel-default tb-panel-default col-sm-6 fs-no-padding " id="dadosAtuaisPanel">
+                     <div class="panel-heading tb-panel-heading">
+                        <h3 class="panel-title tb-panel-title">
+                           <span class="flaticon flaticon-database icon-sm fs-sm-margin-right"></span>DADOS ATUAIS
+                        </h3>
+                     </div>
+                     <div class="panel-body">
+                        <div class="row">
+                           <div class="form-group col-sm-6">
                               <label class="control-label" for="filialAtual_016">Filial Atual</label>
                               <input class="form-control" type="text" name="filialAtual_016" id="filialAtual_016" readonly>
                            </div>
-                           <div class="form-group">
+                           <div class="form-group col-sm-6">
                               <label class="control-label" for="centroCustoAtual_016">Centro Custo Atual</label>
                               <input class="form-control" type="text" name="centroCustoAtual_016" id="centroCustoAtual_016" readonly>
                            </div>
-                           <div class="form-group">
-                              <label class="control-label" for="cargoAtual_016">Cargo Atual</label>
+                        </div>
+                        <div class="row">
+                           <div class="form-group col-sm-3">
+                              <label class="control-label" for="codCargoAtual_016">Cód.</label>
+                              <input class="form-control" type="text" name="codCargoAtual_016" id="codCargoAtual_016" readonly>
+                           </div>
+                           <div class="form-group col-sm-9">
+                              <label class="control-label" for="cargoAtual_016">Desc. Cargo Atual</label>
                               <input class="form-control" type="text" name="cargoAtual_016" id="cargoAtual_016" readonly>
                            </div>
-                           <div class="form-group">
-                              <label class="control-label" for="salarioAtual_016">Salario Atual</label>
-                              <input class="form-control" type="text" name="salarioAtual_016" id="salarioAtual_016" readonly>
+                        </div>
+                        <div class="row">
+                           <div class="form-group col-sm-4">
+                              <label class="control-label" for="salarioAtual_016">Sal. Atual</label>
+                              <input class="form-control" type="text" name="salarioAtual_016" id="salarioAtual_016">
                            </div>
-                           <div class="form-group">
-                              <label class="control-label" for="horarioAtual_016">Horário de Trabalho Atual</label>
+                           <div class="form-group col-sm-2">
+                              <label class="control-label" for="codHorarioAtual_016">Cód.</label>
+                              <input class="form-control" type="text" name="codHorarioAtual_016" id="codHorarioAtual_016" readonly>
+                           </div>
+                           <div class="form-group col-sm-6">
+                              <label class="control-label" for="horarioAtual_016">H. de Trabalho Atual</label>
                               <input class="form-control" type="text" name="horarioAtual_016" id="horarioAtual_016" readonly>
                            </div>
-                           <div class="form-group">
+                        </div>
+                        <div class="row">
+                           <div class="form-group col-sm-12">
                               <label class="control-label" for="tipoContratoAtual_016">Tipo Contrato Atual</label>
                               <input class="form-control" type="text" name="tipoContratoAtual_016" id="tipoContratoAtual_016" readonly>
                            </div>
                         </div>
-
-                        <!-- Coluna 2 -->
-                        <div class="col-sm-5 panel" id="dadosDestinoPanel">
-                           <div class="form-group">
-                              <h4 class="tb-column-title">DADOS APÓS ALTERAÇÃO</h4>
-                           </div>
-                           <div class="form-group">
+                     </div>
+                  </div>
+                  <div class="panel panel-default tb-panel-default col-sm-6 fs-no-padding" id="dadosDestinoPanel">
+                     <div class="panel-heading tb-panel-heading">
+                        <h3 class="panel-title tb-panel-title">
+                           <span class="flaticon flaticon-database icon-sm fs-sm-margin-right"></span>DADOS APÓS ALTERAÇÃO
+                        </h3>
+                     </div>
+                     <div class="panel-body">
+                        <div class="row">
+                           <div class="form-group col-sm-6">
                               <label class="control-label" for="filialDestino_016">Filial Destino</label>
                               <input class="form-control" name="filialDestino_016" id="filialDestino_016" type="zoom" data-zoom="{
-                                 'maximumSelectionLength':'1',
-                                 'datasetId':'ds_gtb_jdbc_empresas',
-                                 'displayKey':'M0_CODFIL',
-                                 'placeholder':'Selecionar',
-                                 'fields':[
-                                    {
-                                       'field':'M0_CODFIL',
-                                       'label':'Código',
-                                       'standard':'true'
-                                    },
-                                    {
-                                       'field':'M0_FILIAL',
-                                       'label':'Filial'
-                                    }
-                                 ]
-                              }" />
+                                    'datasetId':'ds_gtb_jdbc_016_filial_destino',
+                                    'displayKey':'M0_CODFIL',
+                                    'placeholder':'Selecionar',
+                                    'maximumSelectionLength':'1',
+                                    'fields':[
+                                       {
+                                          'field':'M0_CODFIL',
+                                          'label':'Código',
+                                          'standard':'true'
+                                       },
+                                       {
+                                          'field':'M0_FILIAL',
+                                          'label':'Filial'
+                                       }
+                                    ]
+                                 }" />
                            </div>
-                           <div class="form-group">
+                           <div class="form-group col-sm-6">
                               <label class="control-label" for="centroCustoDestino_016">Centro Custo Destino</label>
                               <input type="zoom" class="form-control" id="centroCustoDestino_016" name="centroCustoDestino_016" data-zoom="{
-                                 'datasetId':'ds_gtb_jdbc_centro_de_custo',
-                                 'displayKey':'CTT_CUSTO',
-                                 'maximumSelectionLength':'1',
-                                 'placeholder':'Selecionar',
-                                 'fields':[
-                                    {
-                                       'field':'CTT_CUSTO',
-                                       'label':'Código',
-                                       'standard':'true'
-                                    },
-                                    {
-                                       'field':'CTT_DESC01',
-                                       'label':'Descrição'
-                                    }
-                                 ]
-                              }">
+                                    'datasetId':'ds_gtb_jdbc_centro_de_custo',
+                                    'displayKey':'CTT_CUSTO',
+                                    'maximumSelectionLength':'1',
+                                    'placeholder':'Selecionar',
+                                    'fields':[
+                                       {
+                                          'field':'CTT_CUSTO',
+                                          'label':'Código',
+                                          'standard':'true'
+                                       },
+                                       {
+                                          'field':'CTT_DESC01',
+                                          'label':'Descrição'
+                                       }
+                                    ]
+                                 }">
                            </div>
-                           <div class="form-group">
-                              <label class="control-label" for="cargoDestino_016">Cargo Destino</label>
+                        </div>
+                        <div class="row">
+                           <div class="form-group col-sm-3">
+                              <label class="control-label" for="codCargoDestino_016">Cód</label>
+                              <input class="form-control" type="text" name="codCargoDestino_016" id="codCargoDestino_016" readonly>
+                           </div>
+                           <div class="form-group col-sm-9">
+                              <label class="control-label" for="cargoDestino_016">Desc. Cargo Destino</label>
                               <input type="zoom" class="form-control" id="cargoDestino_016" name="cargoDestino_016" data-zoom="{
-                                 'datasetId':'ds_gtb_jdbc_016_cargos',
-                                 'displayKey':'RJ_DESC',
-                                 'maximumSelectionLength':'1',
-                                 'placeholder':'Selecionar',
-                                 'fields':[
-                                    {
-                                       'field':'RJ_FILIAL',
-                                       'label':'Prefixo Filial',
-                                       'standard':'true'
-                                    },
-                                    {
-                                       'field':'RJ_FUNCAO',
-                                       'label':'Cód. Função',
-                                       'standard':'true'
-                                    },
-                                    {
-                                       'field':'RJ_DESC',
-                                       'label':'Desc. Função'
-                                    }
-                                 ]
-                              }">
+                                    'datasetId':'ds_gtb_jdbc_016_cargos',
+                                    'displayKey':'RJ_DESC',
+                                    'maximumSelectionLength':'1',
+                                    'placeholder':'Selecionar',
+                                    'fields':[
+                                       {
+                                          'field':'RJ_FILIAL',
+                                          'label':'Prefixo Filial'
+                                       },
+                                       {
+                                          'field':'RJ_FUNCAO',
+                                          'label':'Cód. Função',
+                                          'standard':'true'
+                                       },
+                                       {
+                                          'field':'RJ_DESC',
+                                          'label':'Desc. Função'
+                                       }
+                                    ]
+                                 }">
                            </div>
-                           <div class="form-group">
-                              <label class="control-label" for="salarioDestino_016">Salario Destino</label>
+                        </div>
+                        <div class="row">
+                           <div class="form-group col-sm-4">
+                              <label class="control-label" for="salarioDestino_016">Sal. Destino</label>
                               <input class="form-control" type="text" name="salarioDestino_016" id="salarioDestino_016">
                            </div>
-                           <div class="form-group">
-                              <label class="control-label" for="horarioDestino_016">Horário de Trabalho Destino</label>
-                              <input class="form-control" type="text" name="horarioDestino_016" id="horarioDestino_016">
+                           <div class="form-group col-sm-2">
+                              <label class="control-label" for="codHorarioDestino_016">Cód.</label>
+                              <input class="form-control" type="text" name="codHorarioDestino_016" id="codHorarioDestino_016" readonly>
                            </div>
-                           <div class="form-group">
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 <label for="horarioDestino_016">H. de Trabalho Destino</label>
+                                 <input type="zoom" class="form-control" id="horarioDestino_016" name="horarioDestino_016" data-zoom="{
+                                       'datasetId':'ds_gtb_jdbc_016_hora_trabalho',
+                                       'displayKey':'R6_DESC',
+                                       'maximumSelectionLength':'1',
+                                       'placeholder':'',
+                                       'fields':[
+                                           {
+                                               'field':'R6_TURNO',
+                                               'label':'Turno'
+                                           },
+                                           {
+                                               'field':'R6_DESC',
+                                               'label':'Descrição',
+                                               'standard':'true'
+                                           }
+                                       ]
+                                   }">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="form-group col-sm-12">
                               <label class="control-label" for="tipoContratoDestino_016">Tipo Contrato Destino</label>
                               <input class="form-control" type="text" name="tipoContratoDestino_016" id="tipoContratoDestino_016">
                            </div>
@@ -236,24 +286,25 @@
                      </div>
                   </div>
                </div>
-               <div class="row">
-                  <div class="col-sm-12">
-                     <div class="form-group">
-                        <label class="control-label" for="adicionaisContrato_016">Adicionais do Contrato</label>
-                        <textarea class="form-control" rows="3" name="adicionaisContrato_016" id="adicionaisContrato_016"></textarea>
-                     </div>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-sm-12">
-                     <div class="form-group">
-                        <label class="control-label" for="justificativaSolicitante_016">Justificativa</label>
-                        <textarea class="form-control" rows="3" name="justificativaSolicitante_016" id="justificativaSolicitante_016"></textarea>
-                     </div>
-                  </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="form-group">
+                  <label class="control-label" for="adicionaisContrato_016">Adicionais do Contrato</label>
+                  <textarea class="form-control" rows="3" name="adicionaisContrato_016" id="adicionaisContrato_016"></textarea>
                </div>
             </div>
          </div>
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="form-group">
+                  <label class="control-label" for="justificativaSolicitante_016">Justificativa</label>
+                  <textarea class="form-control" rows="3" name="justificativaSolicitante_016" id="justificativaSolicitante_016"></textarea>
+               </div>
+            </div>
+         </div>
+
 
          <!-- [APROVAÇÃO CENTRO DE CUSTO ATUAL] -->
          <div class="panel panel-default tb-panel-default">
@@ -584,7 +635,7 @@
          <div class="panel panel-default tb-panel-default">
             <div class="panel-heading tb-panel-heading">
                <h3 class="panel-title tb-panel-title">
-                  <span class="flaticon flaticon-documents icon-sm fs-sm-margin-right"></span>ASSINATURA DO FUNCIONÁRIO
+                  <span class="flaticon flaticon-assignment-ind icon-sm fs-sm-margin-right"></span>ASSINATURA DO FUNCIONÁRIO
                </h3>
             </div>
             <div class="panel-body">
