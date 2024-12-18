@@ -115,6 +115,13 @@ function setSelectedZoomItem(selectedItem) {
       window["matricula_016"].disable(false);
    }
 
+   if (selectedItem.inputId == "filialDestino_016") {
+      // Pega apenas os 3 primeiros dígitos do M0_CODFIL
+      const filialTruncada = selectedItem["M0_CODFIL"].substring(0, 3);
+      console.log(filialTruncada);
+      reloadZoomFilterValues("cargoDestino_016", "RJ_FILIAL," + filialTruncada);
+   }
+
    if (selectedItem.inputId == "matricula_016") {
       $("#numeroMatricula_016").val(selectedItem.RA_MAT);
       $("#filialAtual_016").val(selectedItem.RA_FILIAL);

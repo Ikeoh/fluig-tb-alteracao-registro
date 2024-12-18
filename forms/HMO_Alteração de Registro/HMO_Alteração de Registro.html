@@ -197,7 +197,28 @@
                            </div>
                            <div class="form-group">
                               <label class="control-label" for="cargoDestino_016">Cargo Destino</label>
-                              <input class="form-control" type="text" name="cargoDestino_016" id="cargoDestino_016">
+                              <input type="zoom" class="form-control" id="cargoDestino_016" name="cargoDestino_016" data-zoom="{
+                                 'datasetId':'ds_gtb_jdbc_016_cargos',
+                                 'displayKey':'RJ_DESC',
+                                 'maximumSelectionLength':'1',
+                                 'placeholder':'Selecionar',
+                                 'fields':[
+                                    {
+                                       'field':'RJ_FILIAL',
+                                       'label':'Prefixo Filial',
+                                       'standard':'true'
+                                    },
+                                    {
+                                       'field':'RJ_FUNCAO',
+                                       'label':'Cód. Função',
+                                       'standard':'true'
+                                    },
+                                    {
+                                       'field':'RJ_DESC',
+                                       'label':'Desc. Função'
+                                    }
+                                 ]
+                              }">
                            </div>
                            <div class="form-group">
                               <label class="control-label" for="salarioDestino_016">Salario Destino</label>
