@@ -5,10 +5,10 @@ $(document).ready(function () {
    $(window).resize(adjustHeaderLayout); // Executa no redimensionamento
 
    setTimeout(function () {
-      window["matricula_016"].disable(true);
-      window["filialDestino_016"].disable(true);
-      window["centroCustoDestino_016"].disable(true);
-      window["cargoDestino_016"].disable(true);
+      //window["matricula_016"].disable(true);
+      //window["filialDestino_016"].disable(true);
+      //window["centroCustoDestino_016"].disable(true);
+      //window["cargoDestino_016"].disable(true);
    }, 300);
 });
 
@@ -120,6 +120,7 @@ function setSelectedZoomItem(selectedItem) {
    if (selectedItem.inputId == "filialDestino_016") {
       reloadZoomFilterValues("cargoDestino_016", "RJ_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       reloadZoomFilterValues("horarioDestino_016", "R6_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
+      reloadZoomFilterValues("tipoContratoDestino_016", "RCC_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       window["cargoDestino_016"].disable(false);
    }
 
@@ -129,14 +130,7 @@ function setSelectedZoomItem(selectedItem) {
       $("#centroCustoAtual_016").val(selectedItem.RA_CC);
       $("#codCargoAtual_016").val(selectedItem.RA_CARGO);
       $("#cargoAtual_016").val(selectedItem.RJ_DESC);
-
-      // Formatando o salário como moeda brasileira
-      const salario = parseFloat(selectedItem.RA_SALARIO);
-      const salarioFormatado = salario.toLocaleString("pt-BR", {
-         style: "currency",
-         currency: "BRL",
-      });
-      //$("#salarioAtual_016").val(salarioFormatado);
+      //$("#salarioAtual_016").val("");
       $("#codHorarioAtual_016").val(selectedItem.RA_TNOTRAB);
       $("#horarioAtual_016").val(selectedItem.R6_DESC);
       $("#tipoContratoAtual_016").val(selectedItem.RCC_DESC);
@@ -146,6 +140,10 @@ function setSelectedZoomItem(selectedItem) {
 
    if (selectedItem.inputId == "cargoDestino_016") {
       $("#codCargoDestino_016").val(selectedItem.RJ_FUNCAO);
+   }
+
+   if (selectedItem.inputId == "horarioDestino_016") {
+      $("#codHorarioDestino_016").val(selectedItem.R6_TURNO);
    }
 
    if (selectedItem.inputId == "campoZoomId") {
@@ -213,4 +211,59 @@ function removedZoomItem(removedItem) {
    if (removedItem.inputId == "cargoDestino_016") {
       $("#codCargoDestino_016").val("");
    }
+
+   if (removedItem.inputId == "horarioDestino_016") {
+      $("#codHorarioDestino_016").val("");
+   }
 }
+
+function formatarMoeda($elemento) {
+   // Pega o valor atual do campo
+   var valor = $elemento.val();
+
+   // Remove tudo o que não é dígito ou vírgula
+   valor = valor.replace(/[^\d,]/g, "");
+
+   // Substitui vírgula por ponto e remove pontos extras
+   valor = valor.replace(",", ".").replace(/\./g, "");
+
+   // Adiciona zeros à esquerda se o valor for menor que 100 (centavos)
+   if (valor && parseInt(valor) < 100) {
+      valor = valor.padStart(3, "0");
+   }
+
+   // Converte para float e formata com duas casas decimais
+   valor = (parseInt(valor, 10) / 100).toFixed(2);
+
+   // Verifica se o valor é um número válido
+   if (isNaN(valor)) {
+      // Se não for um número válido, limpa o campo ou define um valor padrão
+      $elemento.val("");
+      // $elemento.val('R$ 0,00'); // Descomente esta linha se preferir definir um valor padrão
+      return; // Sai da função
+   }
+
+   // Separa parte inteira e decimal
+   let partes = valor.split(".");
+   let parteInteira = partes[0];
+   let parteDecimal = partes[1];
+
+   // Adiciona os pontos como separadores de milhar
+   parteInteira = parteInteira.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+   // Junta a parte inteira e decimal com vírgula
+   valor = parteInteira + "," + parteDecimal;
+
+   // Adiciona o prefixo R$
+   valor = "R$ " + valor;
+
+   // Atualiza o valor do campo
+   $elemento.val(valor);
+}
+
+// Aplica a formatação em todos os campos com a classe 'campo-moeda'
+$(document).ready(function () {
+   $(".campo-moeda").on("input", function () {
+      formatarMoeda($(this));
+   });
+});

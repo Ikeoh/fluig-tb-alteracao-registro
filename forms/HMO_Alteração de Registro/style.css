@@ -292,7 +292,7 @@
 /* Estilização do painel DADOS ATUAIS*/
 #dadosAtuaisPanel {
    background-color: #e3f2fd;
-   border: 2px solid #90caf9;
+   /*border: 2px solid #90caf9;*/
    border-radius: 5px;
    padding: 15px;
    margin-bottom: 15px;
@@ -302,7 +302,7 @@
 /* Estilização do painel DADOS DE DESTINO*/
 #dadosDestinoPanel {
    background-color: #e8f5e9;
-   border: 2px solid #a5d6a7;
+   /*border: 2px solid #a5d6a7;*/
    border-radius: 5px;
    padding: 15px;
    margin-bottom: 15px;
