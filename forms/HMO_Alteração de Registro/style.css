@@ -271,17 +271,29 @@
    border: solid 1px #cc3d3d !important;
 }
 
-/*
 .panel-container {
-   display: flex;
-   justify-content: space-between;
-   align-items: stretch;
+   display: flex !important;
+   justify-content: space-between !important;
+   align-items: stretch !important;
 }
 
-.panel {
-   flex: 1;
+#dadosAtuaisPanel,
+#dadosDestinoPanel {
+   flex: 1 !important;
+   margin: 0 5px !important;
+   min-width: 0 !important;
 }
-*/
+
+@media (max-width: 560px) {
+   .panel-container {
+      flex-direction: column !important;
+   }
+
+   #dadosAtuaisPanel,
+   #dadosDestinoPanel {
+      margin: 5px 0 !important;
+   }
+}
 
 /* Estilização do painel DADOS ATUAIS*/
 #dadosAtuaisPanel {
