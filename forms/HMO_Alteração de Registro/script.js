@@ -119,9 +119,11 @@ function setSelectedZoomItem(selectedItem) {
 
    if (selectedItem.inputId == "filialDestino_016") {
       reloadZoomFilterValues("cargoDestino_016", "RJ_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
-      reloadZoomFilterValues("horarioDestino_016", "R6_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
+      reloadZoomFilterValues("codHorarioDestino_016", "R6_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       reloadZoomFilterValues("tipoContratoDestino_016", "RCC_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       window["cargoDestino_016"].disable(false);
+      window["codHorarioDestino_016"].disable(false);
+      window["tipoContratoDestino_016"].disable(false);
    }
 
    if (selectedItem.inputId == "matricula_016") {
@@ -142,8 +144,12 @@ function setSelectedZoomItem(selectedItem) {
       $("#codCargoDestino_016").val(selectedItem.RJ_FUNCAO);
    }
 
-   if (selectedItem.inputId == "horarioDestino_016") {
-      $("#codHorarioDestino_016").val(selectedItem.R6_TURNO);
+   if (selectedItem.inputId == "codHorarioDestino_016") {
+      $("#horarioDestino_016").val(selectedItem.R6_DESC);
+   }
+
+   if (selectedItem.inputId == "tipoContratoDestino_016") {
+      $("#codTipoContratoDestino_016").val(selectedItem.RCC_CODIGO_CONTEU);
    }
 
    if (selectedItem.inputId == "campoZoomId") {
@@ -201,19 +207,33 @@ function removedZoomItem(removedItem) {
       window["filialDestino_016"].disable(true);
       window["centroCustoDestino_016"].clear();
       window["centroCustoDestino_016"].disable(true);
+      window["tipoContratoAtual_016"].clear();
+      window["tipoContratoAtual_016"].disable(true);
    }
 
    if (removedItem.inputId == "filialDestino_016") {
+      window["centroCustoDestino_016"].clear();
+      $("#codCargoDestino_016").val("");
       window["cargoDestino_016"].clear();
       window["cargoDestino_016"].disable(true);
+      window["codHorarioDestino_016"].clear();
+      window["codHorarioDestino_016"].disable(true);
+      $("#horarioDestino_016").val("");
+      $("#codTipoContratoDestino_016").val("");
+      window["tipoContratoDestino_016"].clear();
+      window["tipoContratoDestino_016"].disable(true);
    }
 
    if (removedItem.inputId == "cargoDestino_016") {
       $("#codCargoDestino_016").val("");
    }
 
-   if (removedItem.inputId == "horarioDestino_016") {
-      $("#codHorarioDestino_016").val("");
+   if (removedItem.inputId == "codHorarioDestino_016") {
+      $("#horarioDestino_016").val("");
+   }
+
+   if (removedItem.inputId == "tipoContratoDestino_016") {
+      $("#codTipoContratoDestino_016").val("");
    }
 }
 
@@ -255,7 +275,7 @@ function formatarMoeda($elemento) {
    valor = parteInteira + "," + parteDecimal;
 
    // Adiciona o prefixo R$
-   valor = "R$ " + valor;
+   valor = valor;
 
    // Atualiza o valor do campo
    $elemento.val(valor);

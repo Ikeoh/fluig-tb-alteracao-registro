@@ -271,14 +271,7 @@
    border: solid 1px #cc3d3d !important;
 }
 
-/* Estilização para os títulos centralizados*/
-.tb-column-title {
-   text-align: center;
-   font-size: 1.5rem;
-   font-weight: bold;
-   margin-bottom: 15px;
-}
-
+/*
 .panel-container {
    display: flex;
    justify-content: space-between;
@@ -288,6 +281,7 @@
 .panel {
    flex: 1;
 }
+*/
 
 /* Estilização do painel DADOS ATUAIS*/
 #dadosAtuaisPanel {
