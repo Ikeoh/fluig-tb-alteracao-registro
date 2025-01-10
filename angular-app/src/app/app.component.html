@@ -1,4 +1,23 @@
-<p>TESTEEEEEEEEEEEEEEEEEEEE</p>
-
+<div class="card-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Alteração de Resgitro - Aprovação do Funcionário</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <mat-form-field>
+          <mat-label>Token</mat-label>
+          <input type="text" matInput [formControl]="tokenFormControl" placeholder="Insira seu token aqui">
+          @if (tokenFormControl.hasError('required')) {
+          <mat-error>Token é <strong>obrigatório!</strong></mat-error>
+          }
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" class="send-button">Enviar</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
 
 <router-outlet />

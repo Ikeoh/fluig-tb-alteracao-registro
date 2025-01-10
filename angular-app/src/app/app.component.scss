@@ -1,0 +1,33 @@
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  @media (min-width: 400px) {
+    mat-card {
+      min-width: 700px;
+    }
+  }
+
+  mat-card {
+    mat-card-header {
+      mat-card-title {
+        margin-bottom: 20px;
+      }
+
+    }
+
+    mat-card-content {
+      mat-form-field {
+        margin-bottom: 20px;
+        width: 100%;
+      }
+    }
+
+    mat-card-actions {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
