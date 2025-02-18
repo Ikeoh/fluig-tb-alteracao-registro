@@ -4,9 +4,11 @@ var beforeSendValidate = function (numState, nextState) {
    let msgErro = "";
 
    if (mode == "ADD") {
+      /*
       if (campoVazio("fieldId")) {
          msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Nome do Campo</strong> é de preenchimento obrigatório.</li>";
       }
+      */
    }
 
    if (mode == "MOD") {
