@@ -126,6 +126,11 @@ function setSelectedZoomItem(selectedItem) {
       window["tipoContratoDestino_016"].disable(false);
    }
 
+   if (selectedItem.inputId == "centroCustoDestino_016") {
+      const centroCusto = selectedItem["CTT_CUSTO"];
+      getAndDisplaySaldoDisponivel(centroCusto);
+   }
+
    if (selectedItem.inputId == "matricula_016") {
       $("#numeroMatricula_016").val(selectedItem.RA_MAT);
       $("#filialAtual_016").val(selectedItem.RA_FILIAL);
@@ -224,6 +229,10 @@ function removedZoomItem(removedItem) {
       window["tipoContratoDestino_016"].disable(true);
    }
 
+   if (removedItem.inputId == "centroCustoDestino_016") {
+      $("#saldoVagasDisponivel").val("");
+   }
+
    if (removedItem.inputId == "cargoDestino_016") {
       $("#codCargoDestino_016").val("");
    }
@@ -287,3 +296,53 @@ $(document).ready(function () {
       formatarMoeda($(this));
    });
 });
+
+async function getAndDisplaySaldoDisponivel(centroCusto) {
+   try {
+      const datasetName = "ds_gtb_jdbc_016_saldo_disponivel";
+
+      // Cria a constraint.
+      const constraints = [
+         {
+            _field: "CTT_CUSTO",
+            _initialValue: centroCusto,
+            _finalValue: centroCusto,
+            _type: 1,
+            _likeSearch: false,
+         },
+      ];
+
+      const fields = null; // Ou: ["CTT_CUSTO", "CTT_XQTDPE", "CTT_XQTDRE", "VAGAS_ATIVAS"]
+      const sortFields = null;
+
+      const dataset = await DatasetFactory.getDataset(datasetName, fields, constraints, sortFields);
+
+      if (dataset && dataset.values && dataset.values.length > 0) {
+         console.log("Dados do Dataset ds_gtb_jdbc_016_saldo_disponivel (filtrado):", dataset.values);
+
+         // --- CÁLCULO DO SALDO ---
+         const registro = dataset.values[0]; // Pega o primeiro (e provavelmente único) registro.
+
+         // Converte os valores para números (IMPORTANTE!).  Usa parseFloat e trata casos onde o valor pode ser undefined ou null.
+         const qtdPe = parseFloat(registro.CTT_XQTDPE) || 0;
+         const qtdRe = parseFloat(registro.CTT_XQTDRE) || 0;
+         const vagasAtivas = parseFloat(registro.VAGAS_ATIVAS) || 0;
+
+         const saldoDisponivel = qtdPe - qtdRe - vagasAtivas;
+
+         console.log("Saldo de vagas disponível:", saldoDisponivel);
+
+         // --- GRAVAÇÃO NO CAMPO DO FORMULÁRIO ---
+
+         // 1. Usando o método setvalue do FLUIG (Recomendado):
+         $("#saldoVagasDisponivel").val(saldoDisponivel);
+      } else {
+         console.warn("O dataset ds_gtb_jdbc_016_saldo_disponivel retornou vazio (após o filtro).");
+         if (dataset && dataset.values == null) {
+            console.error("Dataset.values é nulo! Verifique o nome do dataset, constraints, etc.");
+         }
+      }
+   } catch (error) {
+      console.error("Erro ao obter o dataset ds_gtb_jdbc_016_saldo_disponivel:", error);
+   }
+}
