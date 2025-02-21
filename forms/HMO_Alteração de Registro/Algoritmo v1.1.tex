@@ -1,0 +1,84 @@
+
+(Abertura da solicitação)
+   (Verificação do RH)
+      [Gateway]
+
+         Condição 0
+            -- Verificação do RH é Ajustar;
+               --> Encaminha para ajuste da solicitação;
+
+         Condição 1
+            -- Verificação do RH é Aprovar;
+            -- Há alteração de salário;
+               --> Encaminha para aprovação Planejamento e Controle Orçamentário;
+
+         Condição 2
+            -- Verificação do RH é Aprovar;
+            -- Não há alteração de salário;
+            -- Centro de custo destino é igual ao centro de custo atual;
+            -- Saldo de vagas é menor que 0;
+               --> Encaminha para aprovação do Planejamento e Controle Orçamentário;
+
+         Condição 3
+            -- Verificação do RH é Aprovar;
+            -- Não há alteração de salário;
+            -- Centro de custo destino é diferente do centro de custo atual;
+            -- Saldo de vagas é menor ou igual a 0;
+               --> Encaminha para aprovação do Planejamento e Controle Orçamentário;
+
+         Condição 4
+            -- Verificação do RH é Aprovar;
+            -- Não há alteração de salário;
+            -- Centro de custo destino é igual ao centro de custo atual;
+            -- Saldo de vagas é igual ou maior que 0;
+               --> Encaminha para aprovação do gestor do centro de custo atual;
+
+         Condição 5
+            -- Verificação do RH é Aprovar;
+            -- Não há alteração de salário;
+            -- Centro de custo destino é diferente do centro de custo atual;
+            -- Saldo de vagas é maior que 0;
+               --> Encaminha para aprovação do gestor do centro de custo atual;
+
+
+         (Ap. Planejamento e Controle Orçamentário)
+            [Gateway]
+
+               Condição 0
+                  -- Planejamento e Controle Orçamentário é Reprovar;
+                  -- dirResponsavel é igual a DIRADM
+                     --> Encaminha para aprovação do Diretor Administrativo;
+
+               Condição 1
+                  -- Planejamento e Controle Orçamentário é Reprovar;
+                  -- dirResponsavel é igual a DIRGERAL
+                     --> Encaminha para aprovação do Diretor Geral;
+
+               Condição 2
+                  -- Planejamento e Controle Orçamentário é Aprovar;
+                     --> Encaminha para aprovação do Centro de Custo Atual;
+
+         (Ap. Centro de Custo Atual)
+            [Gateway]
+
+               Condição
+                  -- Centro de Custo Atual é Reprovar;
+                     --> Encaminha para Finalizar Solicitação;
+
+               Condição
+                  -- Centro de Custo Atual é Aprovar;
+                  -- Centro de Custo Destino é diferente do Centro de Custo Atual;
+                     --> Encaminha para aprovação do gestor do centro de custo destino;
+
+               Condição
+                  -- Centro de Custo Atual é Aprovar;
+                  -- Centro de Custo Destino é igual ao Centro de Custo Atual;
+                  -- Há alteração salarial;
+                     --> Encaminha para aprovação do Diretor Geral;
+
+               Condição
+                  -- Centro de Custo Atual é Aprovar;
+                  -- Centro de Custo Destino é igual ao Centro de Custo Atual;
+                  -- Não há alteração salarial;
+                  -- Há alteração de cargo;
+                     --> Encaminha para aprovação do Diretor;

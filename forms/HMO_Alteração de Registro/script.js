@@ -98,7 +98,7 @@ $(document).ready(function () {
    };
 
    // Lista de atividades de aprovação a serem manipuladas
-   const activities = ["GestorAtual", "GestorDestino", "PlanejContrOrc", "DiretorAdm", "DiretorGrl", "ValidacaoRh"];
+   const activities = ["GestorAtual", "GestorDestino", "PlanejContrOrc", "DiretorAdm", "DiretorGrl", "ValidacaoRh", "VerificaRh"];
 
    // Inicializa a manipulação dos botões e verifica o status inicial para cada atividade
    activities.forEach((activity) => {
@@ -129,6 +129,7 @@ function setSelectedZoomItem(selectedItem) {
    if (selectedItem.inputId == "centroCustoDestino_016") {
       const centroCusto = selectedItem["CTT_CUSTO"];
       getAndDisplaySaldoDisponivel(centroCusto);
+      updateResponsibleDir();
    }
 
    if (selectedItem.inputId == "matricula_016") {
@@ -345,4 +346,24 @@ async function getAndDisplaySaldoDisponivel(centroCusto) {
    } catch (error) {
       console.error("Erro ao obter o dataset ds_gtb_jdbc_016_saldo_disponivel:", error);
    }
+}
+
+function updateResponsibleDir() {
+   const costCenterCode = $("#centroCustoDestino_016").val()?.trim() ?? ""; // Melhor captura e tratamento
+
+   if (costCenterCode.length < 2) {
+      FLUIGC.toast({
+         title: "Atenção:",
+         message: "Ocorreu um erro ao tentar capturar o prefixo do código de centro de custo.  Entre em contato com a equipe de TI responsável pelo Fluig!",
+         type: "danger",
+      });
+      return; // Saída antecipada é boa!
+   }
+
+   const prefix = costCenterCode.substring(0, 2);
+   console.log("prefix:", prefix); // Mais conciso
+
+   const responsibleDir = prefix === "01" || prefix === "99" ? "DIRGERAL" : "DIRADM"; // Operador ternário!
+   $("#dirResponsavel").val(responsibleDir);
+   console.log("Diretor Responsável:", $("#dirResponsavel").val()); // Mais conciso
 }

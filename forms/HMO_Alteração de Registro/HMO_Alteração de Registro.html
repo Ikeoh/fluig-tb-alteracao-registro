@@ -198,6 +198,7 @@
                            </div>
                            <div class="form-group col-sm-6">
                               <input class="form-control hidden" type="text" name="saldoVagasDisponivel" id="saldoVagasDisponivel" readonly>
+                              <input class="form-control hidden" type="text" name="dirResponsavel" id="dirResponsavel" readonly>
                               <label class="control-label" for="centroCustoDestino_016">Centro Custo Destino</label>
                               <span style="color: red; font-weight: bold;">*</span>
                               <input type="zoom" class="form-control" id="centroCustoDestino_016" name="centroCustoDestino_016" data-zoom="{
@@ -246,6 +247,7 @@
                                     }">
                            </div>
                            <div class="form-group col-sm-3">
+                              <input class="form-control hidden" type="text" name="alteraSalario" id="alteraSalario" readonly>
                               <label class="control-label" for="salarioDestino_016">Sal. Destino</label>
                               <span style="color: red; font-weight: bold;">*</span>
                               <input class="form-control campo-moeda" type="text" name="salarioDestino_016" id="salarioDestino_016" maxlength="17" onkeyup="formatarMoeda()">
@@ -329,6 +331,70 @@
             </div>
          </div>
 
+         <!-- [VERIFICAÇÃO DO RH] -->
+         <div class="panel panel-default tb-panel-default">
+            <div class="panel-heading tb-panel-heading">
+               <h3 class="panel-title tb-panel-title">
+                  <span class="flaticon flaticon-document-approved icon-sm fs-sm-margin-right"></span>VERIFICAÇÃO RH
+               </h3>
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                  <input type="hidden" name="codigoAprovadorVerificaRh" id="codigoAprovadorVerificaRh" />
+                  <input type="hidden" name="emailAprovadorVaerificaRh" id="emailAprovadorVaerificaRh" />
+                  <div class="col-sm-8">
+                     <div class="form-group">
+                        <label class="control-label" for="nomeAprovadorVerificaRh">Aprovador</label>
+                        <input class="form-control" type="text" name="nomeAprovadorVerificaRh" id="nomeAprovadorVerificaRh" readonly />
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="form-group">
+                        <label class="control-label" for="dataAprovacaoVerificaRh">Data</label>
+                        <input class="form-control" type="text" name="dataAprovacaoVerificaRh" id="dataAprovacaoVerificaRh" readonly />
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="form-group">
+                        <label class="control-label" for="horaAprovacaoVerificaRh">Hora</label>
+                        <input class="form-control" type="text" name="horaAprovacaoVerificaRh" id="horaAprovacaoVerificaRh" readonly />
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="form-group col-sm-3 fs-text-center">
+                     <input class="form-control hidden" type="text" name="ativAprovStatusVerificaRh" id="ativAprovStatusVerificaRh" value="">
+                     <label class="control-label fs-no-margin fs-no-padding" for="">Aprovação</label>
+                     <span style="color: red; font-weight: bold;">*</span>
+                     <span class="custom-tooltip">
+                        <i class="flaticon flaticon-info icon-sm" data-toggle="tooltip" data-placement="top" title="<b>VERDE</b>: Aprovar Solicitação<br><b>VERMELHO</b>: Reprovar Solicitação<br><b>AMARELO</b>: Solicitar Ajuste" data-html="true" aria-hidden="true"></i>
+                     </span>
+                     <div class="button-group fs-sm-margin-top">
+                        <!-- Botão para Aprovar -->
+                        <button class="btn btn-success btn-square" type="button" id="btnAprovarVerificaRh" title="">
+                           <i class="flaticon flaticon-check-circle icon-xl"></i>
+                        </button>
+                        <!-- Botão para Reprovar
+                        <button class="btn btn-danger btn-square fs-xs-margin-left" type="button" id="btnReprovarVerificaRh" title="">
+                           <i class="flaticon flaticon-cancel icon-xl"></i>
+                        </button>
+                        -->
+                        <!-- Botão para Ajustar -->
+                        <button class="btn btn-warning btn-square fs-xs-margin-left" type="button" id="btnAjustarVerificaRh" title="">
+                           <i class="flaticon flaticon-edit icon-xl"></i>
+                        </button>
+                     </div>
+                  </div>
+                  <div class="col-sm-9">
+                     <div class="form-group">
+                        <label class="control-label" for="justificativaVerificaRh">Justificativa</label>
+                        <span class="hidden" id="spanJustificativaVerificaRh" style="color: red; font-weight: bold;">*</span>
+                        <textarea class="form-control" rows="3" cols="3" name="justificativaVerificaRh" id="justificativaVerificaRh" readonly></textarea>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
 
          <!-- [APROVAÇÃO CENTRO DE CUSTO ATUAL] -->
          <div class="panel panel-default tb-panel-default">
@@ -673,7 +739,7 @@
             </div>
          </div>
 
-         <!-- [APROVAÇÃO DO RH] -->
+         <!-- [VALIDAÇÃO DO RH] -->
          <div class="panel panel-default tb-panel-default">
             <div class="panel-heading tb-panel-heading">
                <h3 class="panel-title tb-panel-title">
@@ -720,10 +786,11 @@
                         <button class="btn btn-danger btn-square fs-xs-margin-left" type="button" id="btnReprovarValidacaoRh" title="">
                            <i class="flaticon flaticon-cancel icon-xl"></i>
                         </button>
-                        <!-- Botão para Ajustar -->
+                        <!-- Botão para Ajustar
                         <button class="btn btn-warning btn-square fs-xs-margin-left" type="button" id="btnAjustarValidacaoRh" title="">
                            <i class="flaticon flaticon-edit icon-xl"></i>
                         </button>
+                        -->
                      </div>
                   </div>
                   <div class="col-sm-9">
