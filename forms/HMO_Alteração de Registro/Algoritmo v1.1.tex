@@ -46,39 +46,77 @@
 
                Condição 0
                   -- Planejamento e Controle Orçamentário é Reprovar;
-                  -- dirResponsavel é igual a DIRADM
-                     --> Encaminha para aprovação do Diretor Administrativo;
+                     --> Encaminha para aprovação do Diretor;
 
                Condição 1
-                  -- Planejamento e Controle Orçamentário é Reprovar;
-                  -- dirResponsavel é igual a DIRGERAL
-                     --> Encaminha para aprovação do Diretor Geral;
-
-               Condição 2
                   -- Planejamento e Controle Orçamentário é Aprovar;
                      --> Encaminha para aprovação do Centro de Custo Atual;
 
          (Ap. Centro de Custo Atual)
             [Gateway]
 
-               Condição
+               Condição 0
                   -- Centro de Custo Atual é Reprovar;
                      --> Encaminha para Finalizar Solicitação;
 
-               Condição
+               Condição 1
                   -- Centro de Custo Atual é Aprovar;
-                  -- Centro de Custo Destino é diferente do Centro de Custo Atual;
-                     --> Encaminha para aprovação do gestor do centro de custo destino;
+                  -- Aprovador do Centro de Custo Atual é diferente do Centro de Custo Destino;
+                     --> Encaminha para aprovação do gestor do Centro de Custo Destino;
 
-               Condição
+               Condição 2
                   -- Centro de Custo Atual é Aprovar;
-                  -- Centro de Custo Destino é igual ao Centro de Custo Atual;
+                  -- Aprovador do Centro de Custo Atual é igual ao Centro de Custo Destino;
                   -- Há alteração salarial;
+                     --> Encaminha para aprovação do Diretor;
+
+               Condição 3
+                  -- Centro de Custo Atual é Aprovar;
+                  -- Aprovador do Centro de Custo Atual é igual ao Centro de Custo Destino;
+                  -- Há alteração de Cargo;
+                     --> Encaminha para aprovação do Diretor;
+
+               Condição 4
+                  -- Centro de Custo Atual é Aprovar;
+                  -- Aprovador do Centro de Custo Atual é igual ao Centro de Custo Destino;
+                  -- Há alteração de Filial;
+                     --> Encaminha para aprovação do Diretor;
+
+               Condição 5
+                  -- Centro de Custo Atual é Aprovar;
+                  -- Aprovador do Centro de Custo Atual é igual ao Centro de Custo Destino;
+                  -- O prefixo do Centro de Custo Destino é 01 ou 99;
                      --> Encaminha para aprovação do Diretor Geral;
 
-               Condição
+               Condição 6
                   -- Centro de Custo Atual é Aprovar;
-                  -- Centro de Custo Destino é igual ao Centro de Custo Atual;
-                  -- Não há alteração salarial;
-                  -- Há alteração de cargo;
+                  -- Aprovador do Centro de Custo Atual é igual ao Centro de Custo Destino;
+                  -- O prefixo do Centro de Custo Destino não é 01 ou 99;
                      --> Encaminha para aprovação do Diretor;
+
+               (Ap. Centro de Custo Destino)
+                  [Gateway]
+
+                     Condição 0
+                        -- Centro de Custo Destino é Reprovar;
+                           --> Encaminha para Finalizar Solicitação;
+
+                     Condição 1
+                        -- Centro de Custo Destino é Aprovar;
+                        -- Há alteração salarial;
+                           --> Encaminha para aprovação do Diretor;
+
+                     Condição 2
+                        -- Centro de Custo Destino é Aprovar;
+                        -- Há alteração de Cargo;
+                           --> Encaminha para aprovação do Diretor;
+
+                     Condição 3
+                        -- Centro de Custo Destino é Aprovar;
+                        -- Há alteração de Filial;
+                           --> Encaminha para aprovação do Diretor;
+
+                     Condição 4
+                        -- Centro de Custo Destino é Aprovar;
+                        -- O prefixo do Centro de Custo Destino é 01 ou 99;
+                           --> Encaminha para aprovação do Diretor Geral;
