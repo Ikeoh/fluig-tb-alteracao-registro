@@ -98,7 +98,7 @@ $(document).ready(function () {
    };
 
    // Lista de atividades de aprovação a serem manipuladas
-   const activities = ["GestorAtual", "GestorDestino", "PlanejContrOrc", "DiretorAdm", "DiretorGrl", "ValidacaoRh", "VerificaRh"];
+   const activities = ["GestorAtual", "GestorDestino", "PlanejContrOrc", "Diretor", "DiretorGrl", "ValidacaoRh", "VerificaRh"];
 
    // Inicializa a manipulação dos botões e verifica o status inicial para cada atividade
    activities.forEach((activity) => {
@@ -422,7 +422,7 @@ function updateResponsibleDir() {
 }
 
 /**
- * Função para buscar informações de um centro de custo no Fluig e atribuir um valor a um campo (usando DatasetFactory, mas sem WCMAPI.set).
+ * Função para buscar informações de um centro de custo no Fluig e atribuir um responsável aprovador a um campo de controle.
  *
  * @param {string} codigoCentroCusto - O código do centro de custo.
  * @param {string} tipoResponsavel  - 'XRES' (responsável) ou 'XDIRET' (diretor).

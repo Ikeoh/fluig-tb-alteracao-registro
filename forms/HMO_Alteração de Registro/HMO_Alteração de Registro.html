@@ -183,7 +183,7 @@
                               <span style="color: red; font-weight: bold;">*</span>
                               <input class="form-control" name="filialDestino_016" id="filialDestino_016" type="zoom" data-zoom="{
                                        'datasetId':'ds_gtb_jdbc_016_filial_destino',
-                                       'displayKey':'M0_FILIAL',
+                                       'displayKey':'M0_CODFIL',
                                        'placeholder':'Selecione',
                                        'maximumSelectionLength':'1',
                                        'fields':[
@@ -594,39 +594,39 @@
             </div>
          </div>
 
-         <!-- [APROVAÇÃO DIRETORIA ADMINISTRATIVA] -->
+         <!-- [APROVAÇÃO DIRETORIA] -->
          <div class="panel panel-default tb-panel-default">
             <div class="panel-heading tb-panel-heading">
                <h3 class="panel-title tb-panel-title">
-                  <span class="flaticon flaticon-document-approved icon-sm fs-sm-margin-right"></span>DIRETOR ADMINISTRATIVO
+                  <span class="flaticon flaticon-document-approved icon-sm fs-sm-margin-right"></span>DIRETOR
                </h3>
             </div>
             <div class="panel-body">
                <div class="row">
-                  <input type="hidden" name="codigoAprovadorDiretorAdm" id="codigoAprovadorDiretorAdm" />
-                  <input type="hidden" name="emailAprovadorDiretorAdm" id="emailAprovadorDiretorAdm" />
+                  <input type="hidden" name="codigoAprovadorDiretor" id="codigoAprovadorDiretor" />
+                  <input type="hidden" name="emailAprovadorDiretor" id="emailAprovadorDiretor" />
                   <div class="col-sm-8">
                      <div class="form-group">
-                        <label class="control-label" for="nomeAprovadorDiretorAdm">Aprovador</label>
-                        <input class="form-control" type="text" name="nomeAprovadorDiretorAdm" id="nomeAprovadorDiretorAdm" readonly />
+                        <label class="control-label" for="nomeAprovadorDiretor">Aprovador</label>
+                        <input class="form-control" type="text" name="nomeAprovadorDiretor" id="nomeAprovadorDiretor" readonly />
                      </div>
                   </div>
                   <div class="col-sm-2">
                      <div class="form-group">
-                        <label class="control-label" for="dataAprovacaoDiretorAdm">Data</label>
-                        <input class="form-control" type="text" name="dataAprovacaoDiretorAdm" id="dataAprovacaoDiretorAdm" readonly />
+                        <label class="control-label" for="dataAprovacaoDiretor">Data</label>
+                        <input class="form-control" type="text" name="dataAprovacaoDiretor" id="dataAprovacaoDiretor" readonly />
                      </div>
                   </div>
                   <div class="col-sm-2">
                      <div class="form-group">
-                        <label class="control-label" for="horaAprovacaoDiretorAdm">Hora</label>
-                        <input class="form-control" type="text" name="horaAprovacaoDiretorAdm" id="horaAprovacaoDiretorAdm" readonly />
+                        <label class="control-label" for="horaAprovacaoDiretor">Hora</label>
+                        <input class="form-control" type="text" name="horaAprovacaoDiretor" id="horaAprovacaoDiretor" readonly />
                      </div>
                   </div>
                </div>
                <div class="row">
                   <div class="form-group col-sm-3 fs-text-center">
-                     <input class="form-control hidden" type="text" name="ativAprovStatusDiretorAdm" id="ativAprovStatusDiretorAdm" value="">
+                     <input class="form-control hidden" type="text" name="ativAprovStatusDiretor" id="ativAprovStatusDiretor" value="">
                      <label class="control-label fs-no-margin fs-no-padding" for="">Aprovação</label>
                      <span style="color: red; font-weight: bold;">*</span>
                      <span class="custom-tooltip">
@@ -634,11 +634,11 @@
                      </span>
                      <div class="button-group fs-sm-margin-top">
                         <!-- Botão para Aprovar -->
-                        <button class="btn btn-success btn-square" type="button" id="btnAprovarDiretorAdm" title="">
+                        <button class="btn btn-success btn-square" type="button" id="btnAprovarDiretor" title="">
                            <i class="flaticon flaticon-check-circle icon-xl"></i>
                         </button>
                         <!-- Botão para Reprovar -->
-                        <button class="btn btn-danger btn-square fs-xs-margin-left" type="button" id="btnReprovarDiretorAdm" title="">
+                        <button class="btn btn-danger btn-square fs-xs-margin-left" type="button" id="btnReprovarDiretor" title="">
                            <i class="flaticon flaticon-cancel icon-xl"></i>
                         </button>
                         <!-- Botão para Ajustar
@@ -650,9 +650,9 @@
                   </div>
                   <div class="col-sm-9">
                      <div class="form-group">
-                        <label class="control-label" for="justificativaDiretorAdm">Justificativa</label>
-                        <span class="hidden" id="spanJustificativaDiretorAdm" style="color: red; font-weight: bold;">*</span>
-                        <textarea class="form-control" rows="3" cols="3" name="justificativaDiretorAdm" id="justificativaDiretorAdm" readonly></textarea>
+                        <label class="control-label" for="justificativaDiretor">Justificativa</label>
+                        <span class="hidden" id="spanJustificativaDiretor" style="color: red; font-weight: bold;">*</span>
+                        <textarea class="form-control" rows="3" cols="3" name="justificativaDiretor" id="justificativaDiretor" readonly></textarea>
                      </div>
                   </div>
                </div>
