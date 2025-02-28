@@ -59,42 +59,49 @@ function displayFields(form, customHTML) {
 
 function setApprovalData(activity, form, name, userID, email, mode, date, hour) {
    if (mode != "VIEW") {
-      if (activity == ABERTURA) {
+      if (activity == AP_RH_VERIFICACAO) {
+         form.setValue("codigoAprovadorVerificaRh", userID);
+         form.setValue("emailAprovadorVerificaRh", email);
+         form.setValue("nomeAprovadorVerificaRh", name);
+         form.setValue("dataAprovacaoVerificaRh", date);
+         form.setValue("horaAprovacaoVerificaRh", hour);
+      }
+      if (activity == AP_CENTRO_CUSTO_ATUAL) {
          form.setValue("codigoAprovadorGestorAtual", userID);
          form.setValue("emailAprovadorGestorAtual", email);
          form.setValue("nomeAprovadorGestorAtual", name);
          form.setValue("dataAprovacaoGestorAtual", date);
          form.setValue("horaAprovacaoGestorAtual", hour);
       }
-      if (activity == ABERTURA) {
+      if (activity == AP_CENTRO_CUSTO_DESTINO) {
          form.setValue("codigoAprovadorGestorDestino", userID);
          form.setValue("emailAprovadorGestorDestino", email);
          form.setValue("nomeAprovadorGestorDestino", name);
          form.setValue("dataAprovacaoGestorDestino", date);
          form.setValue("horaAprovacaoGestorDestino", hour);
       }
-      if (activity == ABERTURA) {
+      if (activity == AP_PLANJ_CONTR_ORC) {
          form.setValue("codigoAprovadorPlanejContrOrc", userID);
          form.setValue("emailAprovadorPlanejContrOrc", email);
          form.setValue("nomeAprovadorPlanejContrOrc", name);
          form.setValue("dataAprovacaoPlanejContrOrc", date);
          form.setValue("horaAprovacaoPlanejContrOrc", hour);
       }
-      if (activity == ABERTURA) {
-         form.setValue("codigoAprovadorDiretorAdm", userID);
-         form.setValue("emailAprovadorDiretorAdm", email);
-         form.setValue("nomeAprovadorDiretorAdm", name);
-         form.setValue("dataAprovacaoDiretorAdm", date);
-         form.setValue("horaAprovacaoDiretorAdm", hour);
+      if (activity == AP_DIRETORIA) {
+         form.setValue("codigoAprovadorDiretor", userID);
+         form.setValue("emailAprovadorDiretor", email);
+         form.setValue("nomeAprovadorDiretor", name);
+         form.setValue("dataAprovacaoDiretor", date);
+         form.setValue("horaAprovacaoDiretor", hour);
       }
-      if (activity == ABERTURA) {
+      if (activity == AP_DIRETORIA_GRL) {
          form.setValue("codigoAprovadorDiretorGrl", userID);
          form.setValue("emailAprovadorDiretorGrl", email);
          form.setValue("nomeAprovadorDiretorGrl", name);
          form.setValue("dataAprovacaoDiretorGrl", date);
          form.setValue("horaAprovacaoDiretorGrl", hour);
       }
-      if (activity == ABERTURA) {
+      if (activity == AP_RH_VALIDACAO) {
          form.setValue("codigoAprovadorValidacaoRh", userID);
          form.setValue("emailAprovadorValidacaoRh", email);
          form.setValue("nomeAprovadorValidacaoRh", name);

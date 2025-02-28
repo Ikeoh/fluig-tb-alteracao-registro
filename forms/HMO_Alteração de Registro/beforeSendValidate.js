@@ -11,6 +11,7 @@ var beforeSendValidate = function (numState, nextState) {
       */
    }
 
+   /*
    if (mode == "MOD") {
       if (state == ATIVIDADE_1) {
       }
@@ -24,6 +25,7 @@ var beforeSendValidate = function (numState, nextState) {
       if (state == ATIVIDADE_4) {
       }
    }
+   */
 
    if (msgErro !== "") {
       msgErro = "<ul style='padding-left: 17px;color: red;list-style: disc;'>" + msgErro + "</ul><br/>";

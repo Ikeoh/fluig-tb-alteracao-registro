@@ -399,6 +399,71 @@
             </div>
          </div>
 
+         <!-- [APROVAÇÃO PLANEJAMENTO E CONTROLE ORÇAMENTÁRIO] -->
+         <div class="panel panel-default tb-panel-default">
+            <div class="panel-heading tb-panel-heading">
+               <h3 class="panel-title tb-panel-title">
+                  <span class="flaticon flaticon-document-approved icon-sm fs-sm-margin-right"></span>PLANEJAMENTO E CONTROLE ORÇAMENTÁRIO
+               </h3>
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                  <input type="hidden" name="codigoAprovadorPlanejContrOrc" id="codigoAprovadorPlanejContrOrc" />
+                  <input type="hidden" name="emailAprovadorPlanejContrOrc" id="emailAprovadorPlanejContrOrc" />
+                  <div class="col-sm-8">
+                     <div class="form-group">
+                        <label class="control-label" for="nomeAprovadorPlanejContrOrc">Aprovador</label>
+                        <input class="form-control" type="text" name="nomeAprovadorPlanejContrOrc" id="nomeAprovadorPlanejContrOrc" readonly />
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="form-group">
+                        <label class="control-label" for="dataAprovacaoPlanejContrOrc">Data</label>
+                        <input class="form-control" type="text" name="dataAprovacaoPlanejContrOrc" id="dataAprovacaoPlanejContrOrc" readonly />
+                     </div>
+                  </div>
+                  <div class="col-sm-2">
+                     <div class="form-group">
+                        <label class="control-label" for="horaAprovacaoPlanejContrOrc">Hora</label>
+                        <input class="form-control" type="text" name="horaAprovacaoPlanejContrOrc" id="horaAprovacaoPlanejContrOrc" readonly />
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="form-group col-sm-3 fs-text-center">
+                     <input class="form-control hidden" type="text" name="ativAprovStatusPlanejContrOrc" id="ativAprovStatusPlanejContrOrc" value="">
+                     <label class="control-label fs-no-margin fs-no-padding" for="">Aprovação</label>
+                     <span style="color: red; font-weight: bold;">*</span>
+                     <span class="custom-tooltip">
+                        <i class="flaticon flaticon-info icon-sm" data-toggle="tooltip" data-placement="top" title="<b>VERDE</b>: Aprovar Solicitação<br><b>VERMELHO</b>: Reprovar Solicitação" data-html="true" aria-hidden="true"></i>
+                     </span>
+                     <div class="button-group fs-sm-margin-top">
+                        <!-- Botão para Aprovar -->
+                        <button class="btn btn-success btn-square" type="button" id="btnAprovarPlanejContrOrc" title="">
+                           <i class="flaticon flaticon-check-circle icon-xl"></i>
+                        </button>
+                        <!-- Botão para Reprovar -->
+                        <button class="btn btn-danger btn-square fs-xs-margin-left" type="button" id="btnReprovarPlanejContrOrc" title="">
+                           <i class="flaticon flaticon-cancel icon-xl"></i>
+                        </button>
+                        <!-- Botão para Ajustar
+                        <button class="btn btn-warning btn-square fs-xs-margin-left" type="button" id="btnAjustarPlanejContrOrc" title="">
+                           <i class="flaticon flaticon-edit icon-xl"></i>
+                        </button>
+                        -->
+                     </div>
+                  </div>
+                  <div class="col-sm-9">
+                     <div class="form-group">
+                        <label class="control-label" for="justificativaPlanejContrOrc">Justificativa</label>
+                        <span class="hidden" id="spanJustificativaPlanejContrOrc" style="color: red; font-weight: bold;">*</span>
+                        <textarea class="form-control" rows="3" cols="3" name="justificativaPlanejContrOrc" id="justificativaPlanejContrOrc" readonly></textarea>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          <!-- [APROVAÇÃO CENTRO DE CUSTO ATUAL] -->
          <div class="panel panel-default tb-panel-default">
             <div class="panel-heading tb-panel-heading">
@@ -523,71 +588,6 @@
                         <label class="control-label" for="justificativaGestorDestino">Justificativa</label>
                         <span class="hidden" id="spanJustificativaGestorDestino" style="color: red; font-weight: bold;">*</span>
                         <textarea class="form-control" rows="3" cols="3" name="justificativaGestorDestino" id="justificativaGestorDestino" readonly></textarea>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-
-         <!-- [APROVAÇÃO PLANEJAMENTO E CONTROLE ORÇAMENTÁRIO] -->
-         <div class="panel panel-default tb-panel-default">
-            <div class="panel-heading tb-panel-heading">
-               <h3 class="panel-title tb-panel-title">
-                  <span class="flaticon flaticon-document-approved icon-sm fs-sm-margin-right"></span>PLANEJAMENTO E CONTROLE ORÇAMENTÁRIO
-               </h3>
-            </div>
-            <div class="panel-body">
-               <div class="row">
-                  <input type="hidden" name="codigoAprovadorPlanejContrOrc" id="codigoAprovadorPlanejContrOrc" />
-                  <input type="hidden" name="emailAprovadorPlanejContrOrc" id="emailAprovadorPlanejContrOrc" />
-                  <div class="col-sm-8">
-                     <div class="form-group">
-                        <label class="control-label" for="nomeAprovadorPlanejContrOrc">Aprovador</label>
-                        <input class="form-control" type="text" name="nomeAprovadorPlanejContrOrc" id="nomeAprovadorPlanejContrOrc" readonly />
-                     </div>
-                  </div>
-                  <div class="col-sm-2">
-                     <div class="form-group">
-                        <label class="control-label" for="dataAprovacaoPlanejContrOrc">Data</label>
-                        <input class="form-control" type="text" name="dataAprovacaoPlanejContrOrc" id="dataAprovacaoPlanejContrOrc" readonly />
-                     </div>
-                  </div>
-                  <div class="col-sm-2">
-                     <div class="form-group">
-                        <label class="control-label" for="horaAprovacaoPlanejContrOrc">Hora</label>
-                        <input class="form-control" type="text" name="horaAprovacaoPlanejContrOrc" id="horaAprovacaoPlanejContrOrc" readonly />
-                     </div>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="form-group col-sm-3 fs-text-center">
-                     <input class="form-control hidden" type="text" name="ativAprovStatusPlanejContrOrc" id="ativAprovStatusPlanejContrOrc" value="">
-                     <label class="control-label fs-no-margin fs-no-padding" for="">Aprovação</label>
-                     <span style="color: red; font-weight: bold;">*</span>
-                     <span class="custom-tooltip">
-                        <i class="flaticon flaticon-info icon-sm" data-toggle="tooltip" data-placement="top" title="<b>VERDE</b>: Aprovar Solicitação<br><b>VERMELHO</b>: Reprovar Solicitação" data-html="true" aria-hidden="true"></i>
-                     </span>
-                     <div class="button-group fs-sm-margin-top">
-                        <!-- Botão para Aprovar -->
-                        <button class="btn btn-success btn-square" type="button" id="btnAprovarPlanejContrOrc" title="">
-                           <i class="flaticon flaticon-check-circle icon-xl"></i>
-                        </button>
-                        <!-- Botão para Reprovar -->
-                        <button class="btn btn-danger btn-square fs-xs-margin-left" type="button" id="btnReprovarPlanejContrOrc" title="">
-                           <i class="flaticon flaticon-cancel icon-xl"></i>
-                        </button>
-                        <!-- Botão para Ajustar
-                        <button class="btn btn-warning btn-square fs-xs-margin-left" type="button" id="btnAjustarPlanejContrOrc" title="">
-                           <i class="flaticon flaticon-edit icon-xl"></i>
-                        </button>
-                        -->
-                     </div>
-                  </div>
-                  <div class="col-sm-9">
-                     <div class="form-group">
-                        <label class="control-label" for="justificativaPlanejContrOrc">Justificativa</label>
-                        <span class="hidden" id="spanJustificativaPlanejContrOrc" style="color: red; font-weight: bold;">*</span>
-                        <textarea class="form-control" rows="3" cols="3" name="justificativaPlanejContrOrc" id="justificativaPlanejContrOrc" readonly></textarea>
                      </div>
                   </div>
                </div>

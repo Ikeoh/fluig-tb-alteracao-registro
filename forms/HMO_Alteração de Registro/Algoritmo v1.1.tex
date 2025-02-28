@@ -1,180 +1,197 @@
+```
+    (Abertura da solicitação)
+    (Verificação do RH)
+       [Gateway]
 
-(Abertura da solicitação)
-   (Verificação do RH)
-      [Gateway]
-
-         Condição 0 [OK]
+           Condição 1 [OK]
             -- Verificação do RH é AJUSTAR;
                --> Encaminha para ajuste da solicitação;
 
-         Condição 1 [OK]
+               hAPI.getCardValue("ativAprovStatusVerificaRh") == "AJUSTAR"
+
+           Condição 2 [OK]
             -- Verificação do RH é APROVADO;
             -- Há alteração de salário;
                --> Encaminha para aprovação Planejamento e Controle Orçamentário;
 
-         Condição 2 [OK]
+               hAPI.getCardValue("ativAprovStatusVerificaRh") == "APROVADO" && hAPI.getCardValue("salarioDestino_016") != hAPI.getCardValue("salarioAtual_016")
+
+           Condição 3 [OK]
             -- Verificação do RH é APROVADO;
             -- Centro de custo destino é igual ao centro de custo atual;
             -- Saldo de vagas é menor que 0;
                --> Encaminha para aprovação do Planejamento e Controle Orçamentário;
 
-         Condição 3 [OK]
+               hAPI.getCardValue("ativAprovStatusVerificaRh") == "APROVADO" && hAPI.getCardValue("centroCustoDestino_016") == hAPI.getCardValue("centroCustoAtual_016") && hAPI.getCardValue("saldoVagasDisponivel") < 0
+
+           Condição 4 [OK]
             -- Verificação do RH é APROVADO;
             -- Centro de custo destino é diferente do centro de custo atual;
             -- Saldo de vagas é menor ou igual a 0;
                --> Encaminha para aprovação do Planejamento e Controle Orçamentário;
 
-         Condição 4 [OK]
+               hAPI.getCardValue("ativAprovStatusVerificaRh") == "APROVADO" && hAPI.getCardValue("centroCustoDestino_016") != hAPI.getCardValue("centroCustoAtual_016") && hAPI.getCardValue("saldoVagasDisponivel") <= 0
+
+           Condição 5 [OK]
             -- Verificação do RH é APROVADO;
             -- Centro de custo destino é igual ao centro de custo atual;
             -- Saldo de vagas é maior ou igual que 0;
                --> Encaminha para aprovação do gestor do centro de custo atual;
 
-         Condição 5 [OK]
+               hAPI.getCardValue("ativAprovStatusVerificaRh") == "APROVADO" && hAPI.getCardValue("centroCustoDestino_016") == hAPI.getCardValue("centroCustoAtual_016") && hAPI.getCardValue("saldoVagasDisponivel") >= 0
+
+           Condição 6 [OK]
             -- Verificação do RH é APROVADO;
             -- Centro de custo destino é diferente do centro de custo atual;
             -- Saldo de vagas é maior que 0;
                --> Encaminha para aprovação do gestor do centro de custo atual;
 
+               hAPI.getCardValue("ativAprovStatusVerificaRh") == "APROVADO" && hAPI.getCardValue("centroCustoDestino_016") != hAPI.getCardValue("centroCustoAtual_016") && hAPI.getCardValue("saldoVagasDisponivel") > 0
 
-         (Ap. Planejamento e Controle Orçamentário)
-            [Gateway]
 
-               Condição 0 [OK]
-                  -- Planejamento e Controle Orçamentário é REPROVADO;
-                     --> Encaminha para aprovação do Diretor;
+        (Ap. Planejamento e Controle Orçamentário)
+           [Gateway]
 
                Condição 1 [OK]
-                  -- Planejamento e Controle Orçamentário é APROVADO;
-                     --> Encaminha para aprovação do Centro de Custo Atual;
-
-         (Ap. Centro de Custo Atual)
-            [Gateway]
-
-               Condição 0 [OK]
-                  -- Centro de Custo Atual é REPROVADO;
-                     --> Encaminha para Finalizar Solicitação;
-
-               Condição 1 [OK]
-                  -- Centro de Custo Atual é APROVADO;
-                  -- Aprovador do Centro de Custo Atual é diferente do Aprovador Centro de Custo Destino;
-                     --> Encaminha para aprovação do gestor do Centro de Custo Destino;
+                 -- Planejamento e Controle Orçamentário é REPROVADO;
+                    --> Encaminha para aprovação do Diretor;
 
                Condição 2 [OK]
-                  -- Centro de Custo Atual é APROVADO;
-                  -- Aprovador do Centro de Custo Atual é igual ao Aprovador Centro de Custo Destino;
-                  -- Há alteração salarial;
-                  -- Aprovação do Diretor é NULL;
-                     --> Encaminha para aprovação do Diretor;
+                 -- Planejamento e Controle Orçamentário é APROVADO;
+                    --> Encaminha para aprovação do Centro de Custo Atual;
+
+        (Ap. Centro de Custo Atual)
+           [Gateway]
+
+               Condição 1 [OK]
+                 -- Centro de Custo Atual é REPROVADO;
+                    --> Encaminha para Finalizar Solicitação;
+
+               Condição 2 [OK]
+                 -- Centro de Custo Atual é APROVADO;
+                 -- Aprovador do Centro de Custo Atual é diferente do Aprovador Centro de Custo Destino;
+                    --> Encaminha para aprovação do gestor do Centro de Custo Destino;
 
                Condição 3 [OK]
-                  -- Centro de Custo Atual é APROVADO;
-                  -- Aprovador do Centro de Custo Atual é igual ao Aprovador Centro de Custo Destino;
-                  -- Há alteração de Cargo;
-                  -- Aprovação do Diretor é NULL;
-                     --> Encaminha para aprovação do Diretor;
+                 -- Centro de Custo Atual é APROVADO;
+                 -- Aprovador do Centro de Custo Atual é igual ao Aprovador Centro de Custo Destino;
+                 -- Há alteração salarial;
+                 -- Aprovação do Diretor é NULL;
+                    --> Encaminha para aprovação do Diretor;
 
                Condição 4 [OK]
-                  -- Centro de Custo Atual é APROVADO;
-                  -- Aprovador do Centro de Custo Atual é igual ao Aprovador Centro de Custo Destino;
-                  -- Há alteração de Filial;
-                  -- Aprovação do Diretor é NULL;
+                 -- Centro de Custo Atual é APROVADO;
+                 -- Aprovador do Centro de Custo Atual é igual ao Aprovador Centro de Custo Destino;
+                 -- Há alteração de Cargo;
+                 -- Aprovação do Diretor é NULL;
+                    --> Encaminha para aprovação do Diretor;
 
-                     --> Encaminha para aprovação do Diretor;
+               Condição 5 [OK]
+                 -- Centro de Custo Atual é APROVADO;
+                 -- Aprovador do Centro de Custo Atual é igual ao Aprovador Centro de Custo Destino;
+                 -- Há alteração de Filial;
+                 -- Aprovação do Diretor é NULL;
+                    --> Encaminha para aprovação do Diretor;
 
-               Condição 5 []
-                  -- Centro de Custo Atual é Aprovar;
-                  -- Aprovador do Centro de Custo Atual é igual ao Centro de Custo Destino;
-                  -- O prefixo do Centro de Custo Destino é 01 ou 99;
-                     --> Encaminha para aprovação do Diretor Geral;
+               Condição 6 [OK]
+                 -- Centro de Custo Atual é APROVADO;
+                 -- Aprovador do Centro de Custo Atual é igual ao Aprovador Centro de Custo Destino;
+                 -- O prefixo do Centro de Custo Destino é 01 ou 99;
+                    --> Encaminha para aprovação do Diretor Geral;
 
-               Condição 6 []
-                  -- Centro de Custo Atual é Aprovar;
-                  -- Aprovador do Centro de Custo Atual é igual ao Centro de Custo Destino;
-                     --> Encaminha para Assinatura do Funcionário;
+               Condição 7 [OK]
+                 -- Centro de Custo Atual é APROVADO;
+                 -- Aprovador do Centro de Custo Atual é igual ao Aprovador Centro de Custo Destino;
+                    --> Encaminha para Assinatura do Funcionário;
 
                (Ap. Centro de Custo Destino)
                   [Gateway]
 
-                     Condição 0
-                        -- Centro de Custo Destino é Reprovar;
-                           --> Encaminha para Finalizar Solicitação;
+                      Condição 1 [OK]
+                         -- Centro de Custo Destino é REPROVADO;
+                            --> Encaminha para Finalizar Solicitação;
 
-                     Condição 1
-                        -- Centro de Custo Destino é Aprovar;
-                        -- Há alteração salarial;
-                        -- Diretor é NULL;
-                           --> Encaminha para aprovação do Diretor;
+                      Condição 2 [OK]
+                         -- Centro de Custo Destino é APROVADO;
+                         -- Há alteração salarial;
+                         -- Diretor é NULL;
+                            --> Encaminha para aprovação do Diretor;
 
-                     Condição 2
-                        -- Centro de Custo Destino é Aprovar;
-                        -- Há alteração de Cargo;
-                        -- Diretor é NULL;
-                           --> Encaminha para aprovação do Diretor;
+                      Condição 3 [OK]
+                         -- Centro de Custo Destino é APROVADO;
+                         -- Há alteração de Cargo;
+                         -- Diretor é NULL;
+                            --> Encaminha para aprovação do Diretor;
 
-                     Condição 3
-                        -- Centro de Custo Destino é Aprovar;
-                        -- Há alteração de Filial;
-                        -- Diretor é NULL;
-                           --> Encaminha para aprovação do Diretor;
+                      Condição 4 [OK]
+                         -- Centro de Custo Destino é APROVADO;
+                         -- Há alteração de Filial;
+                         -- Diretor é NULL;
+                            --> Encaminha para aprovação do Diretor;
 
-                     Condição 4
-                        -- Centro de Custo Destino é Aprovar;
-                        -- O prefixo do Centro de Custo Destino é 01 ou 99;
-                           --> Encaminha para aprovação do Diretor Geral;
+                      Condição 5 [OK]
+                         -- Centro de Custo Destino é APROVADO;
+                         -- O prefixo do Centro de Custo Destino é 01 ou 99;
+                            --> Encaminha para aprovação do Diretor Geral;
 
-                     Condição 5
-                        -- Centro de Custo Destino é Aprovar;
-                           --> Encaminha para Assinatura do Funcionário;
+                      Condição 6 [OK]
+                         -- Centro de Custo Destino é APROVADO;
+                            --> Encaminha para Assinatura do Funcionário;
 
-                     (Ap. Diretoria)
-                        [Gateway]
+                      (Ap. Diretoria)
+                         [Gateway]
 
-                           Condição 0
-                              -- Diretoria é Reprovar;
+                            Condição 1 [OK]
+                              -- Diretoria é REPROVADO;
                                  --> Encaminha para Finalizar Solicitação;
 
-                           Condição 1
-                              -- Diretoria é Aprovar;
+                            Condição 2 []
+                              -- Diretoria é APROVADO;
+                              -- Centro de Custo Atual é NULL;
+                                 --> Encaminha para aprovação do Centro de Custo Atual;
+
+                            Condição 3 [OK]
+                              -- Diretoria é APROVADO;
                               -- O prefixo do Centro de Custo Destino é 01 ou 99;
                               -- Aprovador Diretor é diferente do Diretor Geral;
                                  --> Encaminha para aprovação do Diretor Geral;
 
-                           Condição 2
-                              -- Diretoria é Aprovar;
+                            Condição 4 [OK]
+                              -- Diretoria é APROVADO;
+                              -- Há alteração salarial;
+                              -- Aprovador Diretor é diferente do Diretor Geral;
+                                 --> Encaminha para aprovação do Diretor Geral;
+
+                            Condição 5 [OK]
+                              -- Diretoria é APROVADO;
                               -- O prefixo do Centro de Custo Destino é 01 ou 99;
                               -- Aprovador Diretor é igual ao Diretor Geral;
                                  -- Encaminha para Assinatura do Funcionário;
 
-                           Condição 3
-                              -- Diretoria é Aprovar;
-                              -- Há alteração salarial;
-                              -- Aprovador Diretor é diferente do Diretor Geral;
-                                 --> Encaminha para aprovação do Diretor Geral;
-
-                           Condição 4
-                              -- Diretoria é Aprovar;
+                            Condição 6 [OK]
+                              -- Diretoria é APROVADO;
                               -- Há alteração salarial;
                               -- Aprovador Diretor é igual ao Diretor Geral;
                                  --> Encaminha para Assinatura do Funcionário;
 
-                           Condição 5
-                              -- Diretoria é Aprovar;
+                            Condição 7 [OK]
+                              -- Diretoria é APROVADO;
                                  --> Encaminha para Assinatura do Funcionário;
 
-                           (Assinatura do Funcionário)
-                              --> Validação do RH;
+                            (Assinatura do Funcionário)
+                               --> Validação do RH;
 
-                              (Validação do RH)
-                                 [Gateway]
+                               (Validação do RH)
+                                  [Gateway]
 
-                                    Condição 0
-                                       -- Validação do RH é Reprovar;
+                                     Condição 1 [OK]
+                                       -- Validação do RH é REPROVADO;
                                           --> Encaminha para Finalizar Solicitação;
 
-                                    Condição 1
-                                       -- Validação do RH é Aprovar;
+                                     Condição 2 [OK]
+                                       -- Validação do RH é APROVADO;
                                           --> Encaminha para Integração;
 
-                                    (Integração)
-                                       --> Finalizar Solicitação;
+                                     (Integração)
+                                        --> Finalizar Solicitação;
+```
