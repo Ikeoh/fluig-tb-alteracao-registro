@@ -5,10 +5,14 @@ $(document).ready(function () {
    $(window).resize(adjustHeaderLayout); // Executa no redimensionamento
 
    setTimeout(function () {
-      //window["matricula_016"].disable(true);
-      //window["filialDestino_016"].disable(true);
-      //window["centroCustoDestino_016"].disable(true);
-      //window["cargoDestino_016"].disable(true);
+      window["matricula_016"].disable(true);
+      window["filialDestino_016"].disable(true);
+      window["centroCustoDestino_016"].disable(true);
+      window["cargoDestino_016"].disable(true);
+      window["codHorarioDestino_016"].disable(true);
+      window["tipoContratoDestino_016"].disable(true);
+      $("#salarioAtual_016").prop("disabled", true);
+      $("#salarioDestino_016").prop("disabled", true);
    }, 300);
 });
 
@@ -121,6 +125,7 @@ function setSelectedZoomItem(selectedItem) {
       reloadZoomFilterValues("cargoDestino_016", "RJ_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       reloadZoomFilterValues("codHorarioDestino_016", "R6_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       reloadZoomFilterValues("tipoContratoDestino_016", "RCC_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
+      window["centroCustoDestino_016"].disable(false);
       window["cargoDestino_016"].disable(false);
       window["codHorarioDestino_016"].disable(false);
       window["tipoContratoDestino_016"].disable(false);
@@ -146,7 +151,8 @@ function setSelectedZoomItem(selectedItem) {
       $("#horarioAtual_016").val(selectedItem.R6_DESC);
       $("#tipoContratoAtual_016").val(selectedItem.RCC_DESC);
       window["filialDestino_016"].disable(false);
-      window["centroCustoDestino_016"].disable(false);
+      $("#salarioAtual_016").prop("disabled", false);
+      $("#salarioDestino_016").prop("disabled", false);
 
       buscarCentroDeCusto($("#centroCustoAtual_016").val(), "XRES", "apvGestorAtual");
    }
@@ -173,19 +179,34 @@ function removedZoomItem(removedItem) {
    }
 
    if (removedItem.inputId == "matricula_016") {
+      //OUTROS
       $("#numeroMatricula_016").val("");
+
+      //ATUAIS
       $("#filialAtual_016").val("");
       $("#centroCustoAtual_016").val("");
       $("#codCargoAtual_016").val("");
       $("#cargoAtual_016").val("");
       $("#salarioAtual_016").val("");
+      $("#salarioAtual_016").prop("disabled", true);
       $("#codHorarioAtual_016").val("");
       $("#horarioAtual_016").val("");
       $("#tipoContratoAtual_016").val("");
+
+      //ALTERADOS
       window["filialDestino_016"].clear();
       window["filialDestino_016"].disable(true);
       window["centroCustoDestino_016"].clear();
       window["centroCustoDestino_016"].disable(true);
+      $("#codCargoDestino_016").val("");
+      window["cargoDestino_016"].clear();
+      window["cargoDestino_016"].disable(true);
+      $("#salarioDestino_016").val("");
+      $("#salarioDestino_016").prop("disabled", true);
+      window["codHorarioDestino_016"].clear();
+      window["codHorarioDestino_016"].disable(true);
+      $("#horarioDestino_016").val("");
+      $("#codTipoContratoDestino_016").val("");
       window["tipoContratoDestino_016"].clear();
       window["tipoContratoDestino_016"].disable(true);
       $("#apvGestorAtual").val("");
@@ -193,9 +214,11 @@ function removedZoomItem(removedItem) {
 
    if (removedItem.inputId == "filialDestino_016") {
       window["centroCustoDestino_016"].clear();
+      window["centroCustoDestino_016"].disable(true);
       $("#codCargoDestino_016").val("");
       window["cargoDestino_016"].clear();
       window["cargoDestino_016"].disable(true);
+      $("#salarioDestino_016").val("");
       window["codHorarioDestino_016"].clear();
       window["codHorarioDestino_016"].disable(true);
       $("#horarioDestino_016").val("");

@@ -18,7 +18,7 @@ function displayFields(form, customHTML) {
    var customJS = "<script>";
 
    if (mode == "ADD") {
-      var visaoAtividades = []; //Array das div's que serão ocultas
+      var visaoAtividades = ["divVerificaRh", "divPlanejContrOrc", "divAprovGestorAtual", "divAprovGestorDestino", "divAprovDiretoria", "divAprovDiretorGrl", "divAssinaturaFuncionario", "divValidacaoRh"]; //Array das div's que serão ocultas
       visaoAtividades.forEach(function (fieldId) {
          form.setVisibleById(fieldId, false);
       });
@@ -27,6 +27,27 @@ function displayFields(form, customHTML) {
       form.setValue("requesterName", currentUserData.getFullName());
       form.setValue("requesterEmail", currentUserData.getEmail());
       form.setValue("requestDate", currentDateHour);
+   }
+
+   if (mode == "MOD") {
+      if (state == AP_RH_VERIFICACAO) {
+         var visaoAtividades = ["divPlanejContrOrc", "divAprovGestorAtual", "divAprovGestorDestino", "divAprovDiretoria", "divAprovDiretorGrl", "divAssinaturaFuncionario", "divValidacaoRh"]; //Array das div's que serão ocultas
+         visaoAtividades.forEach(function (fieldId) {
+            form.setVisibleById(fieldId, false);
+         });
+      }
+      if (state == AP_PLANJ_CONTR_ORC) {
+      }
+      if (state == AP_CENTRO_CUSTO_ATUAL) {
+      }
+      if (state == AP_CENTRO_CUSTO_DESTINO) {
+      }
+      if (state == AP_DIRETORIA) {
+      }
+      if (state == AP_DIRETORIA_GRL) {
+      }
+      if (state == AP_RH_VALIDACAO) {
+      }
    }
 
    if (mode != "VIEW") {
