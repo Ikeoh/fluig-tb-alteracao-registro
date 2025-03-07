@@ -30,6 +30,12 @@ function displayFields(form, customHTML) {
    }
 
    if (mode == "MOD") {
+      if (state == AJUSTAR) {
+         var visaoAtividades = ["divPlanejContrOrc", "divAprovGestorAtual", "divAprovGestorDestino", "divAprovDiretoria", "divAprovDiretorGrl", "divAssinaturaFuncionario", "divValidacaoRh"]; //Array das div's que serão ocultas
+         visaoAtividades.forEach(function (fieldId) {
+            form.setVisibleById(fieldId, false);
+         });
+      }
       if (state == AP_RH_VERIFICACAO) {
          var visaoAtividades = ["divPlanejContrOrc", "divAprovGestorAtual", "divAprovGestorDestino", "divAprovDiretoria", "divAprovDiretorGrl", "divAssinaturaFuncionario", "divValidacaoRh"]; //Array das div's que serão ocultas
          visaoAtividades.forEach(function (fieldId) {

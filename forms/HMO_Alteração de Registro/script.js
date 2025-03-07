@@ -5,6 +5,7 @@ $(document).ready(function () {
    $(window).resize(adjustHeaderLayout); // Executa no redimensionamento
 
    let state = getState();
+
    if (state == ABERTURA) {
       setTimeout(function () {
          window["matricula_016"].disable(true);
