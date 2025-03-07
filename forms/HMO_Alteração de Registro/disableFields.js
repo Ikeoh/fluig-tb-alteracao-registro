@@ -4,11 +4,55 @@ $(document).ready(function () {
 
    // Verifica se a atividade atual é diferente de 'ABERTURA'
    if (state != ABERTURA) {
-      readonlyFields(["fieldId_1", "fieldId_2", "fieldId_3"]);
-      readonlyFieldsTable("tableName", ["tableFieldId_1", "tableFieldId_2", "tableFieldId_3"]);
-      disableFields(["fieldId_1", "fieldId_2", "fieldId_3"]);
-      disableFieldsTable("tableName", ["tableFieldId_1", "tableFieldId_2", "tableFieldId_3"]);
-      preventInteraction(["fieldId_1", "fieldId_2", "fieldId_3"]);
+      readonlyFields(["salarioAtual_016", "filial_016", "matricula_016", "filialDestino_016", "centroCustoDestino_016", "cargoDestino_016", "salarioDestino_016", "codHorarioDestino_016", "tipoContratoDestino_016"]);
+      disableFields([]);
+   }
+   if (state != INICIO) {
+      readonlyFields([]);
+      disableFields([]);
+   }
+   if (state != AP_RH_VERIFICACAO) {
+      readonlyFields([]);
+      disableFields(["btnAprovarVerificaRh", "btnReprovarVerificaRh", "btnAjustarVerificaRh"]);
+      preventInteraction([]);
+   }
+   if (state != AP_CENTRO_CUSTO_ATUAL) {
+      readonlyFields([]);
+      disableFields(["btnAprovarGestorAtual", "btnReprovarGestorAtual", "btnAjustarGestorAtual"]);
+      preventInteraction([]);
+   }
+   if (state != AP_CENTRO_CUSTO_DESTINO) {
+      readonlyFields([]);
+      disableFields(["btnAprovarGestorDestino", "btnReprovarGestorDestino", "btnAjustarGestorDestino"]);
+      preventInteraction([]);
+   }
+   if (state != AP_PLANJ_CONTR_ORC) {
+      readonlyFields([]);
+      disableFields(["btnAprovarPlanejContrOrc", "btnReprovarPlanejContrOrc", "btnAjustarPlanejContrOrc"]);
+      preventInteraction([]);
+   }
+   if (state != AP_DIRETORIA) {
+      readonlyFields([]);
+      disableFields(["btnAprovarDiretor", "btnReprovarDiretor", "btnAjustarDiretor"]);
+      preventInteraction([]);
+   }
+   if (state != AP_DIRETORIA_GRL) {
+      readonlyFields([]);
+      disableFields(["btnAprovarDiretorGrl", "btnReprovarDiretorGrl", "btnAjustarDiretorGrl"]);
+      preventInteraction([]);
+   }
+   if (state != ASS_FUNCIONARIO) {
+      readonlyFields([]);
+      disableFields([]);
+   }
+   if (state != AP_RH_VALIDACAO) {
+      readonlyFields([]);
+      disableFields(["btnAprovarValidacaoRh", "btnReprovarValidacaoRh", "btnAjustarValidacaoRh"]);
+      preventInteraction([]);
+   }
+   if (state != AJUSTAR) {
+      readonlyFields([]);
+      disableFields([]);
    }
 });
 

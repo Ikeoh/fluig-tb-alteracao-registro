@@ -37,16 +37,46 @@ function displayFields(form, customHTML) {
          });
       }
       if (state == AP_PLANJ_CONTR_ORC) {
+         var visaoAtividades = ["divVerificaRh", "divAprovGestorAtual", "divAprovGestorDestino", "divAprovDiretoria", "divAprovDiretorGrl", "divAssinaturaFuncionario", "divValidacaoRh"]; //Array das div's que serão ocultas
+         visaoAtividades.forEach(function (fieldId) {
+            form.setVisibleById(fieldId, false);
+         });
       }
       if (state == AP_CENTRO_CUSTO_ATUAL) {
+         var visaoAtividades = ["divVerificaRh", "divPlanejContrOrc", "divAprovGestorDestino", "divAprovDiretoria", "divAprovDiretorGrl", "divAssinaturaFuncionario", "divValidacaoRh"]; //Array das div's que serão ocultas
+         visaoAtividades.forEach(function (fieldId) {
+            form.setVisibleById(fieldId, false);
+         });
       }
       if (state == AP_CENTRO_CUSTO_DESTINO) {
+         var visaoAtividades = ["divVerificaRh", "divPlanejContrOrc", "divAprovGestorAtual", "divAprovDiretoria", "divAprovDiretorGrl", "divAssinaturaFuncionario", "divValidacaoRh"]; //Array das div's que serão ocultas
+         visaoAtividades.forEach(function (fieldId) {
+            form.setVisibleById(fieldId, false);
+         });
       }
       if (state == AP_DIRETORIA) {
+         var visaoAtividades = ["divVerificaRh", "divPlanejContrOrc", "divAprovGestorAtual", "divAprovGestorDestino", "divAprovDiretorGrl", "divAssinaturaFuncionario", "divValidacaoRh"]; //Array das div's que serão ocultas
+         visaoAtividades.forEach(function (fieldId) {
+            form.setVisibleById(fieldId, false);
+         });
       }
       if (state == AP_DIRETORIA_GRL) {
+         var visaoAtividades = ["divVerificaRh", "divPlanejContrOrc", "divAprovGestorAtual", "divAprovGestorDestino", "divAprovDiretoria", "divAssinaturaFuncionario", "divValidacaoRh"]; //Array das div's que serão ocultas
+         visaoAtividades.forEach(function (fieldId) {
+            form.setVisibleById(fieldId, false);
+         });
+      }
+      if (state == ASS_FUNCIONARIO) {
+         var visaoAtividades = ["divVerificaRh", "divPlanejContrOrc", "divAprovGestorAtual", "divAprovGestorDestino", "divAprovDiretoria", "divAprovDiretorGrl", "divValidacaoRh"]; //Array das div's que serão ocultas
+         visaoAtividades.forEach(function (fieldId) {
+            form.setVisibleById(fieldId, false);
+         });
       }
       if (state == AP_RH_VALIDACAO) {
+         var visaoAtividades = ["divVerificaRh", "divPlanejContrOrc", "divAprovGestorAtual", "divAprovGestorDestino", "divAprovDiretoria", "divAprovDiretorGrl", "divAssinaturaFuncionario"]; //Array das div's que serão ocultas
+         visaoAtividades.forEach(function (fieldId) {
+            form.setVisibleById(fieldId, false);
+         });
       }
    }
 

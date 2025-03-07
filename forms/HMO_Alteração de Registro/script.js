@@ -4,16 +4,19 @@ $(document).ready(function () {
    adjustHeaderLayout(); // Executa no carregamento
    $(window).resize(adjustHeaderLayout); // Executa no redimensionamento
 
-   setTimeout(function () {
-      window["matricula_016"].disable(true);
-      window["filialDestino_016"].disable(true);
-      window["centroCustoDestino_016"].disable(true);
-      window["cargoDestino_016"].disable(true);
-      window["codHorarioDestino_016"].disable(true);
-      window["tipoContratoDestino_016"].disable(true);
-      $("#salarioAtual_016").prop("disabled", true);
-      $("#salarioDestino_016").prop("disabled", true);
-   }, 300);
+   let state = getState();
+   if (state == ABERTURA) {
+      setTimeout(function () {
+         window["matricula_016"].disable(true);
+         window["filialDestino_016"].disable(true);
+         window["centroCustoDestino_016"].disable(true);
+         window["cargoDestino_016"].disable(true);
+         window["codHorarioDestino_016"].disable(true);
+         window["tipoContratoDestino_016"].disable(true);
+         $("#salarioAtual_016").prop("disabled", true);
+         $("#salarioDestino_016").prop("disabled", true);
+      }, 300);
+   }
 });
 
 // Função para alterar a estrutura do header com base no tamanho da tela para garantir responsividade
