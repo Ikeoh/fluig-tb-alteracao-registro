@@ -24,6 +24,18 @@
 			"userCode": "newton.negri",
 			"confirmExporting": false,
 			"companyId": 1
+		},
+		{
+			"id": "n171xypa2vem87gdbgrhrk19bgfklr",
+			"name": "NEWT",
+			"host": "127.0.0.1",
+			"ssl": false,
+			"port": 8080,
+			"username": "newton.negri",
+			"password": "eyJpdiI6IjM0Y2IzNWM3MTQyNjJhMGY0OWY2Y2ZhYTcwMDRmOWVmIiwic2FsdCI6IjEzMGMyYTYzNzVmYmQwYzAzMWU1NjQ3YTg4MTM1NzhlIiwidGV4dCI6IjhlOGNjNzE3NzMxMjI5NDE0NzM5MTdmMjI0Nzc1NDk5In0=",
+			"userCode": "newton.negri",
+			"confirmExporting": false,
+			"companyId": 1
 		}
 	]
 }
