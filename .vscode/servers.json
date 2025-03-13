@@ -2,37 +2,25 @@
 	"version": "1.0.0",
 	"configurations": [
 		{
-			"id": "sjd5wo09w8am7ynzm2r2v6tc6nto96",
-			"name": "HMO",
-			"host": "fluigteste.grupotb.com.br",
-			"ssl": true,
-			"port": 7443,
-			"username": "newton.negri",
-			"password": "eyJpdiI6IjQ1YjBjZmRhNTk3N2M5YjQyNGFmYzNmNWU3NjJmOGYzIiwic2FsdCI6IjdlNTA2NTY3YzhmYWEyMzhmYWE3NjgyOGNmNmIyNThjIiwidGV4dCI6ImJhOWM4NTBkNzA4NDIyZTE0NzAxMThmYTM1MTYwOWY1In0=",
-			"userCode": "newton.negri",
-			"confirmExporting": false,
-			"companyId": 1
-		},
-		{
-			"id": "6nh6dmvn48dm7yo09u4x1kf57a4o0k",
+			"id": "juf9rr1qf28m87grx29f1rog5528i4",
 			"name": "PRD",
 			"host": "fluig.grupotb.com.br",
 			"ssl": true,
 			"port": 8443,
 			"username": "newton.negri",
-			"password": "eyJpdiI6ImEyZmFlZTY0MDQ2NzE3NDBiOGEwMmM4MThkNDJmNjhjIiwic2FsdCI6ImQ2YWQ3NGJhMWIyYTAyNGY3ZjhlNDE1N2I0MjgxMmJjIiwidGV4dCI6IjQ2Mjc5MmVlMjgyNmVkMjYyZGY2YWViODRkMjg5NzAyIn0=",
+			"password": "eyJpdiI6IjNlOGJhZmM5Zjc1OTM3ZmZhYjQ4MDQyYjA0OWZiNTY5Iiwic2FsdCI6ImY2YTMwYzFjNTMyNDQ5NzU2MmVlOTIyMWRhZmY5ZjI1IiwidGV4dCI6ImU4ZjkzODZhMzI0NGUyMDNkZjQyZDIzZGMyMzA5NTcwIn0=",
 			"userCode": "newton.negri",
 			"confirmExporting": false,
 			"companyId": 1
 		},
 		{
-			"id": "n171xypa2vem87gdbgrhrk19bgfklr",
-			"name": "NEWT",
+			"id": "vd24bxhgjslm87q42a695d9beiit6q",
+			"name": "DEV",
 			"host": "127.0.0.1",
 			"ssl": false,
 			"port": 8080,
 			"username": "newton.negri",
-			"password": "eyJpdiI6IjM0Y2IzNWM3MTQyNjJhMGY0OWY2Y2ZhYTcwMDRmOWVmIiwic2FsdCI6IjEzMGMyYTYzNzVmYmQwYzAzMWU1NjQ3YTg4MTM1NzhlIiwidGV4dCI6IjhlOGNjNzE3NzMxMjI5NDE0NzM5MTdmMjI0Nzc1NDk5In0=",
+			"password": "eyJpdiI6Ijc5MThkZmM4OTVkNjRkZDc1NjVkMmI3NjUyOWFjZDdmIiwic2FsdCI6ImQ5ZGI2NDM5YjJlMGExYzk0ODVkNTI2ZWQzOGMyNDg3IiwidGV4dCI6IjE2ODcyMTgyOTM3YjgxZTIyYzNiOGQ0ZTRmYzg3NjE4In0=",
 			"userCode": "newton.negri",
 			"confirmExporting": false,
 			"companyId": 1
