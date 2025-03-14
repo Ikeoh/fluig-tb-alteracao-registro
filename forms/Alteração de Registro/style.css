@@ -91,9 +91,10 @@
 }
 
 .tb-panel-heading {
-   background-color: #00263e !important;
+   background-color: #00263e !important; /* Aplica o tom azul da empresa */
    border-top-left-radius: 8px !important; /* Arredonda o canto superior esquerdo */
    border-top-right-radius: 8px !important; /* Arredonda o canto superior direito */
+   padding: 0.6rem !important; /* Adiciona um espaçamento interno */
 }
 
 .tb-panel-body {
