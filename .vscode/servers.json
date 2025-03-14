@@ -24,6 +24,18 @@
 			"userCode": "newton.negri",
 			"confirmExporting": false,
 			"companyId": 1
+		},
+		{
+			"id": "y00i507gl6qm88ou6revgmjsd8hrub",
+			"name": "HMO",
+			"host": "fluigteste.grupotb.com.br",
+			"ssl": true,
+			"port": 7443,
+			"username": "newton.negri",
+			"password": "eyJpdiI6ImFmNWRkYmU1ZjZhZjBjYjA3YjJjZjc4NjdkMmU2Mjk2Iiwic2FsdCI6ImI2Y2FkNzFkZWUxZTE0NTU3ZGUzMmE5YjgwMDk3MDYzIiwidGV4dCI6ImMzMmI3NWNjM2FkYjVjOTE4YWQ3NWIxM2FkYTE4NjRiIn0=",
+			"userCode": "newton.negri",
+			"confirmExporting": false,
+			"companyId": 1
 		}
 	]
 }
