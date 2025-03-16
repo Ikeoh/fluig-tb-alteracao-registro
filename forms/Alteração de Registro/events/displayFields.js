@@ -18,7 +18,7 @@ function displayFields(form, customHTML) {
    var customJS = "<script>";
 
    if (mode == "ADD") {
-      var visaoAtividades = ["divVerificaRh", "divPlanejContrOrc", "divAprovGestorAtual", "divAprovGestorDestino", "divAprovDiretoria", "divAprovDiretorGrl", "divAssinaturaFuncionario", "divValidacaoRh"]; //Array das div's que serão ocultas
+      var visaoAtividades = []; //"divVerificaRh", "divPlanejContrOrc", "divAprovGestorAtual", "divAprovGestorDestino", "divAprovDiretoria", "divAprovDiretorGrl", "divAssinaturaFuncionario", "divValidacaoRh"
       visaoAtividades.forEach(function (fieldId) {
          form.setVisibleById(fieldId, false);
       });
@@ -78,6 +78,7 @@ function displayFields(form, customHTML) {
             form.setVisibleById(fieldId, false);
          });
       }
+
       if (state == AP_RH_VALIDACAO) {
          var visaoAtividades = ["divVerificaRh", "divPlanejContrOrc", "divAprovGestorAtual", "divAprovGestorDestino", "divAprovDiretoria", "divAprovDiretorGrl", "divAssinaturaFuncionario"]; //Array das div's que serão ocultas
          visaoAtividades.forEach(function (fieldId) {
@@ -95,6 +96,13 @@ function displayFields(form, customHTML) {
       customJS += "$('.custom-tooltip').addClass('hidden');";
    }
 
+   // Condição para remover os botões upload/delete em determinadas atividades que precisam apenas visualizar o arquivo
+   /*
+   if (state != ASS_FUNCIONARIO) {
+      customJS += "invisibleBtnUpload('fnNomeDoAnexo');";
+   }
+   */
+
    setApprovalData(state, form, currentUserData.getFullName(), currentUserData.getLogin(), currentUserData.getEmail(), mode, currentDate, currentHour);
 
    customJS += "function getCodProcess(){ return '" + codProcess + "'};";
@@ -108,7 +116,7 @@ function displayFields(form, customHTML) {
    customJS += "function getCurrentDate(){ return '" + currentDate + "'};";
    customJS += "function getCurrentHour(){ return '" + currentHour + "'};";
    customJS += "function getMobile(){ return " + mobile + "};";
-   //customJS += "displayBtnFiles();"; // Habilitar em casos de uso de tabela pai-filho de anexos
+   customJS += "displayBtnFiles();"; // Habilitar em casos de uso de tabela pai-filho de anexos
    //customJS += "tableLineCount();"; // Habilitar em casos de uso de tabela pai-filho de anexos
    customJS += "</script>";
    customHTML.append(customJS);

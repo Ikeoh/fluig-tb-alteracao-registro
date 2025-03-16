@@ -735,9 +735,31 @@
             </div>
             <div class="panel-body">
                <div class="row">
-                  <div class=" col-sm-3">
+                  <input class="form-control hidden" type="text" name="accessToken" id="accessToken" value="" readonly>
+                  <div class="col-sm-12">
                      <div class="form-group">
-                        <input class="form-control" type="text" name="accessToken" id="accessToken" value="" readonly>
+                        <button class="btn btn-md btn-warning" id="btnGerarPDF">Gerar Documento</button>
+                     </div>
+                  </div>
+                  <div class="col-sm-4">
+                     <div class="form-group">
+                        <label class="control-label" for="fnDocumentoAssinado">Arquivo</label>
+                        <span style="color: red; font-weight: bold;">*</span>
+                        <div class="componentAnexo">
+                           <input class="form-control descAnexo" type="hidden" name="fdDocumentoAssinado" value="Documento Assinado - Funcionário" />
+                           <input class="form-control inputAnexo" type="text" name="fnDocumentoAssinado" id="fnDocumentoAssinado" placeholder="Selecione um arquivo" readonly />
+                           <div class="icons">
+                              <button class="btnUpFile btn btn-success btn-sm" type="button" data-acao="upload" onclick="anexo(event)" title="Selecionar">
+                                 <i class="fluigicon fluigicon-file-upload icon-sm"></i>
+                              </button>
+                              <button class="btnViewerFile btn btn-info btn-sm" type="button" style="display: none;" data-acao="viewer" onclick="anexo(event)" title="Visualizar" disabled>
+                                 <i class="fluigicon fluigicon-eye-open icon-sm"></i>
+                              </button>
+                              <button class="btnDownloadFile btn btn-info btn-sm" type="button" style="display: none;" data-acao="download" onclick="anexo(event)" title="Download" disabled>
+                                 <i class="fluigicon fluigicon-download icon-sm"></i>
+                              </button>
+                           </div>
+                        </div>
                      </div>
                   </div>
                </div>
@@ -780,7 +802,7 @@
                      <label class="control-label fs-no-margin fs-no-padding" for="">Aprovação</label>
                      <span style="color: red; font-weight: bold;">*</span>
                      <span class="custom-tooltip">
-                        <i class="flaticon flaticon-info icon-sm" data-toggle="tooltip" data-placement="top" title="<b>VERDE</b>: Aprovar Solicitação<br><b>VERMELHO</b>: Reprovar Solicitação" data-html="true" aria-hidden="true"></i>
+                        <i class="flaticon flaticon-info icon-sm" data-toggle="tooltip" data-placement="top" title="<b>VERDE</b>: Aprovar Solicitação<br><b>VERMELHO</b>: Reprovar Solicitação<br><b>AMARELO</b>: Reprovar Solicitação" data-html="true" aria-hidden="true"></i>
                      </span>
                      <div class="button-group fs-sm-margin-top">
                         <!-- Botão para Aprovar -->
@@ -791,11 +813,11 @@
                         <button class="btn btn-danger btn-square fs-xs-margin-left" type="button" id="btnReprovarValidacaoRh" title="">
                            <i class="flaticon flaticon-cancel icon-xl"></i>
                         </button>
-                        <!-- Botão para Ajustar
+                        <!-- Botão para Ajustar -->
                         <button class="btn btn-warning btn-square fs-xs-margin-left" type="button" id="btnAjustarValidacaoRh" title="">
                            <i class="flaticon flaticon-edit icon-xl"></i>
                         </button>
-                        -->
+
                      </div>
                   </div>
                   <div class="col-sm-9">
@@ -887,12 +909,16 @@
    <script src="/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
    <!-- Outros Scripts -->
    <script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
    <!-- Seus scripts personalizados -->
    <script type="text/javascript" src="script.js" charset="utf-8"></script>
    <script type="text/javascript" src="activities.js" charset="utf-8"></script>
    <script type="text/javascript" src="timelineComponent.js" charset="utf-8"></script>
    <script type="text/javascript" src="beforeSendValidate.js" charset="utf-8"></script>
    <script type="text/javascript" src="disableFields.js" charset="utf-8"></script>
+   <script type="text/javascript" src="anexos.js" charset="utf-8"></script>
+   <script type="text/javascript" src="pdfMake.js" charset="utf-8"></script>
 </body>
 
 </html>
