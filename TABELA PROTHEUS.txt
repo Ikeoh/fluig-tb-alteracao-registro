@@ -1,0 +1,71 @@
+Relação de campos da tabela customizada que fará integração com o Protheus
+
+RQTNAME (Nome do Solicitante)
+RQTNUMBER (Número da solicitação)
+RQTDATE (Data e Hora de abertura da solicitação)
+RQTEMAIL (Email do Solicitante)
+
+NRMATR (Numero da matricula)
+MATRICULA (Nome da matricula)
+
+FLATUAL (Numero da filial atual da matricula)
+CCATUAL (Numero do centro de custo atual da matricula)
+GESATUAL (Gestor do Centro de custo atual)
+CGATUAL (Numero do código do cargo atual)
+DCGATUAL (Descrição do cargo atual)
+SLATUAL (Valor do salário atual)
+HRATUAL (Numero do código do horário atual)
+DHRATUAL (Descrição do horário atual)
+TPCATUAL (Descrição do tipo de contrato atual)
+
+FLDEST (Numero da filial destino da matricula)
+CCDEST (Numero do centro de custo destino da matricula)
+GESDEST (Gestor do centro de custo destino)
+DIRDEST (Diretor do centro de custo destino)
+CGDEST (Numero do código do cargo destino)
+DCGDEST (Descrição do cargo destino)
+SLDEST (Valor do salário destino)
+HRDEST (Numero do código do horário destino)
+DHRDEST (Descrição do horário destino)
+TPCDEST (Descrição do tipo de contrato destino)
+
+ADCCNTR (Adicionais do contrato)
+
+JUSTIF (Justificativa)
+
+APRV_RHVER_NOME (Nome do aprovador)
+APRV_RHVER_DATA (Data da aprovação)
+APRV_RHVER_HORA (Hora da aprovação)
+APRV_RHVER_JUST (Justificativa da reprovação)
+
+APRV_PCO_NOME (Nome do aprovador)
+APRV_PCO_DATA (Data da aprovação)
+APRV_PCO_HORA (Hora da aprovação)
+APRV_PCO_JUST (Justificativa da reprovação)
+
+APRV_CCATU_NOME (Nome do aprovador)
+APRV_CCATU_DATA (Data da aprovação)
+APRV_CCATU_HORA (Hora da aprovação)
+APRV_CCATU_JUST (Justificativa da reprovação)
+
+APRV_CCDES_NOME (Nome do aprovador)
+APRV_CCDES_DATA (Data da aprovação)
+APRV_CCDES_HORA (Hora da aprovação)
+APRV_CCDES_JUST (Justificativa da reprovação)
+
+APRV_DIR_NOME (Nome do aprovador)
+APRV_DIR_DATA (Data da aprovação)
+APRV_DIR_HORA (Hora da aprovação)
+APRV_DIR_JUST (Justificativa da reprovação)
+
+APRV_DIRGRL_NOME (Nome do aprovador)
+APRV_DIRGRL_DATA (Data da aprovação)
+APRV_DIRGRL_HORA (Hora da aprovação)
+APRV_DIRGRL_JUST (Justificativa da reprovação)
+
+DOCASS (Pdf ou foto do documento assinado)
+
+APRV_RHVAL_NOME (Nome do aprovador)
+APRV_RHVAL_DATA (Data da aprovação)
+APRV_RHVAL_HORA (Hora da aprovação)
+APRV_RHVAL_JUST (Justificativa da reprovação)
