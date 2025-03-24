@@ -2,7 +2,7 @@ Informações Gerais da Solicitação:
 
     ZF2_SOLICT: (Nome do Solicitante)
     ZF2_NRSOLI: (Número da solicitação)
-    ZF2_DTSOLI: (Data e Hora da Solicitação - Sugestão: Usar um único campo para Data e Hora)
+    ZF2_DTSOLI: (Data e Hora da Solicitação)
     ZF2_EMASOL: (Email do Solicitante)
     ZF2_JUSTIF: (Justificativa da solicitação)
     ZF2_DOCASS: (Documento assinado)
@@ -23,7 +23,7 @@ Situação Atual do Funcionário:
     ZF2_HORATU: (Código do Horário Atual)
     ZF2_DSHRAT: (Descrição do Horário Atual)
     ZF2_TPCOAT: (Descrição do Tipo de Contrato Atual)
-    ZF2_ADCNTR: (Adicionais do contrato) Poderia ser texto livre?
+    ZF2_ADCNTR: (Adicionais do contrato)
 
 Situação Destino (Proposta):
 
