@@ -1,0 +1,45 @@
+# Ignore Fluig temporary files and folders
+*.tmp
+tmp/
+*.log
+logs/
+temp/
+*.bak
+*.swp
+
+# Ignore operating system files
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Ignore IDE-specific files (adapt these to your IDE)
+.idea/
+*.iml
+.vscode/
+
+# Ignore build outputs and cache
+target/
+build/
+node_modules/
+dist/
+out/
+
+
+# Ignore potentially sensitive data files
+*.csv  # Example, adjust if needed
+*.xls  # Example, adjust if needed
+*.xlsx # Example, adjust if needed
+
+# Ignore local image files (if used for testing or development)
+resources/logo-tb-padrao.png # Example, adjust if needed
+
+
+# Ignore temporary files created by pdfmake if needed
+*.pdf # Only if you don't need to keep generated PDFs in version control
+
+
+# Ignore other specific files as needed
+# Add more patterns based on your project's specific files to ignore
+
+# Example: If you've got a directory containing only local, temporary data
+local_data/
