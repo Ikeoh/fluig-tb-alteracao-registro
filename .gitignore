@@ -26,20 +26,7 @@ out/
 
 
 # Ignore potentially sensitive data files
-*.csv  # Example, adjust if needed
-*.xls  # Example, adjust if needed
-*.xlsx # Example, adjust if needed
-
-# Ignore local image files (if used for testing or development)
-resources/logo-tb-padrao.png # Example, adjust if needed
-
-
-# Ignore temporary files created by pdfmake if needed
-*.pdf # Only if you don't need to keep generated PDFs in version control
-
-
-# Ignore other specific files as needed
-# Add more patterns based on your project's specific files to ignore
-
-# Example: If you've got a directory containing only local, temporary data
-local_data/
+*.csv
+*.xls
+*.xlsx
+*.pdf
