@@ -19,10 +19,10 @@ $(document).ready(function () {
       });
 
       $("#btnGerarPDF").on("click", function () {
-         dataAtual = "26/03/2025"; // Example date
-         nomeFuncionario = "John Doe";
-         cpfFuncionario = "123.456.789-00";
-         horarioTrabalho = "40";
+         dataAtual = getCurrentDate(); //getCurrentDate()
+         nomeFuncionario = $("#nomeFuncionario_016").val(); //$("#nomeFuncionario_016").val();
+         cpfFuncionario = $("#numeroCpf").val(); //$("#numeroCpf").val();
+         horarioTrabalho = $("#horasSemanais").val(); //$("#horasSemanais").val();
          cargo = "Analista";
          salario = "5000,00";
          novoEndereco = "Rua Teste, 123";

@@ -8,7 +8,7 @@ $(document).ready(function () {
 
    if (state == ABERTURA) {
       setTimeout(function () {
-         window["matricula_016"].disable(true);
+         window["nomeFuncionario_016"].disable(true);
          window["filialDestino_016"].disable(true);
          window["centroCustoDestino_016"].disable(true);
          window["cargoDestino_016"].disable(true);
@@ -121,8 +121,8 @@ function setSelectedZoomItem(selectedItem) {
 
    if (selectedItem.inputId == "filial_016") {
       $("#numeroFilial_016").val(selectedItem.M0_CODFIL);
-      reloadZoomFilterValues("matricula_016", "RA_FILIAL," + selectedItem["M0_CODFIL"]);
-      window["matricula_016"].disable(false);
+      reloadZoomFilterValues("nomeFuncionario_016", "RA_FILIAL," + selectedItem["M0_CODFIL"]);
+      window["nomeFuncionario_016"].disable(false);
    }
 
    if (selectedItem.inputId == "filialDestino_016") {
@@ -144,7 +144,7 @@ function setSelectedZoomItem(selectedItem) {
       buscarCentroDeCusto(centroCusto, "XDIRET", "apvDiretor");
    }
 
-   if (selectedItem.inputId == "matricula_016") {
+   if (selectedItem.inputId == "nomeFuncionario_016") {
       $("#numeroMatricula_016").val(selectedItem.RA_MAT);
       $("#filialAtual_016").val(selectedItem.RA_FILIAL);
       $("#centroCustoAtual_016").val(selectedItem.RA_CC);
@@ -159,6 +159,9 @@ function setSelectedZoomItem(selectedItem) {
       $("#salarioDestino_016").prop("disabled", false);
 
       buscarCentroDeCusto($("#centroCustoAtual_016").val(), "XRES", "apvGestorAtual");
+
+      $("#numeroCpf").val(selectedItem.RA_CIC);
+      $("#horasSemanais").val(selectedItem.RA_HRSEMAN);
    }
 
    if (selectedItem.inputId == "cargoDestino_016") {
@@ -178,13 +181,15 @@ function removedZoomItem(removedItem) {
    if (removedItem.inputId == "filial_016") {
       $("#numeroFilial_016").val("");
 
-      window["matricula_016"].clear();
-      window["matricula_016"].disable(true);
+      window["nomeFuncionario_016"].clear();
+      window["nomeFuncionario_016"].disable(true);
    }
 
-   if (removedItem.inputId == "matricula_016") {
+   if (removedItem.inputId == "nomeFuncionario_016") {
       //OUTROS
       $("#numeroMatricula_016").val("");
+      $("#numeroCpf").val("");
+      $("#horasSemanais").val("");
 
       //ATUAIS
       $("#filialAtual_016").val("");

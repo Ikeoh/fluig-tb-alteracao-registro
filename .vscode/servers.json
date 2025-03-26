@@ -12,6 +12,18 @@
 			"userCode": "newton.negri",
 			"confirmExporting": false,
 			"companyId": 1
+		},
+		{
+			"id": "qsl4lsmmfyrm8q4jmbla5bud74s6z7",
+			"name": "PRD",
+			"host": "fluig.grupotb.com.br",
+			"ssl": true,
+			"port": 8443,
+			"username": "newton.negri",
+			"password": "eyJpdiI6IjQzODIzMjQzZjI2Y2FkNjZlYWNiZjM1YzJiYzJkMmQ0Iiwic2FsdCI6ImY1YWIzNWUyNzdmYzM0OWZkNmNkMTczNTg4MTIwNDAyIiwidGV4dCI6ImE4OTQ2YjhhZGMxZDg1ZWMxODk0OTY5NDIxNjc0OGE5In0=",
+			"userCode": "newton.negri",
+			"confirmExporting": false,
+			"companyId": 1
 		}
 	]
 }

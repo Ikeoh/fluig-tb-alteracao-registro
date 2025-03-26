@@ -4,7 +4,7 @@ $(document).ready(function () {
 
    // Verifica se a atividade atual é diferente de 'ABERTURA'
    if (state != ABERTURA && state != AJUSTAR) {
-      readonlyFields(["salarioAtual_016", "filial_016", "matricula_016", "filialDestino_016", "centroCustoDestino_016", "cargoDestino_016", "salarioDestino_016", "codHorarioDestino_016", "tipoContratoDestino_016"]);
+      readonlyFields(["salarioAtual_016", "filial_016", "nomeFuncionario_016", "filialDestino_016", "centroCustoDestino_016", "cargoDestino_016", "salarioDestino_016", "codHorarioDestino_016", "tipoContratoDestino_016"]);
       disableFields([]);
    }
    if (state != INICIO) {
