@@ -142,6 +142,7 @@ function setSelectedZoomItem(selectedItem) {
 
       buscarCentroDeCusto(centroCusto, "XRES", "apvGestorDestino");
       buscarCentroDeCusto(centroCusto, "XDIRET", "apvDiretor");
+      $("#enderecoDestino").val(selectedItem.CTT_ENDER);
    }
 
    if (selectedItem.inputId == "nomeFuncionario_016") {
@@ -240,6 +241,7 @@ function removedZoomItem(removedItem) {
       $("#saldoVagasDisponivel").val("");
       $("#apvGestorDestino").val("");
       $("#apvDiretor").val("");
+      $("#enderecoDestino").val("");
    }
 
    if (removedItem.inputId == "cargoDestino_016") {
@@ -337,6 +339,25 @@ $(document).ready(function () {
          console.warn("Campo não encontrado:", this);
       }
    });
+});
+
+/**
+ * Aplica o componente de calendário do Fluig (FLUIGC.calendar) a um conjunto de elementos.
+ *
+ * @param {Array<string>} ids - Um array contendo os IDs dos elementos HTML que receberão o calendário.
+ */
+function applyCalendar(ids) {
+   // Itera sobre cada ID no array.
+   ids.forEach(function (id) {
+      // Aplica o calendário ao elemento com o ID correspondente.
+      FLUIGC.calendar("#" + id);
+   });
+}
+
+// Executa a função quando o documento estiver pronto.
+$(document).ready(function () {
+   // Chama a função applyCalendar com um array de IDs.
+   applyCalendar(["dataEfetiva_016"]);
 });
 
 /**

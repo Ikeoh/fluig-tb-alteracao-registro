@@ -3,11 +3,11 @@ let dataAtual = "";
 let nomeFuncionario = "";
 let cpfFuncionario = "";
 let horarioTrabalho = "";
-let cargo = "";
-let salario = "";
+let cargoDestino = "";
+let salarioDestino = "";
+let horarioDestino = "";
 let novoEndereco = "";
-let cargoPromocao = "";
-let dataPromocao = "";
+let dataPromocao = ""; // Keep this as a placeholder or get it from the form.
 
 $(document).ready(function () {
    let state = getState();
@@ -19,28 +19,28 @@ $(document).ready(function () {
       });
 
       $("#btnGerarPDF").on("click", function () {
-         dataAtual = getCurrentDate(); //getCurrentDate()
-         nomeFuncionario = $("#nomeFuncionario_016").val(); //$("#nomeFuncionario_016").val();
-         cpfFuncionario = $("#numeroCpf").val(); //$("#numeroCpf").val();
-         horarioTrabalho = $("#horasSemanais").val(); //$("#horasSemanais").val();
-         cargo = "Analista";
-         salario = "5000,00";
-         novoEndereco = "Rua Teste, 123";
-         cargoPromocao = "Analista Senior";
-         dataPromocao = "01/04/2025";
+         dataAtual = getCurrentDate();
+         nomeFuncionario = $("#nomeFuncionario_016").val();
+         cpfFuncionario = $("#numeroCpf").val();
+         horarioTrabalho = $("#horasSemanais").val();
+         cargoDestino = $("#cargoDestino_016").val();
+         salarioDestino = $("#salarioDestino_016").val();
+         horarioDestino = $("#horarioDestino_016").val();
+         novoEndereco = $("#enderecoDestino").val();
+         dataPromocao = $("#dataEfetiva_016").val();
 
          // Exibir o modal de confirmação antes de gerar o PDF
          const modalConfirmacao = FLUIGC.modal(
             {
                title: "<span style='color: red; font-weight: bold;'>ATENÇÃO!</span>",
                content: "Esse mecanismo irá gerar um arquivo PDF com base nas informações preenchidas no formulário. Deseja continuar?",
-               id: "modalConfirmacao", // ID para facilitar a manipulação
+               id: "modalConfirmacao",
                size: "full",
                actions: [
                   {
                      label: "Ok, gerar arquivo",
                      bind: "data-confirm-modal",
-                     autoClose: false, // Não fecha automaticamente
+                     autoClose: false,
                      classType: "btn-success",
                   },
                ],
@@ -126,7 +126,7 @@ function cartaPromocaoFuncionario() {
          text: `Prezado(a) ${nomeFuncionario}`,
       },
       {
-         text: `É com grande satisfação que comunicamos a você sua promoção ao cargo de ${cargoPromocao}, valido a partir de ${dataPromocao}.`,
+         text: `É com grande satisfação que comunicamos a você sua promoção ao cargo de ${cargoDestino}, valido a partir de ${dataPromocao}.`,
          style: "letterParagraph",
       },
       {
@@ -168,19 +168,19 @@ function documentoAssinaturaFuncionario() {
          margin: [0, 0, 0, 10],
       },
       {
+         text: "O EMPREGADO, a partir desta data:",
+         style: "listItemHeader",
+         margin: [0, 0, 0, 5],
+      },
+      {
          ol: [
             {
-               text: "O EMPREGADO, a partir desta data:",
-               style: "listItemHeader",
-               margin: [0, 0, 0, 5],
-            },
-            {
-               text: `O EMPREGADO cumprirá jornada de trabalho de ${horarioTrabalho} horas semanais, distribuídas de segunda-feira a sexta-feira, no horário compreendido entre XX:XX e XX:XX, com intervalo intrajornada de XX horas, nos termos do art. 71 da CLT.`,
+               text: `O EMPREGADO cumprirá jornada de trabalho de ${horarioTrabalho} horas semanais, distribuídas de segunda-feira a sexta-feira, no horário compreendido entre ${horarioDestino}, nos termos do art. 71 da CLT.`,
                style: "listItem",
                margin: [10, 0, 0, 5],
             },
             {
-               text: `O EMPREGADO passará a exercer as atribuições inerentes ao cargo de ${cargo}, com remuneração mensal de R$ ${salario}`,
+               text: `O EMPREGADO passará a exercer as atribuições inerentes ao cargo de ${cargoDestino}, com remuneração mensal de R$ ${salarioDestino}`,
                style: "listItem",
                margin: [10, 0, 0, 5],
             },
@@ -210,7 +210,7 @@ function documentoAssinaturaFuncionario() {
          text: nomeFuncionario,
          alignment: "center",
       },
-      { text: "São Paulo, " + dataAtual, margin: [0, 0, 0, 20], alignment: "center" },
+      { text: "São Paulo, " + dataPromocao, margin: [0, 0, 0, 20], alignment: "center" },
    ];
    return contractAmendmentContent;
 }

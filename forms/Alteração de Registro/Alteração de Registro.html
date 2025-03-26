@@ -69,7 +69,7 @@
             </div>
             <div class="panel-body">
                <div class="row">
-                  <div class="col-sm-6">
+                  <div class="col-sm-4">
                      <label for="filial_016">Filial</label>
                      <span style="color: red; font-weight: bold;">*</span>
                      <input class="form-control hidden" type="text" name="numeroFilial_016" id="numeroFilial_016" value="">
@@ -91,7 +91,7 @@
                         ]
                      }" />
                   </div>
-                  <div class="col-sm-6">
+                  <div class="col-sm-4">
                      <label for="nomeFuncionario_016">Funcionário</label>
                      <span style="color: red; font-weight: bold;">*</span>
                      <input class="form-control hidden" type="text" name="numeroMatricula_016" id="numeroMatricula_016" value="">
@@ -118,6 +118,16 @@
                               }
                            ]
                         }" />
+                  </div>
+                  <div class="col-md-4">
+                     <div class="form-group">
+                        <label for="dataEfetiva_016">A partir de</label>
+                        <span style="color: red; font-weight: bold;">*</span>
+                        <div class="input-group">
+                           <input class="form-control" type="text" id="dataEfetiva_016" name="dataEfetiva_016" mask="00/00/0000">
+                           <div class="input-group-addon"><span class="fluigicon fluigicon-calendar"></span></div>
+                        </div>
+                     </div>
                   </div>
 
                </div>
@@ -205,6 +215,7 @@
                            <div class="form-group col-sm-6">
                               <input class="form-control hidden" type="text" name="saldoVagasDisponivel" id="saldoVagasDisponivel" readonly>
                               <input class="form-control hidden" type="text" name="dirResponsavel" id="dirResponsavel" readonly>
+                              <input class="form-control hidden" type="text" name="enderecoDestino" id="enderecoDestino" readonly>
                               <label class="control-label" for="centroCustoDestino_016">Centro Custo Destino</label>
                               <span style="color: red; font-weight: bold;">*</span>
                               <input type="zoom" class="form-control" id="centroCustoDestino_016" name="centroCustoDestino_016" data-zoom="{
