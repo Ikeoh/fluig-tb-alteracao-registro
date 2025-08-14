@@ -2,25 +2,25 @@
 	"version": "1.0.0",
 	"configurations": [
 		{
-			"id": "anbm2hd7ns5m8oxelg470ljhmr5qgm",
+			"id": "vnisn2f2qjmebfji5u40eximp0ykv",
 			"name": "HMO",
 			"host": "fluigteste.grupotb.com.br",
 			"ssl": true,
 			"port": 7443,
 			"username": "newton.negri",
-			"password": "eyJpdiI6ImVmYTc0YTBmNDA5MDFmNzAyZmEwNWUyYTFmZDRiZTI2Iiwic2FsdCI6IjliMjM2YWIyZWUwZGRmMTAwYjZkNWI5NGI4NWU5Y2Y1IiwidGV4dCI6ImQwNWU4MjdkMWJlZDE5YjA4NTEzMDc4MmE1NGQ5ZGM3In0=",
+			"password": "eyJpdiI6IjY4ZThjZmNjNDQ1Y2ZkMDMxOWRmZjYyMTcyY2I2MmZkIiwic2FsdCI6IjU4NGFiNzU2ZWIzOGUyM2RiZDAxMjIyOTRkOWM1YjAxIiwidGV4dCI6ImYwOTlmZmNjNThiOGJiNzVjZGE5MmExNmQ2MTg0NDU5In0=",
 			"userCode": "newton.negri",
 			"confirmExporting": false,
 			"companyId": 1
 		},
 		{
-			"id": "qsl4lsmmfyrm8q4jmbla5bud74s6z7",
+			"id": "51lggsue2w3mebflbj1prrsakgq2nk",
 			"name": "PRD",
 			"host": "fluig.grupotb.com.br",
 			"ssl": true,
 			"port": 8443,
 			"username": "newton.negri",
-			"password": "eyJpdiI6IjQzODIzMjQzZjI2Y2FkNjZlYWNiZjM1YzJiYzJkMmQ0Iiwic2FsdCI6ImY1YWIzNWUyNzdmYzM0OWZkNmNkMTczNTg4MTIwNDAyIiwidGV4dCI6ImE4OTQ2YjhhZGMxZDg1ZWMxODk0OTY5NDIxNjc0OGE5In0=",
+			"password": "eyJpdiI6IjFiMTQwODNiMjBlNTkzOTUzMmY2OWEwOWExZmM4ZDUzIiwic2FsdCI6ImIyZWQ4ZDNmZjgzNTZkNzJmNTVhM2E3NDhhMjk3NjdkIiwidGV4dCI6IjMzNWE1NzdiZTcyNGFiN2YxOTY5MTFjMTUzN2UzNzc0In0=",
 			"userCode": "newton.negri",
 			"confirmExporting": false,
 			"companyId": 1
