@@ -7,6 +7,17 @@ $(document).ready(function () {
    let state = getState();
 
    if (state == ABERTURA) {
+      const select = $("#dataEfetiva_016");
+      const today = new Date();
+      for (let i = 0; i < 6; i++) {
+         const targetDate = new Date(today.getFullYear(), today.getMonth() + i, 1);
+         const day = String(targetDate.getDate()).padStart(2, '0');
+         const month = String(targetDate.getMonth() + 1).padStart(2, '0');
+         const year = targetDate.getFullYear();
+         const formattedDate = `${day}/${month}/${year}`;
+         select.append(new Option(formattedDate, formattedDate));
+      }
+
       setTimeout(function () {
          window["nomeFuncionario_016"].disable(true);
          window["filialDestino_016"].disable(true);
@@ -357,7 +368,7 @@ function applyCalendar(ids) {
 // Executa a função quando o documento estiver pronto.
 $(document).ready(function () {
    // Chama a função applyCalendar com um array de IDs.
-   applyCalendar(["dataEfetiva_016"]);
+   applyCalendar([]);
 });
 
 /**
