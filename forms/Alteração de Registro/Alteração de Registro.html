@@ -173,6 +173,12 @@
                            </div>
                         </div>
                         <div class="row">
+                           <div class="form-group col-sm-6">
+                              <label class="control-label" for="departamentoAtual_016">Departamento</label>
+                              <input class="form-control" type="text" name="departamentoAtual_016" id="departamentoAtual_016" readonly>
+                           </div>
+                        </div>
+                        <div class="row">
                            <div class="form-group col-sm-12">
                               <label class="control-label" for="tipoContratoAtual_016">Tipo Contrato Atual</label>
                               <input class="form-control" type="text" name="tipoContratoAtual_016" id="tipoContratoAtual_016" readonly>
@@ -295,6 +301,28 @@
                                  <label for="horarioDestino_016">H. de Trabalho Destino</label>
                                  <input type="text" class="form-control" name="horarioDestino_016" id="horarioDestino_016" readonly>
                               </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="form-group col-sm-6">
+                              <label class="control-label" for="departamentoDestino_016">Departamento</label>
+                              <input class="form-control" type="zoom" name="departamentoDestino_016" id="departamentoDestino_016" data-zoom="{
+                                       'datasetId':'ds_gtb_jdbc_016_departamentos',
+                                       'displayKey':'QB_DESCRIC',
+                                       'maximumSelectionLength':'1',
+                                       'placeholder':'Selecione',
+                                       'fields':[
+                                          {
+                                             'field':'QB_DEPTO',
+                                             'label':'Código'
+                                          },
+                                          {
+                                             'field':'QB_DESCRIC',
+                                             'label':'Descrição',
+                                             'standard':'true'
+                                          }
+                                       ]
+                                    }">
                            </div>
                         </div>
                         <div class="row">

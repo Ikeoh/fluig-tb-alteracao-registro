@@ -25,6 +25,7 @@ $(document).ready(function () {
          window["cargoDestino_016"].disable(true);
          window["codHorarioDestino_016"].disable(true);
          window["tipoContratoDestino_016"].disable(true);
+         window["departamentoDestino_016"].disable(true);
          $("#salarioAtual_016").prop("disabled", true);
          $("#salarioDestino_016").prop("disabled", true);
       }, 300);
@@ -140,10 +141,12 @@ function setSelectedZoomItem(selectedItem) {
       reloadZoomFilterValues("cargoDestino_016", "RJ_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       reloadZoomFilterValues("codHorarioDestino_016", "R6_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       reloadZoomFilterValues("tipoContratoDestino_016", "RCC_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
+      reloadZoomFilterValues("departamentoDestino_016", "QB_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       window["centroCustoDestino_016"].disable(false);
       window["cargoDestino_016"].disable(false);
       window["codHorarioDestino_016"].disable(false);
       window["tipoContratoDestino_016"].disable(false);
+      window["departamentoDestino_016"].disable(false);
    }
 
    if (selectedItem.inputId == "centroCustoDestino_016") {
@@ -186,6 +189,10 @@ function setSelectedZoomItem(selectedItem) {
 
    if (selectedItem.inputId == "tipoContratoDestino_016") {
       $("#codTipoContratoDestino_016").val(selectedItem.RCC_CODIGO_CONTEU);
+   }
+
+   if (selectedItem.inputId == "departamentoDestino_016") {
+      //
    }
 }
 
@@ -246,6 +253,8 @@ function removedZoomItem(removedItem) {
       $("#codTipoContratoDestino_016").val("");
       window["tipoContratoDestino_016"].clear();
       window["tipoContratoDestino_016"].disable(true);
+      window["departamentoDestino_016"].clear();
+      window["departamentoDestino_016"].disable(true);
    }
 
    if (removedItem.inputId == "centroCustoDestino_016") {
@@ -265,6 +274,10 @@ function removedZoomItem(removedItem) {
 
    if (removedItem.inputId == "tipoContratoDestino_016") {
       $("#codTipoContratoDestino_016").val("");
+   }
+
+   if (removedItem.inputId == "departamentoDestino_016") {
+      //
    }
 }
 
