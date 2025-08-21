@@ -11,8 +11,8 @@ $(document).ready(function () {
       const today = new Date();
       for (let i = 0; i < 6; i++) {
          const targetDate = new Date(today.getFullYear(), today.getMonth() + i, 1);
-         const day = String(targetDate.getDate()).padStart(2, '0');
-         const month = String(targetDate.getMonth() + 1).padStart(2, '0');
+         const day = String(targetDate.getDate()).padStart(2, "0");
+         const month = String(targetDate.getMonth() + 1).padStart(2, "0");
          const year = targetDate.getFullYear();
          const formattedDate = `${day}/${month}/${year}`;
          select.append(new Option(formattedDate, formattedDate));
@@ -172,7 +172,7 @@ function setSelectedZoomItem(selectedItem) {
       $("#horarioAtual_016").val(selectedItem.R6_DESC);
       $("#tipoContratoAtual_016").val(selectedItem.RCC_DESC);
       $("#codDepartamentoAtual_016").val(selectedItem.RA_DEPTO);
-      getDepartamentoDescricao(selectedItem.RA_DEPTO);
+      getDepartamentoDescricao(selectedItem.RA_DEPTO, selectedItem.RA_FILIAL);
       window["filialDestino_016"].disable(false);
       $("#salarioAtual_016").prop("disabled", false);
       $("#salarioDestino_016").prop("disabled", false);
@@ -297,22 +297,24 @@ function removedZoomItem(removedItem) {
    }
 }
 
-function getDepartamentoDescricao(codDepartamento) {
-    if (!codDepartamento) {
-        return;
-    }
+function getDepartamentoDescricao(codDepartamento, codFilial) {
+   if (!codDepartamento || !codFilial) {
+      return;
+   }
 
-    var constraints = [DatasetFactory.createConstraint("QB_DEPTO", codDepartamento, codDepartamento, ConstraintType.MUST)];
-    DatasetFactory.getDataset("ds_gtb_jdbc_016_departamentos", null, constraints, null, {
-        success: function(dataset) {
-            if (dataset && dataset.values && dataset.values.length > 0) {
-                $("#departamentoAtual_016").val(dataset.values[0]["QB_DESCRIC"]);
-            }
-        },
-        error: function(error) {
-            console.error("Erro ao buscar o dataset de departamentos:", error);
-        }
-    });
+   var filial3dig = codFilial.substring(0, 3);
+   var constraints = [DatasetFactory.createConstraint("QB_DEPTO", codDepartamento, codDepartamento, ConstraintType.MUST), DatasetFactory.createConstraint("QB_FILIAL", filial3dig, filial3dig, ConstraintType.MUST)];
+
+   DatasetFactory.getDataset("ds_gtb_jdbc_016_departamentos", null, constraints, null, {
+      success: function (dataset) {
+         if (dataset && dataset.values && dataset.values.length > 0) {
+            $("#departamentoAtual_016").val(dataset.values[0]["QB_DESCRIC"]);
+         }
+      },
+      error: function (error) {
+         console.error("Erro ao buscar o dataset de departamentos:", error);
+      },
+   });
 }
 
 /**
