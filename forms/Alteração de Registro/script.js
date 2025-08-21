@@ -26,6 +26,7 @@ $(document).ready(function () {
          window["codHorarioDestino_016"].disable(true);
          window["tipoContratoDestino_016"].disable(true);
          window["departamentoDestino_016"].disable(true);
+         window["regraDestino_016"].disable(true);
          $("#salarioAtual_016").prop("disabled", true);
          $("#salarioDestino_016").prop("disabled", true);
       }, 300);
@@ -142,6 +143,7 @@ function setSelectedZoomItem(selectedItem) {
       reloadZoomFilterValues("codHorarioDestino_016", "R6_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       reloadZoomFilterValues("tipoContratoDestino_016", "RCC_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       reloadZoomFilterValues("departamentoDestino_016", "QB_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
+      reloadZoomFilterValues("regraDestino_016", "PA_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       window["centroCustoDestino_016"].disable(false);
       window["cargoDestino_016"].disable(false);
       window["codHorarioDestino_016"].disable(false);
@@ -169,6 +171,8 @@ function setSelectedZoomItem(selectedItem) {
       $("#codHorarioAtual_016").val(selectedItem.RA_TNOTRAB);
       $("#horarioAtual_016").val(selectedItem.R6_DESC);
       $("#tipoContratoAtual_016").val(selectedItem.RCC_DESC);
+      $("#codDepartamentoAtual_016").val(selectedItem.RA_DEPTO);
+      getDepartamentoDescricao(selectedItem.RA_DEPTO);
       window["filialDestino_016"].disable(false);
       $("#salarioAtual_016").prop("disabled", false);
       $("#salarioDestino_016").prop("disabled", false);
@@ -193,6 +197,10 @@ function setSelectedZoomItem(selectedItem) {
 
    if (selectedItem.inputId == "departamentoDestino_016") {
       //
+   }
+
+   if (selectedItem.inputId == "regraDestino_016") {
+      $("#codRegraDestino_016").val(selectedItem.PA_CODIGO);
    }
 }
 
@@ -220,6 +228,8 @@ function removedZoomItem(removedItem) {
       $("#codHorarioAtual_016").val("");
       $("#horarioAtual_016").val("");
       $("#tipoContratoAtual_016").val("");
+      $("#departamentoAtual_016").val("");
+      $("#codDepartamentoAtual_016").val("");
 
       //ALTERADOS
       window["filialDestino_016"].clear();
@@ -255,6 +265,8 @@ function removedZoomItem(removedItem) {
       window["tipoContratoDestino_016"].disable(true);
       window["departamentoDestino_016"].clear();
       window["departamentoDestino_016"].disable(true);
+      window["regraDestino_016"].clear();
+      window["regraDestino_016"].disable(true);
    }
 
    if (removedItem.inputId == "centroCustoDestino_016") {
@@ -279,6 +291,28 @@ function removedZoomItem(removedItem) {
    if (removedItem.inputId == "departamentoDestino_016") {
       //
    }
+
+   if (removedItem.inputId == "regraDestino_016") {
+      $("#codRegraDestino_016").val("");
+   }
+}
+
+function getDepartamentoDescricao(codDepartamento) {
+    if (!codDepartamento) {
+        return;
+    }
+
+    var constraints = [DatasetFactory.createConstraint("QB_DEPTO", codDepartamento, codDepartamento, ConstraintType.MUST)];
+    DatasetFactory.getDataset("ds_gtb_jdbc_016_departamentos", null, constraints, null, {
+        success: function(dataset) {
+            if (dataset && dataset.values && dataset.values.length > 0) {
+                $("#departamentoAtual_016").val(dataset.values[0]["QB_DESCRIC"]);
+            }
+        },
+        error: function(error) {
+            console.error("Erro ao buscar o dataset de departamentos:", error);
+        }
+    });
 }
 
 /**

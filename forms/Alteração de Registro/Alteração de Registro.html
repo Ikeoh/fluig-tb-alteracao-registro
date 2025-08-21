@@ -137,6 +137,7 @@
                         </h3>
                      </div>
                      <div class="hidden">
+                        <input class="form-control" type="text" name="codDepartamentoAtual_016" id="codDepartamentoAtual_016" readonly>
                         <input class="form-control" type="text" name="regraAtual_016" id="regraAtual_016" readonly>
                         <input class="form-control" type="text" name="sequenciaAtual_016" id="sequenciaAtual_016" readonly>
                      </div>
@@ -197,7 +198,7 @@
                         </h3>
                      </div>
                      <div class="hidden">
-                        <input class="form-control" type="text" name="sequenciaDestino_016" id="sequenciaDestino_016" readonly>
+                        <input class="form-control" type="text" name="sequenciaDestino_016" id="sequenciaDestino_016" value="01" readonly>
                      </div>
                      <div class="panel-body">
                         <div class="row">
@@ -361,10 +362,27 @@
                         </div>
                         <div class="row">
                            <div class="col-md-12">
-                              <div class="form-group">
+                              <div class="form-group" id="formGroupRegraDestino">
                                  <label class="control-label" for="regraDestino_016">Regra de Apontamento</label>
                                  <span style="color: red; font-weight: bold;">*</span>
-                                 <input class="form-control" type="text" name="regraDestino_016" id="regraDestino_016">
+                                 <input type="zoom" class="form-control" id="regraDestino_016" name="regraDestino_016" data-zoom="{
+                                       'datasetId':'ds_gtb_jdbc_016_regra_apontamento',
+                                       'displayKey':'PA_DESC',
+                                       'maximumSelectionLength':'1',
+                                       'placeholder':'Selecione',
+                                       'fields':[
+                                          {
+                                             'field':'PA_CODIGO',
+                                             'label':'Código'
+                                          },
+                                          {
+                                             'field':'PA_DESC',
+                                             'label':'Descrição',
+                                             'standard':'true'
+                                          }
+                                       ]
+                                    }">
+                                 <input type="hidden" name="codRegraDestino_016" id="codRegraDestino_016">
                               </div>
                            </div>
                         </div>

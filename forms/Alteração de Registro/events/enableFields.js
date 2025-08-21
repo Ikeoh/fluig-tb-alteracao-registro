@@ -6,7 +6,7 @@ function enableFields(form) {
    var activity = getValue("WKNumState");
 
    // Lista de todos os campos que podem ser desabilitados/readonly
-   var allFields = ["salarioAtual_016", "filial_016", "nomeFuncionario_016", "filialDestino_016", "centroCustoDestino_016", "cargoDestino_016", "salarioDestino_016", "codHorarioDestino_016", "tipoContratoDestino_016", "justificativaVerificaRh", "btnAprovarVerificaRh", "btnReprovarVerificaRh", "btnAjustarVerificaRh", "justificativaGestorAtual", "btnAprovarGestorAtual", "btnReprovarGestorAtual", "btnAjustarGestorAtual", "justificativaGestorDestino", "btnAprovarGestorDestino", "btnReprovarGestorDestino", "btnAjustarGestorDestino", "justificativaPlanejContrOrc", "btnAprovarPlanejContrOrc", "btnReprovarPlanejContrOrc", "btnAjustarPlanejContrOrc", "justificativaDiretoria", "btnAprovarDiretor", "btnReprovarDiretor", "btnAjustarDiretor", "justificativaDiretorGrl", "btnAprovarDiretorGrl", "btnReprovarDiretorGrl", "btnAjustarDiretorGrl", "justificativaValidacaoRh", "btnAprovarValidacaoRh", "btnReprovarValidacaoRh", "btnAjustarValidacaoRh"];
+   var allFields = ["salarioAtual_016", "filial_016", "nomeFuncionario_016", "filialDestino_016", "centroCustoDestino_016", "cargoDestino_016", "salarioDestino_016", "codHorarioDestino_016", "tipoContratoDestino_016", "departamentoDestino_016", "justificativaVerificaRh", "btnAprovarVerificaRh", "btnReprovarVerificaRh", "btnAjustarVerificaRh", "justificativaGestorAtual", "btnAprovarGestorAtual", "btnReprovarGestorAtual", "btnAjustarGestorAtual", "justificativaGestorDestino", "btnAprovarGestorDestino", "btnReprovarGestorDestino", "btnAjustarGestorDestino", "justificativaPlanejContrOrc", "btnAprovarPlanejContrOrc", "btnReprovarPlanejContrOrc", "btnAjustarPlanejContrOrc", "justificativaDiretoria", "btnAprovarDiretor", "btnReprovarDiretor", "btnAjustarDiretor", "justificativaDiretorGrl", "btnAprovarDiretorGrl", "btnReprovarDiretorGrl", "btnAjustarDiretorGrl", "justificativaValidacaoRh", "btnAprovarValidacaoRh", "btnReprovarValidacaoRh", "btnAjustarValidacaoRh"];
 
    // Desabilita todos os campos por padrão
    allFields.forEach(function (field) {
@@ -15,7 +15,7 @@ function enableFields(form) {
 
    // Habilita campos específicos com base na atividade atual
    if (activity == ABERTURA || activity == AJUSTAR) {
-      var fieldsToEnable = ["salarioAtual_016", "filial_016", "nomeFuncionario_016", "filialDestino_016", "centroCustoDestino_016", "cargoDestino_016", "salarioDestino_016", "codHorarioDestino_016", "tipoContratoDestino_016"];
+      var fieldsToEnable = ["salarioAtual_016", "filial_016", "nomeFuncionario_016", "filialDestino_016", "centroCustoDestino_016", "cargoDestino_016", "salarioDestino_016", "codHorarioDestino_016", "tipoContratoDestino_016", "departamentoDestino_016"];
       fieldsToEnable.forEach(function (field) {
          form.setEnabled(field, true);
       });

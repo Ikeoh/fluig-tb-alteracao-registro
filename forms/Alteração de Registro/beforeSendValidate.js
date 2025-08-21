@@ -11,21 +11,13 @@ var beforeSendValidate = function (numState, nextState) {
       */
    }
 
-   /*
    if (mode == "MOD") {
-      if (state == ATIVIDADE_1) {
-      }
-
-      if (state == ATIVIDADE_2) {
-      }
-
-      if (state == ATIVIDADE_3) {
-      }
-
-      if (state == ATIVIDADE_4) {
+      if (state == AP_RH_VERIFICACAO) {
+         if (campoVazio("regraDestino_016")) {
+            msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Regra de Apontamento</strong> é de preenchimento obrigatório.</li>";
+         }
       }
    }
-   */
 
    if (msgErro !== "") {
       msgErro = "<ul style='padding-left: 17px;color: red;list-style: disc;'>" + msgErro + "</ul><br/>";

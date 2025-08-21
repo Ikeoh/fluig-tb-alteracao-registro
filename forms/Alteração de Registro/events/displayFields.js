@@ -103,6 +103,12 @@ function displayFields(form, customHTML) {
    }
    */
 
+   // Controla a visibilidade do campo de Regra de Apontamento
+   var regraDestinoValue = form.getValue("regraDestino_016");
+   if (state < AP_RH_VERIFICACAO && (regraDestinoValue == null || regraDestinoValue.trim() == "")) {
+      form.setVisibleById("formGroupRegraDestino", false);
+   }
+
    setApprovalData(state, form, currentUserData.getFullName(), currentUserData.getLogin(), currentUserData.getEmail(), mode, currentDate, currentHour);
 
    customJS += "function getCodProcess(){ return '" + codProcess + "'};";
