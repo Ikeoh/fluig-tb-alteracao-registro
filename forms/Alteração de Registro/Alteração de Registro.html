@@ -136,6 +136,10 @@
                            <span class="flaticon flaticon-database icon-md fs-sm-margin-right"></span>DADOS ATUAIS
                         </h3>
                      </div>
+                     <div class="hidden">
+                        <input class="form-control" type="text" name="regraAtual_016" id="regraAtual_016" readonly>
+                        <input class="form-control" type="text" name="sequenciaAtual_016" id="sequenciaAtual_016" readonly>
+                     </div>
                      <div class="panel-body">
                         <div class="row">
                            <div class="form-group col-sm-6">
@@ -163,17 +167,17 @@
                            </div>
                         </div>
                         <div class="row">
-                           <div class="form-group col-sm-6">
-                              <label class="control-label" for="codHorarioAtual_016">Cód.</label>
+                           <div class="form-group col-sm-5">
+                              <label class="control-label" for="codHorarioAtual_016">Cod. Turno</label>
                               <input class="form-control" type="text" name="codHorarioAtual_016" id="codHorarioAtual_016" readonly>
                            </div>
-                           <div class="form-group col-sm-6">
-                              <label class="control-label" for="horarioAtual_016">H. de Trabalho Atual</label>
+                           <div class="form-group col-sm-7">
+                              <label class="control-label" for="horarioAtual_016">Desc. Turno</label>
                               <input class="form-control" type="text" name="horarioAtual_016" id="horarioAtual_016" readonly>
                            </div>
                         </div>
                         <div class="row">
-                           <div class="form-group col-sm-6">
+                           <div class="form-group col-sm-12">
                               <label class="control-label" for="departamentoAtual_016">Departamento</label>
                               <input class="form-control" type="text" name="departamentoAtual_016" id="departamentoAtual_016" readonly>
                            </div>
@@ -191,6 +195,9 @@
                         <h3 class="panel-title tb-panel-title">
                            <span class="flaticon flaticon-database icon-md fs-sm-margin-right"></span>DADOS APÓS ALTERAÇÃO
                         </h3>
+                     </div>
+                     <div class="hidden">
+                        <input class="form-control" type="text" name="sequenciaDestino_016" id="sequenciaDestino_016" readonly>
                      </div>
                      <div class="panel-body">
                         <div class="row">
@@ -274,9 +281,9 @@
                            </div>
                         </div>
                         <div class="row">
-                           <div class="col-md-6">
+                           <div class="col-md-5">
                               <div class="form-group">
-                                 <label class="control-label" for="codHorarioDestino_016">Cód.</label>
+                                 <label class="control-label" for="codHorarioDestino_016">Cod. Turno</label>
                                  <span style="color: red; font-weight: bold;">*</span>
                                  <input type="zoom" class="form-control" id="codHorarioDestino_016" name="codHorarioDestino_016" data-zoom="{
                                           'datasetId':'ds_gtb_jdbc_016_hora_trabalho',
@@ -296,16 +303,17 @@
                                       }">
                               </div>
                            </div>
-                           <div class="col-md-6">
+                           <div class="col-md-7">
                               <div class="form-group">
-                                 <label for="horarioDestino_016">H. de Trabalho Destino</label>
+                                 <label for="horarioDestino_016">Desc. Turno</label>
                                  <input type="text" class="form-control" name="horarioDestino_016" id="horarioDestino_016" readonly>
                               </div>
                            </div>
                         </div>
                         <div class="row">
-                           <div class="form-group col-sm-6">
+                           <div class="form-group col-sm-12">
                               <label class="control-label" for="departamentoDestino_016">Departamento</label>
+                              <span style="color: red; font-weight: bold;">*</span>
                               <input class="form-control" type="zoom" name="departamentoDestino_016" id="departamentoDestino_016" data-zoom="{
                                        'datasetId':'ds_gtb_jdbc_016_departamentos',
                                        'displayKey':'QB_DESCRIC',
@@ -348,6 +356,15 @@
                                               }
                                           ]
                                       }">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-12">
+                              <div class="form-group">
+                                 <label class="control-label" for="regraDestino_016">Regra de Apontamento</label>
+                                 <span style="color: red; font-weight: bold;">*</span>
+                                 <input class="form-control" type="text" name="regraDestino_016" id="regraDestino_016">
                               </div>
                            </div>
                         </div>
