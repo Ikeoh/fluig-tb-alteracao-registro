@@ -11,6 +11,23 @@ var beforeSendValidate = function (numState, nextState) {
       if ($("#acInsalubridade").is(":checked") && campoVazio("percentualInsalubridade")) {
          msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Percentual de Insalubridade</strong> é de preenchimento obrigatório.</li>";
       }
+
+      if ($("#acDiaria").is(":checked") && campoVazio("valorDiaria")) {
+         msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Valor da Diária</strong> é de preenchimento obrigatório.</li>";
+      }
+
+      if ($("#acGratificacao").is(":checked") && campoVazio("valorGratificacao")) {
+         msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Valor da Gratificação</strong> é de preenchimento obrigatório.</li>";
+      }
+
+      if ($("#acValeTransporte").is(":checked")) {
+         if (campoVazio("valorValeTransporte")) {
+            msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Valor do Vale Transporte</strong> é de preenchimento obrigatório.</li>";
+         }
+         if (campoVazio("qtdValeTransporte")) {
+            msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Quantidade do Vale Transporte</strong> é de preenchimento obrigatório.</li>";
+         }
+      }
    }
 
    if (mode == "MOD") {

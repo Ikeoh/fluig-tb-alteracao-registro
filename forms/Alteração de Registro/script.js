@@ -24,7 +24,7 @@ $(document).ready(function () {
          window["centroCustoDestino"].disable(true);
          window["cargoDestino"].disable(true);
          window["codHorarioDestino"].disable(true);
-         window["tipoContratoDestino"].disable(true);
+         // window["tipoContratoDestino"].disable(true);
          window["departamentoDestino"].disable(true);
          window["regraDestino"].disable(true);
          $("#salarioAtual").prop("disabled", true);
@@ -141,13 +141,13 @@ function setSelectedZoomItem(selectedItem) {
    if (selectedItem.inputId == "filialDestino") {
       reloadZoomFilterValues("cargoDestino", "RJ_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       reloadZoomFilterValues("codHorarioDestino", "R6_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
-      reloadZoomFilterValues("tipoContratoDestino", "RCC_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
+      // reloadZoomFilterValues("tipoContratoDestino", "RCC_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       reloadZoomFilterValues("departamentoDestino", "QB_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       reloadZoomFilterValues("regraDestino", "PA_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       window["centroCustoDestino"].disable(false);
       window["cargoDestino"].disable(false);
       window["codHorarioDestino"].disable(false);
-      window["tipoContratoDestino"].disable(false);
+      // window["tipoContratoDestino"].disable(false);
       window["departamentoDestino"].disable(false);
    }
 
@@ -170,7 +170,7 @@ function setSelectedZoomItem(selectedItem) {
       //$("#salarioAtual").val("");
       $("#codHorarioAtual").val(selectedItem.RA_TNOTRAB);
       $("#horarioAtual").val(selectedItem.R6_DESC);
-      $("#tipoContratoAtual").val(selectedItem.RCC_DESC);
+      // $("#tipoContratoAtual").val(selectedItem.RCC_DESC);
       $("#codDepartamentoAtual").val(selectedItem.RA_DEPTO);
       getDepartamentoDescricao(selectedItem.RA_DEPTO, selectedItem.RA_FILIAL);
       window["filialDestino"].disable(false);
@@ -191,9 +191,9 @@ function setSelectedZoomItem(selectedItem) {
       $("#horarioDestino").val(selectedItem.R6_DESC);
    }
 
-   if (selectedItem.inputId == "tipoContratoDestino") {
+   /*if (selectedItem.inputId == "tipoContratoDestino") {
       $("#codTipoContratoDestino").val(selectedItem.RCC_CODIGO_CONTEU);
-   }
+   }*/
 
    if (selectedItem.inputId == "departamentoDestino") {
       //
@@ -219,7 +219,7 @@ function removedZoomItem(removedItem) {
       $("#salarioAtual").val("");
       $("#codHorarioAtual").val("");
       $("#horarioAtual").val("");
-      $("#tipoContratoAtual").val("");
+      // $("#tipoContratoAtual").val("");
       $("#departamentoAtual").val("");
       $("#codDepartamentoAtual").val("");
 
@@ -236,9 +236,9 @@ function removedZoomItem(removedItem) {
       window["codHorarioDestino"].clear();
       window["codHorarioDestino"].disable(true);
       $("#horarioDestino").val("");
-      $("#codTipoContratoDestino").val("");
-      window["tipoContratoDestino"].clear();
-      window["tipoContratoDestino"].disable(true);
+      // $("#codTipoContratoDestino").val("");
+      // window["tipoContratoDestino"].clear();
+      // window["tipoContratoDestino"].disable(true);
       $("#apvGestorAtual").val("");
    }
 
@@ -257,7 +257,7 @@ function removedZoomItem(removedItem) {
       $("#salarioAtual").prop("disabled", true);
       $("#codHorarioAtual").val("");
       $("#horarioAtual").val("");
-      $("#tipoContratoAtual").val("");
+      // $("#tipoContratoAtual").val("");
       $("#departamentoAtual").val("");
       $("#codDepartamentoAtual").val("");
 
@@ -274,9 +274,9 @@ function removedZoomItem(removedItem) {
       window["codHorarioDestino"].clear();
       window["codHorarioDestino"].disable(true);
       $("#horarioDestino").val("");
-      $("#codTipoContratoDestino").val("");
-      window["tipoContratoDestino"].clear();
-      window["tipoContratoDestino"].disable(true);
+      // $("#codTipoContratoDestino").val("");
+      // window["tipoContratoDestino"].clear();
+      // window["tipoContratoDestino"].disable(true);
       $("#apvGestorAtual").val("");
    }
 
@@ -290,9 +290,9 @@ function removedZoomItem(removedItem) {
       window["codHorarioDestino"].clear();
       window["codHorarioDestino"].disable(true);
       $("#horarioDestino").val("");
-      $("#codTipoContratoDestino").val("");
-      window["tipoContratoDestino"].clear();
-      window["tipoContratoDestino"].disable(true);
+      // $("#codTipoContratoDestino").val("");
+      // window["tipoContratoDestino"].clear();
+      // window["tipoContratoDestino"].disable(true);
       window["departamentoDestino"].clear();
       window["departamentoDestino"].disable(true);
       window["regraDestino"].clear();
@@ -314,9 +314,9 @@ function removedZoomItem(removedItem) {
       $("#horarioDestino").val("");
    }
 
-   if (removedItem.inputId == "tipoContratoDestino") {
+   /*if (removedItem.inputId == "tipoContratoDestino") {
       $("#codTipoContratoDestino").val("");
-   }
+   }*/
 
    if (removedItem.inputId == "departamentoDestino") {
       //
@@ -683,4 +683,50 @@ $(document).ready(function () {
 
    setupAdicionalLogic("acPericulosidade", "divPercentualPericulosidade", "percentualPericulosidade");
    setupAdicionalLogic("acInsalubridade", "divPercentualInsalubridade", "percentualInsalubridade");
+
+   function setupAdicionalValorLogic(checkboxId, divId, inputId) {
+      const checkbox = $("#" + checkboxId);
+      const div = $("#" + divId);
+      const input = $("#" + inputId);
+
+      checkbox.on("change", function () {
+         if ($(this).is(":checked")) {
+            div.show();
+            input.prop("required", true);
+         } else {
+            div.hide();
+            input.val("");
+            input.prop("required", false);
+         }
+      });
+   }
+
+   setupAdicionalValorLogic("acDiaria", "divValorDiaria", "valorDiaria");
+   setupAdicionalValorLogic("acGratificacao", "divValorGratificacao", "valorGratificacao");
+
+   // Lógica para Vale Transporte
+   const acValeTransporte = $("#acValeTransporte");
+   const divValeTransporte = $("#divValeTransporte");
+   const valorValeTransporte = $("#valorValeTransporte");
+   const qtdValeTransporte = $("#qtdValeTransporte");
+
+   acValeTransporte.on("change", function () {
+      if ($(this).is(":checked")) {
+         divValeTransporte.show();
+         valorValeTransporte.prop("required", true);
+         qtdValeTransporte.prop("required", true);
+      } else {
+         divValeTransporte.hide();
+         valorValeTransporte.val("");
+         qtdValeTransporte.val("");
+         valorValeTransporte.prop("required", false);
+         qtdValeTransporte.prop("required", false);
+      }
+   });
+
+   qtdValeTransporte.on("input", function () {
+      let valor = $(this).val();
+      valor = valor.replace(/[^\d]/g, "");
+      $(this).val(valor);
+   });
 });

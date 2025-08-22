@@ -183,12 +183,12 @@
                               <input class="form-control" type="text" name="departamentoAtual" id="departamentoAtual" readonly>
                            </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                            <div class="form-group col-sm-12">
                               <label class="control-label" for="tipoContratoAtual">Tipo Contrato Atual</label>
                               <input class="form-control" type="text" name="tipoContratoAtual" id="tipoContratoAtual" readonly>
                            </div>
-                        </div>
+                        </div> -->
                      </div>
                   </div>
                   <div class="panel panel-default tb-panel-default fs-no-padding fs-no-margin" id="dadosDestinoPanel">
@@ -334,7 +334,7 @@
                                     }">
                            </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                            <div class="col-md-12">
                               <div class="form-group">
                                  <input type="text" class="form-control hidden" name="codTipoContratoDestino" id="codTipoContratoDestino" readonly>
@@ -359,7 +359,7 @@
                                       }">
                               </div>
                            </div>
-                        </div>
+                        </div> -->
                         <div class="row">
                            <div class="col-md-12">
                               <div class="form-group" id="formGroupRegraDestino">
@@ -393,7 +393,7 @@
                   <div class="col-sm-12">
                      <label class="control-label" for="adicionaisContrato">Adicionais do Contrato</label>
                   </div>
-                  <div class="form-group col-sm-4">
+                  <div class="form-group col-sm-6">
                      <div class="custom-checkbox custom-checkbox-success">
                         <input type="checkbox" id="acPericulosidade" name="acPericulosidade" value="">
                         <label for="acPericulosidade">Periculosidade</label>
@@ -411,44 +411,30 @@
                      <div class="custom-checkbox custom-checkbox-success">
                         <input type="checkbox" id="acDiaria" name="acDiaria" value="">
                         <label for="acDiaria">Diária</label>
+                        <div id="divValorDiaria" class="form-group" style="display: none;">
+                           <input type="text" class="form-control campo-moeda" id="valorDiaria" name="valorDiaria" placeholder="Valor">
+                        </div>
                      </div>
+                  </div>
+                  <div class="form-group col-sm-6">
                      <div class="custom-checkbox custom-checkbox-success">
                         <input type="checkbox" id="acGratificacao" name="acGratificacao" value="">
                         <label for="acGratificacao">Gratificação</label>
+                        <div id="divValorGratificacao" class="form-group" style="display: none;">
+                           <input type="text" class="form-control campo-moeda" id="valorGratificacao" name="valorGratificacao" placeholder="Valor">
+                        </div>
                      </div>
                      <div class="custom-checkbox custom-checkbox-success">
                         <input type="checkbox" id="acValeTransporte" name="acValeTransporte" value="">
                         <label for="acValeTransporte">Vale Transporte</label>
+                        <div id="divValeTransporte" class="form-group" style="display: none;">
+                           <input type="text" class="form-control campo-moeda" id="valorValeTransporte" name="valorValeTransporte" placeholder="Valor">
+                           <input type="text" class="form-control" id="qtdValeTransporte" name="qtdValeTransporte" placeholder="Qtd">
+                        </div>
                      </div>
                      <div class="custom-checkbox custom-checkbox-success">
                         <input type="checkbox" id="acAdiantamento" name="acAdiantamento" value="">
                         <label for="acAdiantamento">Adiantamento</label>
-                     </div>
-                  </div>
-                  <div class="form-group col-sm-4">
-                     <div class="custom-checkbox custom-checkbox-success">
-                        <input type="checkbox" id="ac_7" name="ac_7" value="">
-                        <label for="ac_7">Success</label>
-                     </div>
-                     <div class="custom-checkbox custom-checkbox-success">
-                        <input type="checkbox" id="ac_8" name="ac_8" value="">
-                        <label for="ac_8">Success</label>
-                     </div>
-                     <div class="custom-checkbox custom-checkbox-success">
-                        <input type="checkbox" id="ac_9" name="ac_9" value="">
-                        <label for="ac_9">Success</label>
-                     </div>
-                     <div class="custom-checkbox custom-checkbox-success">
-                        <input type="checkbox" id="ac_10" name="ac_10" value="">
-                        <label for="ac_10">Success</label>
-                     </div>
-                     <div class="custom-checkbox custom-checkbox-success">
-                        <input type="checkbox" id="ac_11" name="ac_11" value="">
-                        <label for="ac_11">Success</label>
-                     </div>
-                     <div class="custom-checkbox custom-checkbox-success">
-                        <input type="checkbox" id="ac_12" name="ac_12" value="">
-                        <label for="ac_12">Success</label>
                      </div>
                   </div>
                </div>
