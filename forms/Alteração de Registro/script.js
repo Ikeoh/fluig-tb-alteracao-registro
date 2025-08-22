@@ -210,6 +210,36 @@ function removedZoomItem(removedItem) {
 
       window["nomeFuncionario_016"].clear();
       window["nomeFuncionario_016"].disable(true);
+
+      // Limpa os campos de "Dados Atuais"
+      $("#filialAtual_016").val("");
+      $("#centroCustoAtual_016").val("");
+      $("#codCargoAtual_016").val("");
+      $("#cargoAtual_016").val("");
+      $("#salarioAtual_016").val("");
+      $("#codHorarioAtual_016").val("");
+      $("#horarioAtual_016").val("");
+      $("#tipoContratoAtual_016").val("");
+      $("#departamentoAtual_016").val("");
+      $("#codDepartamentoAtual_016").val("");
+
+      // Limpa também os campos de "Dados Após Alteração" que são resetados em nomeFuncionario_016
+      window["filialDestino_016"].clear();
+      window["filialDestino_016"].disable(true);
+      window["centroCustoDestino_016"].clear();
+      window["centroCustoDestino_016"].disable(true);
+      $("#codCargoDestino_016").val("");
+      window["cargoDestino_016"].clear();
+      window["cargoDestino_016"].disable(true);
+      $("#salarioDestino_016").val("");
+      $("#salarioDestino_016").prop("disabled", true);
+      window["codHorarioDestino_016"].clear();
+      window["codHorarioDestino_016"].disable(true);
+      $("#horarioDestino_016").val("");
+      $("#codTipoContratoDestino_016").val("");
+      window["tipoContratoDestino_016"].clear();
+      window["tipoContratoDestino_016"].disable(true);
+      $("#apvGestorAtual").val("");
    }
 
    if (removedItem.inputId == "nomeFuncionario_016") {
