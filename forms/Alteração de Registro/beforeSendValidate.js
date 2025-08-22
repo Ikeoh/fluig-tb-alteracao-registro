@@ -3,12 +3,14 @@ var beforeSendValidate = function (numState, nextState) {
    let state = getState();
    let msgErro = "";
 
-   if (mode == "ADD") {
-      /*
-      if (campoVazio("fieldId")) {
-         msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Nome do Campo</strong> é de preenchimento obrigatório.</li>";
+   if (mode == "ADD" || mode == "MOD") {
+      if ($("#acPericulosidade").is(":checked") && campoVazio("percentualPericulosidade")) {
+         msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Percentual de Periculosidade</strong> é de preenchimento obrigatório.</li>";
       }
-      */
+
+      if ($("#acInsalubridade").is(":checked") && campoVazio("percentualInsalubridade")) {
+         msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Percentual de Insalubridade</strong> é de preenchimento obrigatório.</li>";
+      }
    }
 
    if (mode == "MOD") {

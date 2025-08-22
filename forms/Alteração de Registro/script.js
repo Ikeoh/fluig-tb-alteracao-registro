@@ -646,3 +646,41 @@ function getState() {
 function getMode() {
    return parent.ECM.workflowView.state.mode;
 }
+
+$(document).ready(function () {
+   function setupAdicionalLogic(checkboxId, divId, inputId) {
+      const checkbox = $("#" + checkboxId);
+      const div = $("#" + divId);
+      const input = $("#" + inputId);
+
+      checkbox.on("change", function () {
+         if ($(this).is(":checked")) {
+            div.show();
+            input.prop("required", true);
+         } else {
+            div.hide();
+            input.val("");
+            input.prop("required", false);
+         }
+      });
+
+      input.on("input", function () {
+         let valor = $(this).val();
+         valor = valor.replace(/[^\d,.]/g, "");
+         valor = valor.replace(/([,.].*)[,.]/g, "$1");
+         valor = valor.replace(",", ".");
+         $(this).val(valor);
+      });
+
+      input.on("blur", function () {
+         let valor = $(this).val();
+         if (valor) {
+            valor = parseFloat(valor).toFixed(2).replace(".", ",");
+            $(this).val(valor);
+         }
+      });
+   }
+
+   setupAdicionalLogic("acPericulosidade", "divPercentualPericulosidade", "percentualPericulosidade");
+   setupAdicionalLogic("acInsalubridade", "divPercentualInsalubridade", "percentualInsalubridade");
+});
