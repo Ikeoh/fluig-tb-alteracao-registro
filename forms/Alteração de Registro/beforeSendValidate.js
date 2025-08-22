@@ -13,7 +13,7 @@ var beforeSendValidate = function (numState, nextState) {
 
    if (mode == "MOD") {
       if (state == AP_RH_VERIFICACAO) {
-         if (campoVazio("regraDestino_016")) {
+         if (campoVazio("regraDestino")) {
             msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Regra de Apontamento</strong> é de preenchimento obrigatório.</li>";
          }
       }

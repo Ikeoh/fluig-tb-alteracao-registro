@@ -20,14 +20,14 @@ $(document).ready(function () {
 
       $("#btnGerarPDF").on("click", function () {
          dataAtual = getCurrentDate();
-         nomeFuncionario = $("#nomeFuncionario_016").val();
+         nomeFuncionario = $("#nomeFuncionario").val();
          cpfFuncionario = $("#numeroCpf").val();
          horarioTrabalho = $("#horasSemanais").val();
-         cargoDestino = $("#cargoDestino_016").val();
-         salarioDestino = $("#salarioDestino_016").val();
-         horarioDestino = $("#horarioDestino_016").val();
+         cargoDestino = $("#cargoDestino").val();
+         salarioDestino = $("#salarioDestino").val();
+         horarioDestino = $("#horarioDestino").val();
          novoEndereco = $("#enderecoDestino").val();
-         dataPromocao = $("#dataEfetiva_016").val();
+         dataPromocao = $("#dataEfetiva").val();
 
          // Exibir o modal de confirmação antes de gerar o PDF
          const modalConfirmacao = FLUIGC.modal(
@@ -46,7 +46,7 @@ $(document).ready(function () {
                ],
             },
             (data) => {
-               $("[data-confirm-modal]").on("click", function () {
+               $('[data-confirm-modal]').on("click", function () {
                   modalConfirmacao.remove();
                   gerarPDF();
                });
@@ -193,7 +193,7 @@ function documentoAssinaturaFuncionario() {
          margin: [0, 0, 0, 20],
       },
       {
-         text: "PARAGRÁFO PRIMEIRO – O contrato de trabalho fica ratificado em todos os seus termos, cláusulas e condições não expressamente alteradas por esse documento, que àquele se integra, formando um todo, único e indivisível para todos os efeitos legais.",
+         text: "PARÁGRAFO PRIMEIRO – O contrato de trabalho fica ratificado em todos os seus termos, cláusulas e condições não expressamente alteradas por esse documento, que àquele se integra, formando um todo, único e indivisível para todos os efeitos legais.",
          margin: [0, 0, 0, 20],
          style: "documentParagraph",
       },

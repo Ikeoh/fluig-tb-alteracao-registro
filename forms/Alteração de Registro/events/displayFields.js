@@ -104,7 +104,7 @@ function displayFields(form, customHTML) {
    */
 
    // Controla a visibilidade do campo de Regra de Apontamento
-   var regraDestinoValue = form.getValue("regraDestino_016");
+   var regraDestinoValue = form.getValue("regraDestino");
    if (state < AP_RH_VERIFICACAO && (regraDestinoValue == null || regraDestinoValue.trim() == "")) {
       form.setVisibleById("formGroupRegraDestino", false);
    }

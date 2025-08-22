@@ -70,10 +70,10 @@
             <div class="panel-body">
                <div class="row">
                   <div class="col-sm-4">
-                     <label for="filial_016">Filial</label>
+                     <label for="filial">Filial</label>
                      <span style="color: red; font-weight: bold;">*</span>
-                     <input class="form-control hidden" type="text" name="numeroFilial_016" id="numeroFilial_016" value="">
-                     <input class="form-control" name="filial_016" id="filial_016" type="zoom" data-zoom="{
+                     <input class="form-control hidden" type="text" name="numeroFilial" id="numeroFilial" value="">
+                     <input class="form-control" name="filial" id="filial" type="zoom" data-zoom="{
                         'datasetId':'ds_gtb_jdbc_016_empresas',
                         'displayKey':'M0_FILIAL',
                         'placeholder':'Selecione',
@@ -92,12 +92,12 @@
                      }" />
                   </div>
                   <div class="col-sm-4">
-                     <label for="nomeFuncionario_016">Funcionário</label>
+                     <label for="nomeFuncionario">Funcionário</label>
                      <span style="color: red; font-weight: bold;">*</span>
-                     <input class="form-control hidden" type="text" name="numeroMatricula_016" id="numeroMatricula_016" value="">
+                     <input class="form-control hidden" type="text" name="numeroMatricula" id="numeroMatricula" value="">
                      <input class="form-control hidden" type="text" name="numeroCpf" id="numeroCpf" value="">
                      <input class="form-control hidden" type="text" name="horasSemanais" id="horasSemanais" value="">
-                     <input class="form-control" name="nomeFuncionario_016" id="nomeFuncionario_016" type="zoom" data-zoom="{
+                     <input class="form-control" name="nomeFuncionario" id="nomeFuncionario" type="zoom" data-zoom="{
                            'datasetId':'ds_gtb_jdbc_016_matricula',
                            'displayKey':'RA_NOME',
                            'placeholder':'Selecione',
@@ -121,9 +121,9 @@
                   </div>
                   <div class="col-md-4">
                      <div class="form-group">
-                        <label for="dataEfetiva_016">A partir de</label>
+                        <label for="dataEfetiva">A partir de</label>
                         <span style="color: red; font-weight: bold;">*</span>
-                        <select class="form-control" id="dataEfetiva_016" name="dataEfetiva_016"></select>
+                        <select class="form-control" id="dataEfetiva" name="dataEfetiva"></select>
                      </div>
                   </div>
 
@@ -137,56 +137,56 @@
                         </h3>
                      </div>
                      <div class="hidden">
-                        <input class="form-control" type="text" name="codDepartamentoAtual_016" id="codDepartamentoAtual_016" readonly>
-                        <input class="form-control" type="text" name="regraAtual_016" id="regraAtual_016" readonly>
-                        <input class="form-control" type="text" name="sequenciaAtual_016" id="sequenciaAtual_016" readonly>
+                        <input class="form-control" type="text" name="codDepartamentoAtual" id="codDepartamentoAtual" readonly>
+                        <input class="form-control" type="text" name="regraAtual" id="regraAtual" readonly>
+                        <input class="form-control" type="text" name="sequenciaAtual" id="sequenciaAtual" readonly>
                      </div>
                      <div class="panel-body">
                         <div class="row">
                            <div class="form-group col-sm-6">
-                              <label class="control-label" for="filialAtual_016">Filial Atual</label>
-                              <input class="form-control" type="text" name="filialAtual_016" id="filialAtual_016" readonly>
+                              <label class="control-label" for="filialAtual">Filial Atual</label>
+                              <input class="form-control" type="text" name="filialAtual" id="filialAtual" readonly>
                            </div>
                            <div class="form-group col-sm-6">
-                              <label class="control-label" for="centroCustoAtual_016">Centro Custo Atual</label>
-                              <input class="form-control" type="text" name="centroCustoAtual_016" id="centroCustoAtual_016" readonly>
+                              <label class="control-label" for="centroCustoAtual">Centro Custo Atual</label>
+                              <input class="form-control" type="text" name="centroCustoAtual" id="centroCustoAtual" readonly>
                            </div>
                         </div>
                         <div class="row">
                            <div class="form-group col-sm-3">
-                              <label class="control-label" for="codCargoAtual_016">Cód.</label>
-                              <input class="form-control" type="text" name="codCargoAtual_016" id="codCargoAtual_016" readonly>
+                              <label class="control-label" for="codCargoAtual">Cód.</label>
+                              <input class="form-control" type="text" name="codCargoAtual" id="codCargoAtual" readonly>
                            </div>
                            <div class="form-group col-sm-6">
-                              <label class="control-label" for="cargoAtual_016">Desc. Cargo Atual</label>
-                              <input class="form-control" type="text" name="cargoAtual_016" id="cargoAtual_016" readonly>
+                              <label class="control-label" for="cargoAtual">Desc. Cargo Atual</label>
+                              <input class="form-control" type="text" name="cargoAtual" id="cargoAtual" readonly>
                            </div>
                            <div class="form-group col-sm-3">
-                              <label class="control-label" for="salarioAtual_016">Sal. Atual</label>
+                              <label class="control-label" for="salarioAtual">Sal. Atual</label>
                               <span style="color: red; font-weight: bold;">*</span>
-                              <input class="form-control campo-moeda" type="text" name="salarioAtual_016" id="salarioAtual_016" maxlength="17" onkeyup="formatarMoeda()">
+                              <input class="form-control campo-moeda" type="text" name="salarioAtual" id="salarioAtual" maxlength="17" onkeyup="formatarMoeda()">
                            </div>
                         </div>
                         <div class="row">
                            <div class="form-group col-sm-5">
-                              <label class="control-label" for="codHorarioAtual_016">Cod. Turno</label>
-                              <input class="form-control" type="text" name="codHorarioAtual_016" id="codHorarioAtual_016" readonly>
+                              <label class="control-label" for="codHorarioAtual">Cod. Turno</label>
+                              <input class="form-control" type="text" name="codHorarioAtual" id="codHorarioAtual" readonly>
                            </div>
                            <div class="form-group col-sm-7">
-                              <label class="control-label" for="horarioAtual_016">Desc. Turno</label>
-                              <input class="form-control" type="text" name="horarioAtual_016" id="horarioAtual_016" readonly>
+                              <label class="control-label" for="horarioAtual">Desc. Turno</label>
+                              <input class="form-control" type="text" name="horarioAtual" id="horarioAtual" readonly>
                            </div>
                         </div>
                         <div class="row">
                            <div class="form-group col-sm-12">
-                              <label class="control-label" for="departamentoAtual_016">Departamento</label>
-                              <input class="form-control" type="text" name="departamentoAtual_016" id="departamentoAtual_016" readonly>
+                              <label class="control-label" for="departamentoAtual">Departamento</label>
+                              <input class="form-control" type="text" name="departamentoAtual" id="departamentoAtual" readonly>
                            </div>
                         </div>
                         <div class="row">
                            <div class="form-group col-sm-12">
-                              <label class="control-label" for="tipoContratoAtual_016">Tipo Contrato Atual</label>
-                              <input class="form-control" type="text" name="tipoContratoAtual_016" id="tipoContratoAtual_016" readonly>
+                              <label class="control-label" for="tipoContratoAtual">Tipo Contrato Atual</label>
+                              <input class="form-control" type="text" name="tipoContratoAtual" id="tipoContratoAtual" readonly>
                            </div>
                         </div>
                      </div>
@@ -198,14 +198,14 @@
                         </h3>
                      </div>
                      <div class="hidden">
-                        <input class="form-control" type="text" name="sequenciaDestino_016" id="sequenciaDestino_016" value="01" readonly>
+                        <input class="form-control" type="text" name="sequenciaDestino" id="sequenciaDestino" value="01" readonly>
                      </div>
                      <div class="panel-body">
                         <div class="row">
                            <div class="form-group col-sm-6">
-                              <label class="control-label" for="filialDestino_016">Filial Destino</label>
+                              <label class="control-label" for="filialDestino">Filial Destino</label>
                               <span style="color: red; font-weight: bold;">*</span>
-                              <input class="form-control" name="filialDestino_016" id="filialDestino_016" type="zoom" data-zoom="{
+                              <input class="form-control" name="filialDestino" id="filialDestino" type="zoom" data-zoom="{
                                        'datasetId':'ds_gtb_jdbc_016_filial_destino',
                                        'displayKey':'M0_CODFIL',
                                        'placeholder':'Selecione',
@@ -227,9 +227,9 @@
                               <input class="form-control hidden" type="text" name="saldoVagasDisponivel" id="saldoVagasDisponivel" readonly>
                               <input class="form-control hidden" type="text" name="dirResponsavel" id="dirResponsavel" readonly>
                               <input class="form-control hidden" type="text" name="enderecoDestino" id="enderecoDestino" readonly>
-                              <label class="control-label" for="centroCustoDestino_016">Centro Custo Destino</label>
+                              <label class="control-label" for="centroCustoDestino">Centro Custo Destino</label>
                               <span style="color: red; font-weight: bold;">*</span>
-                              <input type="zoom" class="form-control" id="centroCustoDestino_016" name="centroCustoDestino_016" data-zoom="{
+                              <input type="zoom" class="form-control" id="centroCustoDestino" name="centroCustoDestino" data-zoom="{
                                        'datasetId':'ds_gtb_jdbc_centro_de_custo',
                                        'displayKey':'CTT_CUSTO',
                                        'maximumSelectionLength':'1',
@@ -250,13 +250,13 @@
                         </div>
                         <div class="row">
                            <div class="form-group col-sm-3">
-                              <label class="control-label" for="codCargoDestino_016">Cód</label>
-                              <input class="form-control" type="text" name="codCargoDestino_016" id="codCargoDestino_016" readonly>
+                              <label class="control-label" for="codCargoDestino">Cód</label>
+                              <input class="form-control" type="text" name="codCargoDestino" id="codCargoDestino" readonly>
                            </div>
                            <div class="form-group col-sm-6">
-                              <label class="control-label" for="cargoDestino_016">Desc. Cargo Destino</label>
+                              <label class="control-label" for="cargoDestino">Desc. Cargo Destino</label>
                               <span style="color: red; font-weight: bold;">*</span>
-                              <input type="zoom" class="form-control" id="cargoDestino_016" name="cargoDestino_016" data-zoom="{
+                              <input type="zoom" class="form-control" id="cargoDestino" name="cargoDestino" data-zoom="{
                                        'datasetId':'ds_gtb_jdbc_016_cargos',
                                        'displayKey':'RJ_DESC',
                                        'maximumSelectionLength':'1',
@@ -276,17 +276,17 @@
                            </div>
                            <div class="form-group col-sm-3">
                               <input class="form-control hidden" type="text" name="alteraSalario" id="alteraSalario" readonly>
-                              <label class="control-label" for="salarioDestino_016">Sal. Destino</label>
+                              <label class="control-label" for="salarioDestino">Sal. Destino</label>
                               <span style="color: red; font-weight: bold;">*</span>
-                              <input class="form-control campo-moeda" type="text" name="salarioDestino_016" id="salarioDestino_016" maxlength="17" onkeyup="formatarMoeda()">
+                              <input class="form-control campo-moeda" type="text" name="salarioDestino" id="salarioDestino" maxlength="17" onkeyup="formatarMoeda()">
                            </div>
                         </div>
                         <div class="row">
                            <div class="col-md-5">
                               <div class="form-group">
-                                 <label class="control-label" for="codHorarioDestino_016">Cod. Turno</label>
+                                 <label class="control-label" for="codHorarioDestino">Cod. Turno</label>
                                  <span style="color: red; font-weight: bold;">*</span>
-                                 <input type="zoom" class="form-control" id="codHorarioDestino_016" name="codHorarioDestino_016" data-zoom="{
+                                 <input type="zoom" class="form-control" id="codHorarioDestino" name="codHorarioDestino" data-zoom="{
                                           'datasetId':'ds_gtb_jdbc_016_hora_trabalho',
                                           'displayKey':'R6_TURNO',
                                           'maximumSelectionLength':'1',
@@ -306,16 +306,16 @@
                            </div>
                            <div class="col-md-7">
                               <div class="form-group">
-                                 <label for="horarioDestino_016">Desc. Turno</label>
-                                 <input type="text" class="form-control" name="horarioDestino_016" id="horarioDestino_016" readonly>
+                                 <label for="horarioDestino">Desc. Turno</label>
+                                 <input type="text" class="form-control" name="horarioDestino" id="horarioDestino" readonly>
                               </div>
                            </div>
                         </div>
                         <div class="row">
                            <div class="form-group col-sm-12">
-                              <label class="control-label" for="departamentoDestino_016">Departamento</label>
+                              <label class="control-label" for="departamentoDestino">Departamento</label>
                               <span style="color: red; font-weight: bold;">*</span>
-                              <input class="form-control" type="zoom" name="departamentoDestino_016" id="departamentoDestino_016" data-zoom="{
+                              <input class="form-control" type="zoom" name="departamentoDestino" id="departamentoDestino" data-zoom="{
                                        'datasetId':'ds_gtb_jdbc_016_departamentos',
                                        'displayKey':'QB_DESCRIC',
                                        'maximumSelectionLength':'1',
@@ -337,10 +337,10 @@
                         <div class="row">
                            <div class="col-md-12">
                               <div class="form-group">
-                                 <input type="text" class="form-control hidden" name="codTipoContratoDestino_016" id="codTipoContratoDestino_016" readonly>
-                                 <label for="tipoContratoDestino_016">Tipo Contrato Destino</label>
+                                 <input type="text" class="form-control hidden" name="codTipoContratoDestino" id="codTipoContratoDestino" readonly>
+                                 <label for="tipoContratoDestino">Tipo Contrato Destino</label>
                                  <span style="color: red; font-weight: bold;">*</span>
-                                 <input type="zoom" class="form-control" id="tipoContratoDestino_016" name="tipoContratoDestino_016" data-zoom="{
+                                 <input type="zoom" class="form-control" id="tipoContratoDestino" name="tipoContratoDestino" data-zoom="{
                                           'datasetId':'ds_gtb_jdbc_016_contratos',
                                           'displayKey':'RCC_CONTEU',
                                           'maximumSelectionLength':'1',
@@ -363,9 +363,9 @@
                         <div class="row">
                            <div class="col-md-12">
                               <div class="form-group" id="formGroupRegraDestino">
-                                 <label class="control-label" for="regraDestino_016">Regra de Apontamento</label>
+                                 <label class="control-label" for="regraDestino">Regra de Apontamento</label>
                                  <span style="color: red; font-weight: bold;">*</span>
-                                 <input type="zoom" class="form-control" id="regraDestino_016" name="regraDestino_016" data-zoom="{
+                                 <input type="zoom" class="form-control" id="regraDestino" name="regraDestino" data-zoom="{
                                        'datasetId':'ds_gtb_jdbc_016_regra_apontamento',
                                        'displayKey':'PA_DESC',
                                        'maximumSelectionLength':'1',
@@ -382,7 +382,7 @@
                                           }
                                        ]
                                     }">
-                                 <input type="hidden" name="codRegraDestino_016" id="codRegraDestino_016">
+                                 <input type="hidden" name="codRegraDestino" id="codRegraDestino">
                               </div>
                            </div>
                         </div>
@@ -391,28 +391,28 @@
                </div>
                <div class="row">
                   <div class="col-sm-12">
-                     <label class="control-label" for="adicionaisContrato_016">Adicionais do Contrato</label>
+                     <label class="control-label" for="adicionaisContrato">Adicionais do Contrato</label>
                   </div>
                   <div class="form-group col-sm-4">
                      <div class="custom-checkbox custom-checkbox-success">
-                        <input type="checkbox" id="acPericulosidade_016" name="acPericulosidade_016" value="">
-                        <label for="acPericulosidade_016">Periculosidade</label>
+                        <input type="checkbox" id="acPericulosidade" name="acPericulosidade" value="">
+                        <label for="acPericulosidade">Periculosidade</label>
                      </div>
                      <div class="custom-checkbox custom-checkbox-success">
-                        <input type="checkbox" id="acInsalubridade_016" name="acInsalubridade_016" value="">
-                        <label for="acInsalubridade_016">Insalubridade</label>
+                        <input type="checkbox" id="acInsalubridade" name="acInsalubridade" value="">
+                        <label for="acInsalubridade">Insalubridade</label>
                      </div>
                      <div class="custom-checkbox custom-checkbox-success">
-                        <input type="checkbox" id="acDiaria_016" name="acDiaria_016" value="">
-                        <label for="acDiaria_016">Diária</label>
+                        <input type="checkbox" id="acDiaria" name="acDiaria" value="">
+                        <label for="acDiaria">Diária</label>
                      </div>
                      <div class="custom-checkbox custom-checkbox-success">
-                        <input type="checkbox" id="acGratificacao_016" name="acGratificacao_016" value="">
-                        <label for="acGratificacao_016">Gratificação</label>
+                        <input type="checkbox" id="acGratificacao" name="acGratificacao" value="">
+                        <label for="acGratificacao">Gratificação</label>
                      </div>
                      <div class="custom-checkbox custom-checkbox-success">
-                        <input type="checkbox" id="acValeTransporte_016" name="acValeTransporte_016" value="">
-                        <label for="acValeTransporte_016">Vale Transporte</label>
+                        <input type="checkbox" id="acValeTransporte" name="acValeTransporte" value="">
+                        <label for="acValeTransporte">Vale Transporte</label>
                      </div>
                      <div class="custom-checkbox custom-checkbox-success">
                         <input type="checkbox" id="acAdiantamento" name="acAdiantamento" value="">
@@ -449,9 +449,9 @@
                <div class="row">
                   <div class="col-sm-12">
                      <div class="form-group">
-                        <label class="control-label" for="justificativaSolicitante_016">Justificativa</label>
+                        <label class="control-label" for="justificativaSolicitante">Justificativa</label>
                         <span style="color: red; font-weight: bold;">*</span>
-                        <textarea class="form-control" rows="3" name="justificativaSolicitante_016" id="justificativaSolicitante_016"></textarea>
+                        <textarea class="form-control" rows="3" name="justificativaSolicitante" id="justificativaSolicitante"></textarea>
                      </div>
                   </div>
                </div>

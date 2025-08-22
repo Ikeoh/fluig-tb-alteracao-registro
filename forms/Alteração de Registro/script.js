@@ -7,7 +7,7 @@ $(document).ready(function () {
    let state = getState();
 
    if (state == ABERTURA) {
-      const select = $("#dataEfetiva_016");
+      const select = $("#dataEfetiva");
       const today = new Date();
       for (let i = 0; i < 6; i++) {
          const targetDate = new Date(today.getFullYear(), today.getMonth() + i, 1);
@@ -19,16 +19,16 @@ $(document).ready(function () {
       }
 
       setTimeout(function () {
-         window["nomeFuncionario_016"].disable(true);
-         window["filialDestino_016"].disable(true);
-         window["centroCustoDestino_016"].disable(true);
-         window["cargoDestino_016"].disable(true);
-         window["codHorarioDestino_016"].disable(true);
-         window["tipoContratoDestino_016"].disable(true);
-         window["departamentoDestino_016"].disable(true);
-         window["regraDestino_016"].disable(true);
-         $("#salarioAtual_016").prop("disabled", true);
-         $("#salarioDestino_016").prop("disabled", true);
+         window["nomeFuncionario"].disable(true);
+         window["filialDestino"].disable(true);
+         window["centroCustoDestino"].disable(true);
+         window["cargoDestino"].disable(true);
+         window["codHorarioDestino"].disable(true);
+         window["tipoContratoDestino"].disable(true);
+         window["departamentoDestino"].disable(true);
+         window["regraDestino"].disable(true);
+         $("#salarioAtual").prop("disabled", true);
+         $("#salarioDestino").prop("disabled", true);
       }, 300);
    }
 });
@@ -132,26 +132,26 @@ $(document).ready(function () {
 function setSelectedZoomItem(selectedItem) {
    console.log(selectedItem);
 
-   if (selectedItem.inputId == "filial_016") {
-      $("#numeroFilial_016").val(selectedItem.M0_CODFIL);
-      reloadZoomFilterValues("nomeFuncionario_016", "RA_FILIAL," + selectedItem["M0_CODFIL"]);
-      window["nomeFuncionario_016"].disable(false);
+   if (selectedItem.inputId == "filial") {
+      $("#numeroFilial").val(selectedItem.M0_CODFIL);
+      reloadZoomFilterValues("nomeFuncionario", "RA_FILIAL," + selectedItem["M0_CODFIL"]);
+      window["nomeFuncionario"].disable(false);
    }
 
-   if (selectedItem.inputId == "filialDestino_016") {
-      reloadZoomFilterValues("cargoDestino_016", "RJ_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
-      reloadZoomFilterValues("codHorarioDestino_016", "R6_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
-      reloadZoomFilterValues("tipoContratoDestino_016", "RCC_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
-      reloadZoomFilterValues("departamentoDestino_016", "QB_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
-      reloadZoomFilterValues("regraDestino_016", "PA_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
-      window["centroCustoDestino_016"].disable(false);
-      window["cargoDestino_016"].disable(false);
-      window["codHorarioDestino_016"].disable(false);
-      window["tipoContratoDestino_016"].disable(false);
-      window["departamentoDestino_016"].disable(false);
+   if (selectedItem.inputId == "filialDestino") {
+      reloadZoomFilterValues("cargoDestino", "RJ_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
+      reloadZoomFilterValues("codHorarioDestino", "R6_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
+      reloadZoomFilterValues("tipoContratoDestino", "RCC_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
+      reloadZoomFilterValues("departamentoDestino", "QB_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
+      reloadZoomFilterValues("regraDestino", "PA_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
+      window["centroCustoDestino"].disable(false);
+      window["cargoDestino"].disable(false);
+      window["codHorarioDestino"].disable(false);
+      window["tipoContratoDestino"].disable(false);
+      window["departamentoDestino"].disable(false);
    }
 
-   if (selectedItem.inputId == "centroCustoDestino_016") {
+   if (selectedItem.inputId == "centroCustoDestino") {
       const centroCusto = selectedItem["CTT_CUSTO"];
       getAndDisplaySaldoDisponivel(centroCusto);
       updateResponsibleDir();
@@ -161,169 +161,169 @@ function setSelectedZoomItem(selectedItem) {
       $("#enderecoDestino").val(selectedItem.CTT_ENDER);
    }
 
-   if (selectedItem.inputId == "nomeFuncionario_016") {
-      $("#numeroMatricula_016").val(selectedItem.RA_MAT);
-      $("#filialAtual_016").val(selectedItem.RA_FILIAL);
-      $("#centroCustoAtual_016").val(selectedItem.RA_CC);
-      $("#codCargoAtual_016").val(selectedItem.RA_CARGO);
-      $("#cargoAtual_016").val(selectedItem.RJ_DESC);
-      //$("#salarioAtual_016").val("");
-      $("#codHorarioAtual_016").val(selectedItem.RA_TNOTRAB);
-      $("#horarioAtual_016").val(selectedItem.R6_DESC);
-      $("#tipoContratoAtual_016").val(selectedItem.RCC_DESC);
-      $("#codDepartamentoAtual_016").val(selectedItem.RA_DEPTO);
+   if (selectedItem.inputId == "nomeFuncionario") {
+      $("#numeroMatricula").val(selectedItem.RA_MAT);
+      $("#filialAtual").val(selectedItem.RA_FILIAL);
+      $("#centroCustoAtual").val(selectedItem.RA_CC);
+      $("#codCargoAtual").val(selectedItem.RA_CARGO);
+      $("#cargoAtual").val(selectedItem.RJ_DESC);
+      //$("#salarioAtual").val("");
+      $("#codHorarioAtual").val(selectedItem.RA_TNOTRAB);
+      $("#horarioAtual").val(selectedItem.R6_DESC);
+      $("#tipoContratoAtual").val(selectedItem.RCC_DESC);
+      $("#codDepartamentoAtual").val(selectedItem.RA_DEPTO);
       getDepartamentoDescricao(selectedItem.RA_DEPTO, selectedItem.RA_FILIAL);
-      window["filialDestino_016"].disable(false);
-      $("#salarioAtual_016").prop("disabled", false);
-      $("#salarioDestino_016").prop("disabled", false);
+      window["filialDestino"].disable(false);
+      $("#salarioAtual").prop("disabled", false);
+      $("#salarioDestino").prop("disabled", false);
 
-      buscarCentroDeCusto($("#centroCustoAtual_016").val(), "XRES", "apvGestorAtual");
+      buscarCentroDeCusto($("#centroCustoAtual").val(), "XRES", "apvGestorAtual");
 
       $("#numeroCpf").val(selectedItem.RA_CIC);
       $("#horasSemanais").val(selectedItem.RA_HRSEMAN);
    }
 
-   if (selectedItem.inputId == "cargoDestino_016") {
-      $("#codCargoDestino_016").val(selectedItem.RJ_FUNCAO);
+   if (selectedItem.inputId == "cargoDestino") {
+      $("#codCargoDestino").val(selectedItem.RJ_FUNCAO);
    }
 
-   if (selectedItem.inputId == "codHorarioDestino_016") {
-      $("#horarioDestino_016").val(selectedItem.R6_DESC);
+   if (selectedItem.inputId == "codHorarioDestino") {
+      $("#horarioDestino").val(selectedItem.R6_DESC);
    }
 
-   if (selectedItem.inputId == "tipoContratoDestino_016") {
-      $("#codTipoContratoDestino_016").val(selectedItem.RCC_CODIGO_CONTEU);
+   if (selectedItem.inputId == "tipoContratoDestino") {
+      $("#codTipoContratoDestino").val(selectedItem.RCC_CODIGO_CONTEU);
    }
 
-   if (selectedItem.inputId == "departamentoDestino_016") {
+   if (selectedItem.inputId == "departamentoDestino") {
       //
    }
 
-   if (selectedItem.inputId == "regraDestino_016") {
-      $("#codRegraDestino_016").val(selectedItem.PA_CODIGO);
+   if (selectedItem.inputId == "regraDestino") {
+      $("#codRegraDestino").val(selectedItem.PA_CODIGO);
    }
 }
 
 function removedZoomItem(removedItem) {
-   if (removedItem.inputId == "filial_016") {
-      $("#numeroFilial_016").val("");
+   if (removedItem.inputId == "filial") {
+      $("#numeroFilial").val("");
 
-      window["nomeFuncionario_016"].clear();
-      window["nomeFuncionario_016"].disable(true);
+      window["nomeFuncionario"].clear();
+      window["nomeFuncionario"].disable(true);
 
       // Limpa os campos de "Dados Atuais"
-      $("#filialAtual_016").val("");
-      $("#centroCustoAtual_016").val("");
-      $("#codCargoAtual_016").val("");
-      $("#cargoAtual_016").val("");
-      $("#salarioAtual_016").val("");
-      $("#codHorarioAtual_016").val("");
-      $("#horarioAtual_016").val("");
-      $("#tipoContratoAtual_016").val("");
-      $("#departamentoAtual_016").val("");
-      $("#codDepartamentoAtual_016").val("");
+      $("#filialAtual").val("");
+      $("#centroCustoAtual").val("");
+      $("#codCargoAtual").val("");
+      $("#cargoAtual").val("");
+      $("#salarioAtual").val("");
+      $("#codHorarioAtual").val("");
+      $("#horarioAtual").val("");
+      $("#tipoContratoAtual").val("");
+      $("#departamentoAtual").val("");
+      $("#codDepartamentoAtual").val("");
 
-      // Limpa também os campos de "Dados Após Alteração" que são resetados em nomeFuncionario_016
-      window["filialDestino_016"].clear();
-      window["filialDestino_016"].disable(true);
-      window["centroCustoDestino_016"].clear();
-      window["centroCustoDestino_016"].disable(true);
-      $("#codCargoDestino_016").val("");
-      window["cargoDestino_016"].clear();
-      window["cargoDestino_016"].disable(true);
-      $("#salarioDestino_016").val("");
-      $("#salarioDestino_016").prop("disabled", true);
-      window["codHorarioDestino_016"].clear();
-      window["codHorarioDestino_016"].disable(true);
-      $("#horarioDestino_016").val("");
-      $("#codTipoContratoDestino_016").val("");
-      window["tipoContratoDestino_016"].clear();
-      window["tipoContratoDestino_016"].disable(true);
+      // Limpa também os campos de "Dados Após Alteração" que são resetados em nomeFuncionario
+      window["filialDestino"].clear();
+      window["filialDestino"].disable(true);
+      window["centroCustoDestino"].clear();
+      window["centroCustoDestino"].disable(true);
+      $("#codCargoDestino").val("");
+      window["cargoDestino"].clear();
+      window["cargoDestino"].disable(true);
+      $("#salarioDestino").val("");
+      $("#salarioDestino").prop("disabled", true);
+      window["codHorarioDestino"].clear();
+      window["codHorarioDestino"].disable(true);
+      $("#horarioDestino").val("");
+      $("#codTipoContratoDestino").val("");
+      window["tipoContratoDestino"].clear();
+      window["tipoContratoDestino"].disable(true);
       $("#apvGestorAtual").val("");
    }
 
-   if (removedItem.inputId == "nomeFuncionario_016") {
+   if (removedItem.inputId == "nomeFuncionario") {
       //OUTROS
-      $("#numeroMatricula_016").val("");
+      $("#numeroMatricula").val("");
       $("#numeroCpf").val("");
       $("#horasSemanais").val("");
 
       //ATUAIS
-      $("#filialAtual_016").val("");
-      $("#centroCustoAtual_016").val("");
-      $("#codCargoAtual_016").val("");
-      $("#cargoAtual_016").val("");
-      $("#salarioAtual_016").val("");
-      $("#salarioAtual_016").prop("disabled", true);
-      $("#codHorarioAtual_016").val("");
-      $("#horarioAtual_016").val("");
-      $("#tipoContratoAtual_016").val("");
-      $("#departamentoAtual_016").val("");
-      $("#codDepartamentoAtual_016").val("");
+      $("#filialAtual").val("");
+      $("#centroCustoAtual").val("");
+      $("#codCargoAtual").val("");
+      $("#cargoAtual").val("");
+      $("#salarioAtual").val("");
+      $("#salarioAtual").prop("disabled", true);
+      $("#codHorarioAtual").val("");
+      $("#horarioAtual").val("");
+      $("#tipoContratoAtual").val("");
+      $("#departamentoAtual").val("");
+      $("#codDepartamentoAtual").val("");
 
       //ALTERADOS
-      window["filialDestino_016"].clear();
-      window["filialDestino_016"].disable(true);
-      window["centroCustoDestino_016"].clear();
-      window["centroCustoDestino_016"].disable(true);
-      $("#codCargoDestino_016").val("");
-      window["cargoDestino_016"].clear();
-      window["cargoDestino_016"].disable(true);
-      $("#salarioDestino_016").val("");
-      $("#salarioDestino_016").prop("disabled", true);
-      window["codHorarioDestino_016"].clear();
-      window["codHorarioDestino_016"].disable(true);
-      $("#horarioDestino_016").val("");
-      $("#codTipoContratoDestino_016").val("");
-      window["tipoContratoDestino_016"].clear();
-      window["tipoContratoDestino_016"].disable(true);
+      window["filialDestino"].clear();
+      window["filialDestino"].disable(true);
+      window["centroCustoDestino"].clear();
+      window["centroCustoDestino"].disable(true);
+      $("#codCargoDestino").val("");
+      window["cargoDestino"].clear();
+      window["cargoDestino"].disable(true);
+      $("#salarioDestino").val("");
+      $("#salarioDestino").prop("disabled", true);
+      window["codHorarioDestino"].clear();
+      window["codHorarioDestino"].disable(true);
+      $("#horarioDestino").val("");
+      $("#codTipoContratoDestino").val("");
+      window["tipoContratoDestino"].clear();
+      window["tipoContratoDestino"].disable(true);
       $("#apvGestorAtual").val("");
    }
 
-   if (removedItem.inputId == "filialDestino_016") {
-      window["centroCustoDestino_016"].clear();
-      window["centroCustoDestino_016"].disable(true);
-      $("#codCargoDestino_016").val("");
-      window["cargoDestino_016"].clear();
-      window["cargoDestino_016"].disable(true);
-      $("#salarioDestino_016").val("");
-      window["codHorarioDestino_016"].clear();
-      window["codHorarioDestino_016"].disable(true);
-      $("#horarioDestino_016").val("");
-      $("#codTipoContratoDestino_016").val("");
-      window["tipoContratoDestino_016"].clear();
-      window["tipoContratoDestino_016"].disable(true);
-      window["departamentoDestino_016"].clear();
-      window["departamentoDestino_016"].disable(true);
-      window["regraDestino_016"].clear();
-      window["regraDestino_016"].disable(true);
+   if (removedItem.inputId == "filialDestino") {
+      window["centroCustoDestino"].clear();
+      window["centroCustoDestino"].disable(true);
+      $("#codCargoDestino").val("");
+      window["cargoDestino"].clear();
+      window["cargoDestino"].disable(true);
+      $("#salarioDestino").val("");
+      window["codHorarioDestino"].clear();
+      window["codHorarioDestino"].disable(true);
+      $("#horarioDestino").val("");
+      $("#codTipoContratoDestino").val("");
+      window["tipoContratoDestino"].clear();
+      window["tipoContratoDestino"].disable(true);
+      window["departamentoDestino"].clear();
+      window["departamentoDestino"].disable(true);
+      window["regraDestino"].clear();
+      window["regraDestino"].disable(true);
    }
 
-   if (removedItem.inputId == "centroCustoDestino_016") {
+   if (removedItem.inputId == "centroCustoDestino") {
       $("#saldoVagasDisponivel").val("");
       $("#apvGestorDestino").val("");
       $("#apvDiretor").val("");
       $("#enderecoDestino").val("");
    }
 
-   if (removedItem.inputId == "cargoDestino_016") {
-      $("#codCargoDestino_016").val("");
+   if (removedItem.inputId == "cargoDestino") {
+      $("#codCargoDestino").val("");
    }
 
-   if (removedItem.inputId == "codHorarioDestino_016") {
-      $("#horarioDestino_016").val("");
+   if (removedItem.inputId == "codHorarioDestino") {
+      $("#horarioDestino").val("");
    }
 
-   if (removedItem.inputId == "tipoContratoDestino_016") {
-      $("#codTipoContratoDestino_016").val("");
+   if (removedItem.inputId == "tipoContratoDestino") {
+      $("#codTipoContratoDestino").val("");
    }
 
-   if (removedItem.inputId == "departamentoDestino_016") {
+   if (removedItem.inputId == "departamentoDestino") {
       //
    }
 
-   if (removedItem.inputId == "regraDestino_016") {
-      $("#codRegraDestino_016").val("");
+   if (removedItem.inputId == "regraDestino") {
+      $("#codRegraDestino").val("");
    }
 }
 
@@ -338,7 +338,7 @@ function getDepartamentoDescricao(codDepartamento, codFilial) {
    DatasetFactory.getDataset("ds_gtb_jdbc_016_departamentos", null, constraints, null, {
       success: function (dataset) {
          if (dataset && dataset.values && dataset.values.length > 0) {
-            $("#departamentoAtual_016").val(dataset.values[0]["QB_DESCRIC"]);
+            $("#departamentoAtual").val(dataset.values[0]["QB_DESCRIC"]);
          }
       },
       error: function (error) {
@@ -527,7 +527,7 @@ async function getAndDisplaySaldoDisponivel(centroCusto) {
 /**
  * Atualiza o campo 'dirResponsavel' com base no prefixo do centro de custo de destino.
  *
- * - Obtém o código do centro de custo do campo 'centroCustoDestino_016'.
+ * - Obtém o código do centro de custo do campo 'centroCustoDestino'.
  * - Se o código do centro de custo for inválido (menor que 2 caracteres), exibe um toast de erro e retorna.
  * - Extrai o prefixo (os dois primeiros dígitos) do código do centro de custo.
  * - Define o valor do campo 'dirResponsavel' com base no prefixo:
@@ -537,7 +537,7 @@ async function getAndDisplaySaldoDisponivel(centroCusto) {
  */
 function updateResponsibleDir() {
    // Obtém o valor do campo, garantindo que seja uma string.
-   let costCenterCode = String($("#centroCustoDestino_016").val());
+   let costCenterCode = String($("#centroCustoDestino").val());
 
    // Remove espaços em branco no início e no fim da string.
    costCenterCode = costCenterCode.trim();
@@ -637,4 +637,12 @@ function buscarCentroDeCusto(codigoCentroCusto, tipoResponsavel, campoId) {
          console.error("Erro ao buscar o dataset ds_gtb_jdbc_centro_de_custo:", error);
       },
    });
+}
+
+function getState() {
+   return parent.ECM.workflowView.sequence;
+}
+
+function getMode() {
+   return parent.ECM.workflowView.state.mode;
 }
