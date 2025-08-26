@@ -1,5 +1,3 @@
 {
-    "totvsLanguageServer.welcomePage": false,
-    "angular.enable-strict-mode-prompt": false,
     "totvsLanguageServer.editor.linter.includes": "C:\\include12"
 }
