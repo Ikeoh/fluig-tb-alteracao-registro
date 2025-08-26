@@ -4,6 +4,12 @@ var beforeSendValidate = function (numState, nextState) {
    let msgErro = "";
 
    if (mode == "ADD" || mode == "MOD") {
+      /*
+      if (campoVazio("salarioDestino")) {
+         msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Salário Destino</strong> é de preenchimento obrigatório.</li>";
+      }
+      */
+
       if ($("#acPericulosidade").is(":checked") && campoVazio("percentualPericulosidade")) {
          msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Percentual de Periculosidade</strong> é de preenchimento obrigatório.</li>";
       }
