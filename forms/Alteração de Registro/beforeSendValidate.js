@@ -46,9 +46,11 @@ var beforeSendValidate = function (numState, nextState) {
    }
 
    if (mode == "ADD" || mode == "MOD") {
-      if (handlePromotionValidation()) {
-         showRHValidationModal();
-         return false;
+      if (state == ABERTURA || state == AJUSTAR) {
+         if (handlePromotionValidation()) {
+            showRHValidationModal();
+            return false;
+         }
       }
    }
 
