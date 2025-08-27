@@ -216,7 +216,7 @@ function getLastSalaryChangeDate(numeroMatricula) {
 function showRHValidationModal() {
    FLUIGC.modal({
       title: "Atenção",
-      content: "Solicitações que envolvem promoção serão analisadas pelo RH",
+      content: "<p style='color: red;'>Solicitações que envolvem promoção serão analisadas pelo RH</p>",
       id: "promotion-validation-modal",
       actions: [
          {
