@@ -1,3 +1,5 @@
+var promotionWarningShown = false;
+
 var beforeSendValidate = function (numState, nextState) {
    let mode = getMode();
    let state = getState();
@@ -45,9 +47,14 @@ var beforeSendValidate = function (numState, nextState) {
       return false; // Impede a movimentação da atividade
    }
 
+   if (promotionWarningShown) {
+      return true;
+   }
+
    if (mode == "ADD" || mode == "MOD") {
       if (state == ABERTURA || state == AJUSTAR) {
          if (handlePromotionValidation()) {
+            promotionWarningShown = true;
             showRHValidationModal();
             return false;
          }
