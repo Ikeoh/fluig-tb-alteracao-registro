@@ -1,27 +1,25 @@
 var promotionWarningShown = false;
 
 var beforeSendValidate = function (numState, nextState) {
+   console.log("--- Debug: Iniciando beforeSendValidate ---");
    let mode = getMode();
    let state = getState();
    let msgErro = "";
 
+   // Bloco de validação de campos obrigatórios (existente)
    if (mode == "ADD" || mode == "MOD") {
       if ($("#acPericulosidade").is(":checked") && campoVazio("percentualPericulosidade")) {
          msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Percentual de Periculosidade</strong> é de preenchimento obrigatório.</li>";
       }
-
       if ($("#acInsalubridade").is(":checked") && campoVazio("percentualInsalubridade")) {
          msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Percentual de Insalubridade</strong> é de preenchimento obrigatório.</li>";
       }
-
       if ($("#acDiaria").is(":checked") && campoVazio("valorDiaria")) {
          msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Valor da Diária</strong> é de preenchimento obrigatório.</li>";
       }
-
       if ($("#acGratificacao").is(":checked") && campoVazio("valorGratificacao")) {
          msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Valor da Gratificação</strong> é de preenchimento obrigatório.</li>";
       }
-
       if ($("#acValeTransporte").is(":checked")) {
          if (campoVazio("valorValeTransporte")) {
             msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Valor do Vale Transporte</strong> é de preenchimento obrigatório.</li>";
@@ -31,37 +29,71 @@ var beforeSendValidate = function (numState, nextState) {
          }
       }
    }
-
-   if (mode == "MOD") {
-      if (state == 5) {
-         // Assuming 5 is AP_RH_VERIFICACAO
-         if (campoVazio("regraDestino")) {
-            msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Regra de Apontamento</strong> é de preenchimento obrigatório.</li>";
-         }
+   if (mode == "MOD" && state == 5) {
+      if (campoVazio("regraDestino")) {
+         msgErro += "<li style='margin-bottom: 5px;'>O campo <strong>Regra de Apontamento</strong> é de preenchimento obrigatório.</li>";
       }
    }
 
    if (msgErro !== "") {
       msgErro = "<ul style='padding-left: 17px;color: red;list-style: disc;'>" + msgErro + "</ul><br/>";
       exibirMensagem(msgErro);
-      return false; // Impede a movimentação da atividade
+      return false;
    }
 
-   if (promotionWarningShown) {
-      return true;
-   }
+   // NOVA LÓGICA DE VALIDAÇÃO DE PROMOÇÃO E SALÁRIO
+   if ((mode == "ADD" || mode == "MOD") && (state == ABERTURA || state == AJUSTAR)) {
+      console.log("--- Debug: Entrando na nova lógica de validação ---");
+      const codCargoAtual = $("#codCargoAtual").val();
+      const codCargoDestino = $("#codCargoDestino").val();
+      const salarioDestinoValue = $("#salarioDestino").val();
+      const numeroMatricula = $("#numeroMatricula").val().trim();
 
-   if (mode == "ADD" || mode == "MOD") {
-      if (state == ABERTURA || state == AJUSTAR) {
-         if (handlePromotionValidation()) {
-            promotionWarningShown = true;
-            showRHValidationModal();
-            return false;
+      console.log("Valores do formulário -> Matricula:", numeroMatricula, ", Cargo Atual:", codCargoAtual, ", Cargo Destino:", codCargoDestino, ", Salário Destino:", salarioDestinoValue);
+
+      if (numeroMatricula && (codCargoDestino || salarioDestinoValue)) {
+         const c1 = DatasetFactory.createConstraint("RA_MAT", numeroMatricula, numeroMatricula, ConstraintType.MUST);
+         const dataset = DatasetFactory.getDataset("ds_gtb_jdbc_016_matricula", null, [c1], null);
+
+         console.log("Resultado do dataset de matrícula:", dataset);
+
+         // CORREÇÃO: Usar a estrutura de dados do dataset do lado do cliente (values.length e values[0])
+         if (dataset != null && dataset.values.length > 0) {
+            const salarioAtualDB = dataset.values[0].RA_SALARIO;
+            const normalizedSalarioAtual = parseFloat(String(salarioAtualDB).replace(",", "."));
+            const normalizedSalarioDestino = parseFloat(salarioDestinoValue.replace(/[^\d,]/g, "").replace(",", "."));
+
+            console.log("Salário Atual (BD):", salarioAtualDB, "| Normalizado:", normalizedSalarioAtual);
+            console.log("Salário Destino (Form):", salarioDestinoValue, "| Normalizado:", normalizedSalarioDestino);
+
+            // REGRA 1: Salário destino não pode ser menor que o atual
+            if (!isNaN(normalizedSalarioDestino) && normalizedSalarioDestino < normalizedSalarioAtual) {
+               console.log("VALIDAÇÃO FALHOU: Salário de destino é menor que o atual.");
+               exibirMensagem("O salário de destino não pode ser menor que o salário atual.");
+               return false; // Bloqueia o envio
+            }
+
+            const hasJobChange = codCargoDestino && codCargoAtual !== codCargoDestino;
+            const hasSalaryIncrease = !isNaN(normalizedSalarioDestino) && normalizedSalarioDestino > normalizedSalarioAtual;
+
+            console.log("Tem mudança de cargo?", hasJobChange);
+            console.log("Tem aumento de salário?", hasSalaryIncrease);
+
+            // REGRA 2: Se tem mudança de cargo ou aumento, mostra alerta do RH
+            if ((hasJobChange || hasSalaryIncrease) && !promotionWarningShown) {
+               console.log("VALIDAÇÃO: Mudança de cargo ou aumento salarial detectada. Mostrando modal do RH.");
+               promotionWarningShown = true;
+               showRHValidationModal();
+               return false; // Bloqueia o envio para mostrar o modal
+            }
+         } else {
+            console.log("AVISO: Não foram encontrados dados no dataset para a matrícula informada.");
          }
       }
    }
 
-   return true; // Permite a movimentação se não houver erros
+   console.log("--- Debug: Fim do beforeSendValidate, permitindo envio ---");
+   return true; // Permite o envio se nenhuma regra bloquear
 };
 
 // Função para verificar se o campo está vazio usando jQuery
@@ -75,139 +107,14 @@ function exibirMensagem(mensagem) {
    FLUIGC.modal({
       title: "ATENÇÃO!",
       content: mensagem,
-      id: "fluig-modal",
+      id: "fluig-modal-validation",
       actions: [
          {
             label: "Ok",
-            bind: 'data-dismiss="modal"',
+            autoClose: true,
          },
       ],
    });
-}
-
-function getDatasetSync(datasetId, fields, constraints, order) {
-   var dataset;
-   var url = "/api/public/ecm/dataset/datasets";
-   var data = {
-      name: datasetId,
-      fields: fields,
-      constraints: constraints,
-      order: order,
-   };
-
-   $.ajax({
-      url: url,
-      type: "POST",
-      async: false,
-      contentType: "application/json",
-      data: JSON.stringify(data),
-      success: function (data) {
-         dataset = data.content;
-      },
-      error: function (jqXHR, textStatus, errorThrown) {
-         console.error("Error getting dataset sync: ", errorThrown);
-         dataset = { values: [] }; // Return empty on error
-      },
-   });
-
-   return dataset;
-}
-
-/**
- * Lida com a validação de promoção, verificando alterações de cargo e salário.
- */
-function handlePromotionValidation() {
-   const codCargoAtual = $("#codCargoAtual").val();
-   const codCargoDestino = $("#codCargoDestino").val();
-   const salarioDestino = $("#salarioDestino").val();
-   const numeroMatricula = $("#numeroMatricula").val();
-
-   if (!numeroMatricula) {
-      return false;
-   }
-
-   if (codCargoDestino && codCargoAtual !== codCargoDestino) {
-      return checkPromotionRules(numeroMatricula);
-   } else if (salarioDestino) {
-      return checkSalaryChange(numeroMatricula, salarioDestino);
-   }
-
-   return false;
-}
-
-/**
- * Verifica se o salário foi alterado em comparação com o salário atual do funcionário.
- */
-function checkSalaryChange(numeroMatricula, salarioDestino) {
-   const constraints = [{ _field: "RA_MAT", _initialValue: numeroMatricula, _finalValue: numeroMatricula, _type: 1 }];
-   const data = getDatasetSync("ds_gtb_jdbc_016_matricula", null, constraints, null);
-
-   if (data && data.values.length > 0) {
-      const salarioAtual = data.values[0].RA_SALARIO;
-      if (salarioDestino.replace(/[^\d,]/g, "").replace(",", ".") !== salarioAtual) {
-         return checkPromotionRules(numeroMatricula);
-      }
-   }
-   return false;
-}
-
-/**
- * Verifica as regras de promoção (tempo de admissão e última alteração salarial).
- */
-function checkPromotionRules(numeroMatricula) {
-   const today = new Date();
-   const oneYearAgo = new Date(today.getFullYear() - 1, today.getMonth(), today.getDate());
-
-   const admissionDate = getAdmissionDate(numeroMatricula);
-   const lastSalaryChange = getLastSalaryChangeDate(numeroMatricula);
-
-   let showAlert = false;
-
-   if (admissionDate) {
-      const year = admissionDate.substring(0, 4);
-      const month = admissionDate.substring(4, 6);
-      const day = admissionDate.substring(6, 8);
-      const admissionDateObj = new Date(year, month - 1, day);
-      if (admissionDateObj > oneYearAgo) {
-         showAlert = true;
-      }
-   }
-
-   if (lastSalaryChange) {
-      const year = lastSalaryChange.substring(0, 4);
-      const month = lastSalaryChange.substring(4, 6);
-      const day = lastSalaryChange.substring(6, 8);
-      const lastSalaryChangeObj = new Date(year, month - 1, day);
-      if (lastSalaryChangeObj > oneYearAgo) {
-         showAlert = true;
-      }
-   }
-
-   return showAlert;
-}
-
-/**
- * Busca a data de admissão do funcionário.
- */
-function getAdmissionDate(numeroMatricula) {
-   const constraints = [{ _field: "RA_MAT", _initialValue: numeroMatricula, _finalValue: numeroMatricula, _type: 1 }];
-   const dataset = getDatasetSync("ds_gtb_jdbc_016_matricula", null, constraints, null);
-   if (dataset && dataset.values.length > 0) {
-      return dataset.values[0].RA_ADMISSA;
-   }
-   return null;
-}
-
-/**
- * Busca a data da última alteração salarial do funcionário.
- */
-function getLastSalaryChangeDate(numeroMatricula) {
-   const constraints = [{ _field: "R7_MAT", _initialValue: numeroMatricula, _finalValue: numeroMatricula, _type: 1 }];
-   const dataset = getDatasetSync("ds_gtb_jdbc_016_alteracao_salarial", null, constraints, null);
-   if (dataset && dataset.values.length > 0) {
-      return dataset.values[0].R7_DATA;
-   }
-   return null;
 }
 
 /**
