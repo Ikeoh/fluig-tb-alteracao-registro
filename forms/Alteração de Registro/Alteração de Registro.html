@@ -252,7 +252,7 @@
                               <label class="control-label" for="codCargoDestino">Cód</label>
                               <input class="form-control" type="text" name="codCargoDestino" id="codCargoDestino" readonly>
                            </div>
-                           <div class="form-group col-sm-6">
+                           <div class="form-group col-sm-9">
                               <label class="control-label" for="cargoDestino">Desc. Cargo Destino</label>
                               <span style="color: red; font-weight: bold;">*</span>
                               <input type="zoom" class="form-control" id="cargoDestino" name="cargoDestino" data-zoom="{
@@ -273,11 +273,56 @@
                                        ]
                                     }">
                            </div>
-                           <div class="form-group col-sm-3">
+                           <div class="form-group col-sm-4">
                               <input class="form-control hidden" type="text" name="alteraSalario" id="alteraSalario" readonly>
                               <label class="control-label" for="salarioDestino">Sal. Destino</label>
                               <span style="color: red; font-weight: bold;">*</span>
                               <input class="form-control campo-moeda" type="text" name="salarioDestino" id="salarioDestino" maxlength="17" onkeyup="formatarMoeda()">
+                           </div>
+                           <div class="col-md-8">
+                              <div class="form-group">
+                                 <label for="motivoPromocao">Motivo da Promoção</label>
+                                 <span style="color: red; font-weight: bold;">*</span>
+                                 <input type="zoom" class="form-control" id="motivoPromocao" name="motivoPromocao" data-zoom="{
+                                       'datasetId':'ds_gtb_jdbc_016_motivo_promocao',
+                                       'displayKey':'X5_DESCRI',
+                                       'maximumSelectionLength':'1',
+                                       'placeholder':'Selecione',
+                                       'fields':[
+                                           {
+                                               'field':'X5_CHAVE',
+                                               'label':'Código'
+                                           },
+                                           {
+                                               'field':'X5_DESCRI',
+                                               'label':'Descrição',
+                                               'standard':'true'
+                                           }
+                                       ]
+                                   }">
+                              </div>
+                           </div>
+                           <div class="col-md-12">
+                              <div class="form-group">
+                                 <label for="recursoSubstituido">Recurso Substituído</label>
+                                 <input type="zoom" class="form-control" id="recursoSubstituido" name="recursoSubstituido" data-zoom="{
+                                       'datasetId':'ds_gtb_jdbc_016_recurso_substituido',
+                                       'displayKey':'RA_NOME',
+                                       'maximumSelectionLength':'1',
+                                       'placeholder':'Selecione',
+                                       'fields':[
+                                           {
+                                               'field':'RA_MAT',
+                                               'label':'Matrícula'
+                                           },
+                                           {
+                                               'field':'RA_NOME',
+                                               'label':'Nome',
+                                               'standard':'true'
+                                           }
+                                       ]
+                                   }">
+                              </div>
                            </div>
                         </div>
                         <div class="row">

@@ -22,6 +22,8 @@ $(document).ready(function () {
          window["nomeFuncionario"].disable(true);
          window["filialDestino"].disable(true);
          window["centroCustoDestino"].disable(true);
+         window["motivoPromocao"].disable(true);
+         window["recursoSubstituido"].disable(true);
          window["cargoDestino"].disable(true);
          window["codHorarioDestino"].disable(true);
          // window["tipoContratoDestino"].disable(true);
@@ -145,6 +147,8 @@ function setSelectedZoomItem(selectedItem) {
       reloadZoomFilterValues("departamentoDestino", "QB_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       reloadZoomFilterValues("regraDestino", "PA_FILIAL," + selectedItem["M0_CODFIL_3DIG"]);
       window["centroCustoDestino"].disable(false);
+      window["motivoPromocao"].disable(false);
+      window["recursoSubstituido"].disable(false);
       window["cargoDestino"].disable(false);
       window["codHorarioDestino"].disable(false);
       // window["tipoContratoDestino"].disable(false);
