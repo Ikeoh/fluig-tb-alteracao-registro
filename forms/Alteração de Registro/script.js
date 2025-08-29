@@ -145,6 +145,19 @@ function setSelectedZoomItem(selectedItem) {
       }
    }
 
+   if (selectedItem.inputId == "recursoSubstituido") {
+      const statusMap = {
+         A: "Afastado Temporariamente",
+         F: "Férias",
+         T: "Transferido",
+      };
+      const sitFolha = selectedItem.RA_SITFOLH;
+      const statusText = sitFolha && sitFolha !== "null" && statusMap[sitFolha] ? statusMap[sitFolha] : "Situação Normal";
+
+      $("#statusSubstituto").val(statusText);
+      $("#infoStatusSubstituto").show();
+   }
+
    if (selectedItem.inputId == "filial") {
       $("#numeroFilial").val(selectedItem.M0_CODFIL);
       reloadZoomFilterValues("nomeFuncionario", "RA_FILIAL," + selectedItem["M0_CODFIL"]);
@@ -223,6 +236,11 @@ function removedZoomItem(removedItem) {
    if (removedItem.inputId == "motivoPromocao") {
       $("#divRecursoSubstituido").hide();
       window["recursoSubstituido"].clear();
+   }
+
+   if (removedItem.inputId == "recursoSubstituido") {
+      $("#statusSubstituto").val("");
+      $("#infoStatusSubstituto").hide();
    }
 
    if (removedItem.inputId == "filial") {
@@ -748,5 +766,33 @@ $(document).ready(function () {
       let valor = $(this).val();
       valor = valor.replace(/[^\d]/g, "");
       $(this).val(valor);
+   });
+});
+
+function parseCurrency(value) {
+   if (!value) {
+      return 0;
+   }
+   // Remove dots for thousands and replace comma with a dot for decimals
+   return parseFloat(value.replace(/\./g, "").replace(",", "."));
+}
+
+function calcularEExibirAumento() {
+   const salarioAtual = parseCurrency($("#salarioAtual").val());
+   const salarioDestino = parseCurrency($("#salarioDestino").val());
+
+   if (salarioAtual > 0 && salarioDestino > salarioAtual) {
+      const aumento = ((salarioDestino - salarioAtual) / salarioAtual) * 100;
+      $("#aumentoPercentual").val(aumento.toFixed(2) + "%");
+      $("#infoAumentoPercentual").show();
+   } else {
+      $("#aumentoPercentual").val("");
+      $("#infoAumentoPercentual").hide();
+   }
+}
+
+$(document).ready(function () {
+   $("#salarioAtual, #salarioDestino").on("blur", function () {
+      calcularEExibirAumento();
    });
 });
