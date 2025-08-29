@@ -4,6 +4,8 @@ function displayFields(form, customHTML) {
    // Remove o botão padrão Fluig de impressão do formulário
    form.setHidePrintLink(true);
 
+   //form.setVisibleById("divInfoCardRh", false);
+
    var codProcess = getValue("WKDef");
    var numProcess = getValue("WKNumProces");
    var state = getValue("WKNumState");
@@ -37,6 +39,7 @@ function displayFields(form, customHTML) {
          });
       }
       if (state == AP_RH_VERIFICACAO) {
+         form.setVisibleById("divInfoCardRh", true);
          var visaoAtividades = ["divPlanejContrOrc", "divAprovGestorAtual", "divAprovGestorDestino", "divAprovDiretoria", "divAprovDiretorGrl", "divAssinaturaFuncionario", "divValidacaoRh"]; //Array das div's que serão ocultas
          visaoAtividades.forEach(function (fieldId) {
             form.setVisibleById(fieldId, false);
@@ -80,6 +83,7 @@ function displayFields(form, customHTML) {
       }
 
       if (state == AP_RH_VALIDACAO) {
+         form.setVisibleById("divInfoCardRh", true);
          var visaoAtividades = ["divVerificaRh", "divPlanejContrOrc", "divAprovGestorAtual", "divAprovGestorDestino", "divAprovDiretoria", "divAprovDiretorGrl", "divAssinaturaFuncionario"]; //Array das div's que serão ocultas
          visaoAtividades.forEach(function (fieldId) {
             form.setVisibleById(fieldId, false);

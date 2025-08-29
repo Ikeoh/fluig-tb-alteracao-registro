@@ -4,6 +4,8 @@ $(document).ready(function () {
    adjustHeaderLayout(); // Executa no carregamento
    $(window).resize(adjustHeaderLayout); // Executa no redimensionamento
 
+   $("#divRecursoSubstituido").hide();
+
    let state = getState();
 
    if (state == ABERTURA) {
@@ -134,6 +136,15 @@ $(document).ready(function () {
 function setSelectedZoomItem(selectedItem) {
    console.log(selectedItem);
 
+   if (selectedItem.inputId == "motivoPromocao") {
+      if (selectedItem.X5_DESCRI == "SUBSTITUICAO") {
+         $("#divRecursoSubstituido").show();
+      } else {
+         $("#divRecursoSubstituido").hide();
+         window["recursoSubstituido"].clear();
+      }
+   }
+
    if (selectedItem.inputId == "filial") {
       $("#numeroFilial").val(selectedItem.M0_CODFIL);
       reloadZoomFilterValues("nomeFuncionario", "RA_FILIAL," + selectedItem["M0_CODFIL"]);
@@ -209,6 +220,11 @@ function setSelectedZoomItem(selectedItem) {
 }
 
 function removedZoomItem(removedItem) {
+   if (removedItem.inputId == "motivoPromocao") {
+      $("#divRecursoSubstituido").hide();
+      window["recursoSubstituido"].clear();
+   }
+
    if (removedItem.inputId == "filial") {
       $("#numeroFilial").val("");
 

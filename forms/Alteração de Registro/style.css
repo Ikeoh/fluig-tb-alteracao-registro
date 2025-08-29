@@ -106,6 +106,23 @@
    color: #ffffff !important; /* Cor do título em branco com !important */
 }
 
+.tb-panel-danger .panel-heading {
+   background-color: #c00000 !important;
+}
+
+.tb-panel-danger .panel-heading .tb-panel-title {
+   color: #ffffff !important;
+}
+
+.tb-panel-danger .panel-body {
+   background-color: #f2dede !important;
+}
+
+.tb-panel-danger {
+   border-color: #ebccd1 !important;
+}
+
+
 #myTabContent {
    border-left: 1px solid #d3d3d3 !important; /* Borda à esquerda em cinza claro */
    border-right: 1px solid #d3d3d3 !important; /* Borda à direita em cinza claro */
