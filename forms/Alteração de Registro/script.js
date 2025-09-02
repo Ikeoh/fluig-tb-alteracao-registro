@@ -195,7 +195,8 @@ function setSelectedZoomItem(selectedItem) {
       $("#centroCustoAtual").val(selectedItem.RA_CC);
       $("#codCargoAtual").val(selectedItem.RA_CARGO);
       $("#cargoAtual").val(selectedItem.RJ_DESC);
-      //$("#salarioAtual").val("");
+      $("#salarioAtual").data("original", selectedItem.RA_SALARIO);
+      $("#salarioAtual").val("");
       $("#codHorarioAtual").val(selectedItem.RA_TNOTRAB);
       $("#horarioAtual").val(selectedItem.R6_DESC);
       // $("#tipoContratoAtual").val(selectedItem.RCC_DESC);
@@ -778,7 +779,7 @@ function parseCurrency(value) {
 }
 
 function calcularEExibirAumento() {
-   const salarioAtual = parseCurrency($("#salarioAtual").val());
+   const salarioAtual = parseFloat($("#salarioAtual").data("original")) || 0;
    const salarioDestino = parseCurrency($("#salarioDestino").val());
 
    if (salarioAtual > 0 && salarioDestino > salarioAtual) {
