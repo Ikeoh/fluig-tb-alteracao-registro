@@ -12,7 +12,7 @@ function addObservationToTimeline() {
        <div class="panel panel-default fs-xs-margin-bottom">
            <div class="panel-body fs-sm-space media clearfix">
                <a class="pull-left" href="#">
-                   <img src="/collaboration/api/v3/users/${currentLogin}/picture?type=SMALL_PICTURE" class="fluig-style-guide thumb-profile img-rounded thumb-profile-sm">
+                   <img src="/collaboration/api/v3/users/${currentLogin}/picture?type=LARGE_PICTURE" class="fluig-style-guide thumb-profile img-rounded thumb-profile-sm">
                </a>
                <div class="media-body">
                    <header>

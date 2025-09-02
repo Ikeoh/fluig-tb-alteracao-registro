@@ -1,5 +1,5 @@
 $(document).ready(function () {
-   $("#requesterAvatar").attr("src", "/social/api/rest/social/image/profile/" + $("#requesterCode").val() + "/SMALL_PICTURE");
+   $("#requesterAvatar").attr("src", "/social/api/rest/social/image/profile/" + $("#requesterCode").val() + "/LARGE_PICTURE");
 
    adjustHeaderLayout(); // Executa no carregamento
    $(window).resize(adjustHeaderLayout); // Executa no redimensionamento
